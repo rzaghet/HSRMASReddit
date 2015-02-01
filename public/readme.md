@@ -30,6 +30,8 @@
 - Source Code System -> github with git
 
 
+
+
 ###Time investments
 - Benjamin Mahr
 
@@ -48,6 +50,14 @@
         - Package downloads (Libraries, DefinitionTypes for TS)
     - Meetings:    
 
+
+
+###Learnings
+- always add VisualStudio.ignore to .gitignore before first commit! :D
+- Folder structure for angular.js is feature based:
+    app\core (reddit app engine)
+    app\authentication (user registration / user login, logout)
+    app\entry (query, create, upvote, downvote, create comments)
 
 
 ####Readme.md information
