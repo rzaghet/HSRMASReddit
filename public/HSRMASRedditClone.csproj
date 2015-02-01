@@ -19,9 +19,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <Content Include="client.css" />
+    <Content Include="Client.html" />
     <Content Include="content\toastr.css" />
     <Content Include="content\toastr.min.css" />
+    <Content Include="core.js" />
+    <Content Include="dataService.js" />
     <Content Include="index.html" />
+    <Content Include="init.js" />
+    <Content Include="Libs\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Libs\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Libs\bootstrap\css\bootstrap.css" />
+    <Content Include="Libs\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Libs\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Libs\bootstrap\js\bootstrap.js" />
+    <Content Include="Libs\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Libs\doT\doT.js" />
+    <Content Include="Libs\jquery-2.0.3.js" />
     <Content Include="packages.config" />
     <Content Include="content\toastr.scss" />
     <Content Include="content\toastr.less" />
@@ -40,6 +54,12 @@
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
     <Content Include="readme.md" />
+    <Content Include="Libs\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Libs\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Libs\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="ZeitRobinHauser.md" />
+    <Content Include="ZeitBenjaminMahr.md" />
+    <Content Include="ZeitRaffaelZaghet.md" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
@@ -48,6 +68,7 @@
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
+    <Content Include="ui.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -74,7 +95,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\" />
+    <Folder Include="app\core\" />
+    <Folder Include="app\posts\" />
+    <Folder Include="app\user\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
