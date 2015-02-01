@@ -1,0 +1,6 @@
+C:\Data\Projects\MAS\HSRMASReddit\public\bin\HSRMASRedditClone.dll.config
+C:\Data\Projects\MAS\HSRMASReddit\public\bin\HSRMASRedditClone.dll
+C:\Data\Projects\MAS\HSRMASReddit\public\bin\HSRMASRedditClone.pdb
+C:\Data\Projects\MAS\HSRMASReddit\public\obj\Debug\HSRMASRedditClone.csprojResolveAssemblyReference.cache
+C:\Data\Projects\MAS\HSRMASReddit\public\obj\Debug\HSRMASRedditClone.dll
+C:\Data\Projects\MAS\HSRMASReddit\public\obj\Debug\HSRMASRedditClone.pdb
