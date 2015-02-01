@@ -5,7 +5,7 @@
 - Robin Hauser
 
     ####31.01.2015
-    - Learn Angular JS: 3 hours
+    - Learn Angular JS: 13 hours
     - Learn TypeScript JS: 3 hours
     - Learn Bootstrap: 3 hours
 
