@@ -44,3 +44,6 @@ Temporary Items
 HSRMASRedditClone.v12.suo
 HSRMASRedditClone.v12.suo
 public/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+*.dll
+*.suo
+*.pdb
