@@ -30,6 +30,25 @@
 - Source Code System -> github with git
 
 
+###Tasks
+
+- Robin
+    ####Account
+    - Login / Logout
+    - Registrierung
+
+- Raffael
+    ####Entry
+    - Submit new Link
+    - Add Comment   
+    - Up and downvote
+    - Show All entries
+        - 
+
+RedditApp.CurrentUser.IsAuthenticated
+RedditApp.AuthenticateUser(username, password)
+RedditApp.Logout() --> CurrentUser => AnonymousUser (Authenticated = false)
+
 
 
 ###Time investments
@@ -58,6 +77,10 @@
     app\core (reddit app engine)
     app\authentication (user registration / user login, logout)
     app\entry (query, create, upvote, downvote, create comments)
+- TypeScript 
+    -> .ts = TypeScript file
+    -> .d.ts = Javascript to TypeScript Definition File
+    -> .ts.map = Debugging information (Symbol file)
 
 
 ####Readme.md information
