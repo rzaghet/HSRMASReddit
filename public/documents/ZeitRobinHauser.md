@@ -5,15 +5,18 @@
 - Robin Hauser
 
     ####31.01.2015
-    - Learn Angular JS: 13 hours
-    - Learn TypeScript JS: 3 hours
-    - Learn Bootstrap: 3 hours
+   
+    - Learn Angular: 1 hours
+    - Learn Bootstrap: 4 hours
 
     ####01.02.2015
-    - Basic Project Setup in Visual Studio (first time TS -> Documentation): 2 hours
-        - includes Solution / Project setup in VS
-        - Package downloads (Libraries, DefinitionTypes for TS)
-    - Meetings:    
+    - Meetings: mit Raffi 2h
+
+    ####02.02.2015
+    - Testing Server script e.g. registering
+    - doing jQuery post requests
+    - try form request
+    Time: 3h
 
 
 
