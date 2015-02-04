@@ -1,7 +1,9 @@
+# HSR MAS Reddit-Clone
+
 Informationen zur Vorgabe:
 
 Der Server-Teil der Anwendung ist komplett.
-Hier müssen keine Anpassungen gemacht werden.
+Hier m≈∏ssen keine Anpassungen gemacht werden.
 Die Server-Files liegen im Top-Level Directory zusammen mit diesem
 ReadMe und dem Folder "public" mit allen Files des Clients.
 Der Server basiert auf Node.js.
@@ -9,16 +11,16 @@ Daher ist die Installation von NodeJS der erste Schritt.
 Nach der Installation von NodeJS kann der Server schon laufen gelassen werden.
 
 Die Aufgabe/Herausforderung besteht darin den Client zu entwickeln
-Hierzu müssen die Files init.js, dataservice.js und ui.js im 
+Hierzu m≈∏ssen die Files init.js, dataservice.js und ui.js im 
 Unter-Directory public erweitert werden (siehe Abschnitt Client)
 
 
 Installation und Starten des Server
 1. Download und installieren vom node.js (Windows / Mac) : http://nodejs.org/download/
-   (soweit nötig als super-user)
+   (soweit n≈°tig als super-user)
 2. Zip File entpacken
 3. Command Line: "npm install" (ohne Anfuehrungszeichen) im Verzeichnis vom entpackten Zip aufrufen 
-   (soweit nötig als super-user)
+   (soweit n≈°tig als super-user)
 4. Starten vom Node-Server: Command Line: "node server.js"
 5. Browser: http://localhost:4730/client.html
 
