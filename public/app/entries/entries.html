@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <link href="../../Libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../client.css" rel="stylesheet"/>
+
+    <script src="../../Scripts/jquery-2.1.3.js"></script>
+    <script src="../../Scripts/angular.js"></script>
+    <script src="../../Scripts/angular-animate.js"></script>
+    <script src="../../Scripts/angular-route.js"></script>
+    <script src="../../Scripts/angular-sanitize.js"></script>
+    <script src="../../Scripts/angular-translate.js"></script>
+    <script src="../../Scripts/toastr.js"></script>
+    <script src="../../Scripts/moment.js"></script>
+
+    <script src="../app.module.js"></script>
+
+    <script src="../blocks/exception/exception.module.js"></script>
+    <script src="../blocks/exception/exception-handler.provider.js"></script>
+    <script src="../blocks/exception/exception.js"></script>
+
+    <script src="../blocks/logger/logger.module.js"></script>
+    <script src="../blocks/logger/logger.js"></script>
+
+    <script src="../blocks/router/router.module.js"></script>
+    <script src="../blocks/router/routehelper.js"></script>
+
+    <script src="../core/core.module.js"></script>
+    <script src="../core/constants.js"></script>
+    <script src="../core/config.js"></script>
+    <script src="../core/dataservice.js"></script>
+
+    <script src="entries.module.js"></script>
+    <script src="entries.js"></script>
+
+</head>
+<body ng-app="app.entries">
+    <div ng-controller="Entries as vm">
+        <button ng-click="vm.addEntry()">test</button>
+
+        <div class="entry" ng-repeat="entry in vm.entries">
+            <div class="entryvote">
+                <div class="vote updatevote">
+
+                </div>
+                <div class="vote totalvote">
+
+                </div>
+                <div class="vote updatevote">
+
+                </div>
+            </div>
+            <div>{{entry.id}}</div>
+        </div>
+    </div>
+</body>
+</html>

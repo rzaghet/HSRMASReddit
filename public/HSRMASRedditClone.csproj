@@ -19,6 +19,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <Content Include="app\account\controller.js" />
+    <Content Include="app\account\register.html" />
+    <Content Include="app\account\register2.html" />
+    <Content Include="app\blocks\exception\exception-handler.provider.js" />
+    <Content Include="app\blocks\exception\exception.js" />
+    <Content Include="app\blocks\exception\exception.module.js" />
+    <Content Include="app\blocks\logger\logger.js" />
+    <Content Include="app\blocks\logger\logger.module.js" />
+    <Content Include="app\blocks\router\routehelper.js" />
+    <Content Include="app\blocks\router\router.module.js" />
+    <Content Include="app\core\config.js" />
+    <Content Include="app\core\constants.js" />
+    <Content Include="app\core\core.module.js" />
+    <Content Include="app\entries\config.route.js" />
+    <Content Include="app\entries\entries.html" />
+    <Content Include="app\entries\entries.js" />
+    <Content Include="app\entries\entries.module.js" />
+    <Content Include="app\app.module.js" />
     <Content Include="client.css" />
     <Content Include="Client.html" />
     <Content Include="content\toastr.css" />
@@ -39,6 +57,8 @@
     <Content Include="packages.config" />
     <Content Include="content\toastr.scss" />
     <Content Include="content\toastr.less" />
+    <Content Include="Scripts\angular-animate.js" />
+    <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-cookies.js" />
     <Content Include="Scripts\angular-cookies.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
@@ -46,9 +66,10 @@
     <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular-sanitize.js" />
     <Content Include="Scripts\angular-sanitize.min.js" />
+    <Content Include="Scripts\angular-translate.js" />
+    <Content Include="Scripts\angular-translate.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
-    <Content Include="app\core\redditapp.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-route.min.js.map" />
     <Content Include="Scripts\angular-cookies.min.js.map" />
@@ -60,10 +81,15 @@
     <Content Include="documents\ZeitRobinHauser.md" />
     <Content Include="documents\ZeitBenjaminMahr.md" />
     <Content Include="documents\ZeitRaffaelZaghet.md" />
+    <Content Include="documents\ServerJsonElemente.md" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
-    <Content Include="app\core\redditapp.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\r.js" />
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\toastr.js" />
@@ -72,7 +98,6 @@
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app\core\redditapp.ts" />
     <TypeScriptCompile Include="Scripts\Typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\Typings\angularjs\angular-cookies.d.ts" />
     <TypeScriptCompile Include="Scripts\Typings\angularjs\angular-mocks.d.ts" />
@@ -86,7 +111,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-2.1.3.min.map" />
-    <Content Include="tslint.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -94,10 +118,7 @@
       <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\account\" />
-    <Folder Include="app\entry\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="app\core\dataservice.js" />
   </ItemGroup>
@@ -130,9 +151,11 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
-    <TypeScriptModuleKind>none</TypeScriptModuleKind>
+    <TypeScriptModuleKind>amd</TypeScriptModuleKind>
     <TypeScriptSourceRoot>C:\Data\Projects\HSRMASRedditClone\HSRMASRedditClone\Scripts</TypeScriptSourceRoot>
     <TypeScriptMapRoot>C:\Data\Projects\HSRMASRedditClone\HSRMASRedditClone\Scripts</TypeScriptMapRoot>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <TypeScriptRemoveComments>true</TypeScriptRemoveComments>

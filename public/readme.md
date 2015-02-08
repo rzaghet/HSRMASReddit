@@ -45,9 +45,9 @@
     - Show All entries
         - 
 
-RedditApp.CurrentUser.IsAuthenticated
-RedditApp.AuthenticateUser(username, password)
-RedditApp.Logout() --> CurrentUser => AnonymousUser (Authenticated = false)
+App.CurrentUser.IsAuthenticated
+App.AuthenticateUser(username, password)
+App.Logout() --> CurrentUser => AnonymousUser (Authenticated = false)
 
 
 
