@@ -242,3 +242,4 @@ FakesAssemblies/
 # Visual Studio 6 workspace options file
 *.opt
 /.idea/
+/node-v0.10.36-linux-x64/
