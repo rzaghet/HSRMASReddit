@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <link href="../../Libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../../client.css" rel="stylesheet"/>
+    <link href="../../client.css" rel="stylesheet" />
 
     <script src="../../Scripts/jquery-2.1.3.js"></script>
     <script src="../../Scripts/angular.js"></script>
@@ -15,8 +15,10 @@
     <script src="../../Scripts/angular-translate.js"></script>
     <script src="../../Scripts/toastr.js"></script>
     <script src="../../Scripts/moment.js"></script>
+    <script src="../../Scripts/moment-timezone.min.js"></script>
 
     <script src="../app.module.js"></script>
+    <script src="../app.filters.js"></script>
 
     <script src="../blocks/exception/exception.module.js"></script>
     <script src="../blocks/exception/exception-handler.provider.js"></script>
@@ -38,23 +40,61 @@
 
 </head>
 <body ng-app="app.entries">
-    <div ng-controller="Entries as vm">
-        <button ng-click="vm.addEntry()">test</button>
 
-        <div class="entry" ng-repeat="entry in vm.entries">
-            <div class="entryvote">
-                <div class="vote updatevote">
 
-                </div>
-                <div class="vote totalvote">
 
-                </div>
-                <div class="vote updatevote">
+<div ng-controller="Entries as vm">
+    <button ng-click="vm.addEntry()">test</button>
 
+    <div class="entry" ng-repeat="entry in vm.entries">
+        <div class="entryvote" ng-include="'votetemplate.html'">
+        </div>
+        <div class="entrydetails">
+            <div class="entrytitle">{{entry.title}}</div>
+            <div class="entrysubmitdetails">submitted {{entry.createTime | fromNow}} by {{entry.author}}</div>
+            <div class="entryallcomments">
+                <a class="" ng-click="entry.showComments = !entry.showComments">
+                    <div class="showhidecomments glyphicon glyphicon-comment">
+                        <span>{{entry.comments.length}}</span>comments
+                    </div>
+                </a>
+            </div>
+
+            <div class="comments">
+                <div class="comment" ng-repeat="comment in entry.comments" ng-show="entry.showComments" ng-include="'commenttemplate.html'">
                 </div>
             </div>
-            <div>{{entry.id}}</div>
         </div>
     </div>
+</div>
+<script type="text/ng-template" id="votetemplate.html">
+    <div class="vote upvote glyphicon glyphicon-thumbs-up"
+    ng-click="vm.vote(entry, 1)">
+    </div>
+        <div class="totalvote">{{entry.rating.value}}</div>
+        <div class="vote downvote glyphicon glyphicon-thumbs-down" ng-click="vm.vote(entry, -1)">
+    </div>
+</script>
+
+<script type="text/ng-template" id="commenttemplate.html">
+        <div class="commentvote">
+            <div class="comment upvote glyphicon glyphicon-thumbs-up"
+                 ng-click="vm.vote(comment, 1)">
+            </div>
+            <div class="totalvote">{{comment.rating.value}}</div>
+            <div class="comment downvote glyphicon glyphicon-thumbs-down" ng-click="vm.vote(comment, -1)">
+            </div>
+        </div>
+        <div class="commentallcomments">
+            <a class="" ng-click="comment.showComments = (!comment.showComments)">
+                <div class="showhidecomments glyphicon glyphicon-comment">
+                    <span>{{comment.comments.length}}</span>comments
+                </div>
+            </a>
+        </div>
+    <div class="comment" ng-repeat="comment in comment.comments" ng-include="'commenttemplate.html'">
+    </div>
+    </script>
+
 </body>
 </html>

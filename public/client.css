@@ -4,5 +4,27 @@
 }
 
 .entryvote {
+    clear: both;
     float: left;
+}
+
+.vote:hover {
+    cursor: pointer;
+}
+
+
+.showhidecomments:hover {
+    cursor: pointer;    
+}
+
+.commentvote {
+    margin-left: 50px;
+}
+
+.upvote {
+    color: green;
+}
+
+.downvote {
+    color: red;
 }
