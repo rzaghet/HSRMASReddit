@@ -38,63 +38,72 @@
 
     <script src="entries.module.js"></script>
     <script src="entries.js"></script>
+    <script src="comments.module.js"></script>
+    <script src="comments.js"></script>
 
 </head>
-<body ng-app="app.entries">
+<body data-ng-app="app" ng-strict-di>
 
+    <div data-ng-controller="Entries as vm">
+        <button ng-click="vm.addEntry()">test</button>
 
-
-<div ng-controller="Entries as vm">
-    <button ng-click="vm.addEntry()">test</button>
-
-    <div class="entry" ng-repeat="entry in vm.entries">
-        <div class="entryvote" ng-include="'votetemplate.html'">
-        </div>
-        <div class="entrydetails">
-            <div class="entrytitle">{{entry.title}}</div>
-            <div class="entrysubmitdetails">submitted {{entry.createTime | fromNow}} by {{entry.author}}</div>
-            <div class="entryallcomments">
-                <a class="" ng-click="entry.showComments = !entry.showComments">
-                    <div class="showhidecomments glyphicon glyphicon-comment">
-                        <span>{{entry.comments.length}}</span>comments
-                    </div>
-                </a>
+        <div class="entry" data-ng-repeat="entry in vm.entries">
+            <div class="entryvote" data-ng-include="'votetemplate.html'">
             </div>
+            <div class="entrydetails">
+                <div class="entrytitle"><a href="{{entry.url}}">{{entry.title}}</a></div>
+                <div class="entrysubmitdetails">submitted {{entry.createTime | fromNow}} by {{entry.author}}</div>
+                <div class="entryallcomments">
+                    <a class="" data-ng-click="entry.showComments = !entry.showComments">
+                        <div class="showhidecomments glyphicon glyphicon-comment">
+                            <span>{{entry.comments.length}} comments</span>
+                        </div>
+                    </a>
+                </div>
 
-            <div class="comments">
-                <div class="comment" ng-repeat="comment in entry.comments" ng-show="entry.showComments" ng-include="'commenttemplate.html'">
+                <div class="comments">
+                    <div class="comment" data-ng-repeat="comment in entry.comments"
+                         data-ng-show="entry.showComments"
+                         data-ng-include="'commenttemplate.html'"
+                         data-ng-controller="Comments">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<script type="text/ng-template" id="votetemplate.html">
-    <div class="vote upvote glyphicon glyphicon-thumbs-up"
-    ng-click="vm.vote(entry, 1)">
-    </div>
+    <script type="text/ng-template" id="votetemplate.html">
+        <div class="vote upvote glyphicon glyphicon-thumbs-up"
+             data-ng-click="vm.vote(entry, 1)">
+        </div>
         <div class="totalvote">{{entry.rating.value}}</div>
-        <div class="vote downvote glyphicon glyphicon-thumbs-down" ng-click="vm.vote(entry, -1)">
-    </div>
-</script>
+        <div class="vote downvote glyphicon glyphicon-thumbs-down" data-ng-click="vm.vote(entry, -1)">
+        </div>
+    </script>
 
 <script type="text/ng-template" id="commenttemplate.html">
         <div class="commentvote">
-            <div class="comment upvote glyphicon glyphicon-thumbs-up"
-                 ng-click="vm.vote(comment, 1)">
+            <div class="upvote glyphicon glyphicon-thumbs-up"
+                 data-ng-click="vm.vote(comment, 1)">
             </div>
             <div class="totalvote">{{comment.rating.value}}</div>
-            <div class="comment downvote glyphicon glyphicon-thumbs-down" ng-click="vm.vote(comment, -1)">
+            <div class="downvote glyphicon glyphicon-thumbs-down" data-ng-click="vm.vote(comment, -1)">
             </div>
         </div>
+        <div class="commentdetails">
+            <div class="commenttext">{{comment.text}}</div>
+            <div class="commentsubmitdetails">submitted {{comment.createTime | fromNow}} by {{comment.author}}</div>
+        </div>
         <div class="commentallcomments">
-            <a class="" ng-click="comment.showComments = (!comment.showComments)">
+            <a class="" data-ng-click="comment.showComments = !comment.showComments">
                 <div class="showhidecomments glyphicon glyphicon-comment">
-                    <span>{{comment.comments.length}}</span>comments
+                    <span>{{comment.comments.length}} comments</span>
                 </div>
             </a>
         </div>
-    <div class="comment" ng-repeat="comment in comment.comments" ng-include="'commenttemplate.html'">
-    </div>
+        <div class="comment" data-ng-repeat="comment in comment.comments"
+             data-ng-include="'commenttemplate.html'"
+             data-ng-init="previousComment=comment">
+        </div>
     </script>
 
 </body>

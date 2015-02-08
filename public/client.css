@@ -1,11 +1,19 @@
 ﻿
 .entry {
     padding-bottom: 20px;
+    clear: both;
 }
 
 .entryvote {
     clear: both;
     float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+
+}
+
+.vote {
 }
 
 .vote:hover {
@@ -17,8 +25,23 @@
     cursor: pointer;    
 }
 
+.comment {
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+.commentdetails {
+    float: left;
+}
+
+.commentallcomments {
+    clear: both;
+}
+
 .commentvote {
-    margin-left: 50px;
+    float: left;
 }
 
 .upvote {
@@ -27,4 +50,8 @@
 
 .downvote {
     color: red;
+}
+
+.entrytitle {
+    font-size: 20px;
 }

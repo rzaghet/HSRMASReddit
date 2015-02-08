@@ -62,8 +62,7 @@
             vm.entries.push({
                 "id":
                 0,
-                    "title":
-                "Title",
+                 "title":"Title",
                     "author":
                 "Author",
                     "url":
