@@ -6,11 +6,10 @@
 
         /*Custom Filters*/
         'customfilters',
+         'pascalprecht.translate',
         /*
          * Feature areas
          */
         'app.entities'
-
-
     ]);
 })();
