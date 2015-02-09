@@ -61,7 +61,7 @@
                     </a>
                 </div>
 
-                <div class="comments">
+                <div class="comments" ng-if="entry.comments.length > 0">
                     <div class="comment" data-ng-repeat="comment in entry.comments"
                          data-ng-show="entry.showComments"
                          data-ng-include="'commenttemplate.html'"
@@ -80,7 +80,7 @@
         </div>
     </script>
 
-<script type="text/ng-template" id="commenttemplate.html">
+    <script type="text/ng-template" id="commenttemplate.html">
         <div class="commentvote">
             <div class="upvote glyphicon glyphicon-thumbs-up"
                  data-ng-click="vm.vote(comment, 1)">
@@ -100,11 +100,12 @@
                 </div>
             </a>
         </div>
-        <div class="comment" data-ng-repeat="comment in comment.comments"
-                data-ng-include="'commenttemplate.html'"
-                data-ng-show="$parent.$parent.comment.showComments">
+        <div class="comments" ng-if="entry.comments.length > 0">
+            <div class="comment" data-ng-repeat="comment in comment.comments"
+                 data-ng-include="'commenttemplate.html'"
+                 data-ng-show="$parent.$parent.comment.showComments">
+            </div>
         </div>
-
     </script>
 
 </body>
