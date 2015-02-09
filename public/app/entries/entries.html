@@ -101,9 +101,10 @@
             </a>
         </div>
         <div class="comment" data-ng-repeat="comment in comment.comments"
-             data-ng-include="'commenttemplate.html'"
-             data-ng-init="previousComment=comment">
+                data-ng-include="'commenttemplate.html'"
+                data-ng-show="$parent.$parent.comment.showComments">
         </div>
+
     </script>
 
 </body>
