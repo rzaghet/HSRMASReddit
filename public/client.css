@@ -25,7 +25,6 @@
     cursor: pointer;    
 }
 
-
 .comment {
     float: left;
     margin-left: 20px;
@@ -38,7 +37,7 @@
 }
 
 .commentallcomments {
-   clear: both;
+    clear: both;
 }
 
 .commentvote {
