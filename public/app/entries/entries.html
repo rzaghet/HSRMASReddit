@@ -16,10 +16,12 @@
     <script src="../../Scripts/toastr.js"></script>
     <script src="../../Scripts/moment.js"></script>
     <script src="../../Scripts/moment-timezone.min.js"></script>
+    <script src="../../Scripts/moment-with-locales.min.js"></script>
 
     <script src="../app.module.js"></script>
     <script src="../app.filters.js"></script>
     <script src="../app.config.js"></script>
+    <script src="../app.js"></script>
 
     <script src="../blocks/exception/exception.module.js"></script>
     <script src="../blocks/exception/exception-handler.provider.js"></script>
@@ -42,35 +44,40 @@
     <script src="comments.js"></script>
 
 </head>
-<body data-ng-app="app" ng-strict-di>
+<body data-ng-app="app" ng-strict-di data-ng-controller="App as redditApp">
+<h1>{{ 'TITLE' | translate }}</h1>
+    <button ng-click="redditApp.changeLanguage('de')">Deutsch</button>
+<button ng-click="redditApp.changeLanguage('en')">English</button>
 
-    <div data-ng-controller="Entries as vm">
-        <button ng-click="vm.addEntry()">test</button>
+<div data-ng-controller="Entries as vm">
 
-        <div class="entry" data-ng-repeat="entry in vm.entries">
-            <div class="entryvote" data-ng-include="'votetemplate.html'">
+    <button data-ng-click="vm.addEntry()">test</button>
+
+    <div class="entry" data-ng-repeat="entry in vm.entries">
+        <div class="entryvote" data-ng-include="'votetemplate.html'">
+        </div>
+        <div class="entrydetails">
+            <div class="entrytitle"><a href="{{entry.url}}">{{entry.title}}</a>
             </div>
-            <div class="entrydetails">
-                <div class="entrytitle"><a href="{{entry.url}}">{{entry.title}}</a></div>
-                <div class="entrysubmitdetails">submitted {{entry.createTime | fromNow}} by {{entry.author}}</div>
-                <div class="entryallcomments">
-                    <a class="" data-ng-click="entry.showComments = !entry.showComments">
-                        <div class="showhidecomments glyphicon glyphicon-comment">
-                            <span>{{entry.comments.length}} comments</span>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="comments">
-                    <div class="comment" data-ng-repeat="comment in entry.comments"
-                         data-ng-show="entry.showComments"
-                         data-ng-include="'commenttemplate.html'"
-                         data-ng-controller="Comments">
+            <div class="entrysubmitdetails">submitted {{entry.createTime | fromNow}} by {{entry.author}}</div>
+            <div class="entryallcomments">
+                <a class="" data-ng-click="entry.showComments = !entry.showComments">
+                    <div class="showhidecomments glyphicon glyphicon-comment">
+                        <span>{{entry.comments.length}} comments</span>
                     </div>
+                </a>
+            </div>
+
+            <div class="comments">
+                <div class="comment" data-ng-repeat="comment in entry.comments"
+                     data-ng-show="entry.showComments"
+                     data-ng-include="'commenttemplate.html'"
+                     data-ng-controller="Comments">
                 </div>
             </div>
         </div>
     </div>
+</div>
     <script type="text/ng-template" id="votetemplate.html">
         <div class="vote upvote glyphicon glyphicon-thumbs-up"
              data-ng-click="vm.vote(entry, 1)">

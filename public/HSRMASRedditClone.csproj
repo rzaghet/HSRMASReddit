@@ -23,6 +23,7 @@
     <Content Include="app\account\register.html" />
     <Content Include="app\account\register2.html" />
     <Content Include="app\app.config.js" />
+    <Content Include="app\app.js" />
     <Content Include="app\app.filters.js" />
     <Content Include="app\blocks\exception\exception-handler.provider.js" />
     <Content Include="app\blocks\exception\exception.js" />

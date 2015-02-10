@@ -43,6 +43,16 @@
                                 }
                             }
                         ]
+                    },
+                    {
+                        "id": 1,
+                        "text": "TestComment1",
+                        "author": "xyz",
+                        "createTime": "2015-01-31T17:32:48.134Z",
+                        "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
+                        "rating": {
+                            "value": 0
+                        }
                     }
             ],
         "voters": []

@@ -5,7 +5,7 @@
 - Raffael Zaghet
 
     ####31.01.2015
-    - Learn Angular JS: 3 hours
+    - Learn Angular JS: 8 hours
     - Learn TypeScript JS: 3 hours
     - Learn Bootstrap: 3 hours
 
@@ -15,5 +15,18 @@
         - Package downloads (Libraries, DefinitionTypes for TS)
     - Meetings:    
 
+    ####08.02.2015
+    - Entries Html startet programming
+    - evaluated translation services
+    - evaluated moment.js with locales
+    - 8 hours
+
+    ####10.02.2015
+    - improved app handling for angularjs
+    - Continue with entries html
+
+    
+    
+    
 
 
