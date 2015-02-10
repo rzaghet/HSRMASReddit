@@ -14,8 +14,10 @@
     - evaluated moment.js with locals
     - 8 hours
 
-   ####10.02.2015
-    - translation for reddit clone: 2 hour
+   ####10.02.2015 Pair Programming with Zaghet
+    - translation for reddit clone: 1 hour
+    - improved app handling for angularjs
+    - Continue with entries html
 
 
 
