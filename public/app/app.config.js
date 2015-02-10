@@ -3,17 +3,31 @@
         '$translateProvider', function($translateProvider) {
 
             $translateProvider.translations('en', {
-                'TITLE': 'The Hauser/Mahr/Zaghet Reddit-Clone',
+                'TITLE': 'Reddit Clone',
                 'AUTHOR': 'Author',
                 'BY': 'by',
-                'SUBMITTED': 'Submitted'
-                
+                'SUBMITTED': 'Submitted',
+                'COMMENT': 'comment',
+                'COMMENTS': 'comments',
+                'DUMMYCOMMENT': 'Your comment.',
+                'POSTCOMMENT': 'Post comment',
+                'REPLY': 'Reply',
+                'USER': 'Username',
+                'PW': 'Password',
+                'LOGIN': 'Login',
+                'LOGOUT': 'Logout',
+                'REGISTER': 'Register',
+                'NEWLINKBUTTON': 'Submit new link',
+                'NEWLINKTITLE': 'Submit a new Link',
+                'NEWLINKSUBTITLE': 'The community is waiting for it!',
+                'DUMMYLINKTITLE': 'Title...',
+                'DUMMYLINKURL': 'URL...',
+                'NEWUSERTITLE': 'Create a new User-Account',
+                'NEWUSERSUBTITLE': 'You only need a username and a password'
+                'DUMMYREPEATPW': 'Repeat password'
             });
             $translateProvider.translations('de', {
-                'TITLE': 'Der Hauser/Mahr/Zaghet Reddit-Klon',
-                'AUTHOR': 'Autor',
-                'BY': 'von',
-                'SUBMITTED': 'Übertragen'
+
 
             });
             $translateProvider.preferredLanguage('en');
