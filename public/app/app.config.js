@@ -27,8 +27,28 @@
                 'DUMMYREPEATPW': 'Repeat password'
             });
             $translateProvider.translations('de', {
-
-
+                'TITLE': 'Reddit Klon',
+                'AUTHOR': 'Autor',
+                'BY': 'von',
+                'SUBMITTED': 'Übertragen',
+                'COMMENT': 'kommentar',
+                'COMMENTS': 'kommentare',
+                'DUMMYCOMMENT': 'Dein Kommentar.',
+                'POSTCOMMENT': 'Veröffentliche Kommentar',
+                'REPLY': 'Antworten',
+                'USER': 'Benutzername',
+                'PW': 'Passwort',
+                'LOGIN': 'Anmelden',
+                'LOGOUT': 'Abmelden',
+                'REGISTER': 'Registrieren',
+                'NEWLINKBUTTON': 'Übertrage neuen Link',
+                'NEWLINKTITLE': 'Übertrage einen neuen Link',
+                'NEWLINKSUBTITLE': 'Die community wartet auf deinen Link!',
+                'DUMMYLINKTITLE': 'Titel...',
+                'DUMMYLINKURL': 'URL...',
+                'NEWUSERTITLE': 'Erzeuge einen neuen Benutzer-Konto',
+                'NEWUSERSUBTITLE': 'Du brauhst nur einen Benutzernamen und eine Passwort'
+                'DUMMYREPEATPW': 'Passwort wiederholen'
             });
             $translateProvider.preferredLanguage('en');
         }
