@@ -24,7 +24,10 @@
                 'DUMMYLINKURL': 'URL...',
                 'NEWUSERTITLE': 'Create a new User-Account',
                 'NEWUSERSUBTITLE': 'You only need a username and a password',
-                'DUMMYREPEATPW': 'Repeat password'
+                'DUMMYREPEATPW': 'Repeat password',
+                'LANGUAGE': 'Language',
+                'GERMAN': 'German',
+                'ENGLISH': 'English'
             });
             $translateProvider.translations('de', {
                 'TITLE': 'Reddit Klon',
@@ -48,7 +51,10 @@
                 'DUMMYLINKURL': 'URL...',
                 'NEWUSERTITLE': 'Erzeuge einen neuen Benutzer-Konto',
                 'NEWUSERSUBTITLE': 'Du brauhst nur einen Benutzernamen und eine Passwort',
-                'DUMMYREPEATPW': 'Passwort wiederholen'
+                'DUMMYREPEATPW': 'Passwort wiederholen',
+                'LANGUAGE': 'Sprache',
+                'GERMAN': 'Deutsch',
+                'ENGLISH': 'Englisch'
             });
             $translateProvider.preferredLanguage('en');
         }
