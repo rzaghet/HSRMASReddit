@@ -72,7 +72,7 @@
                 <div class="comment" data-ng-repeat="comment in entry.comments"
                      data-ng-show="entry.showComments"
                      data-ng-include="'commenttemplate.html'"
-                     data-ng-controller="Comments">
+                     data-ng-controller="Comments as vmComments">
                 </div>
             </div>
         </div>
@@ -106,6 +106,15 @@
                     <span>{{comment.comments.length}} comments</span>
                 </div>
             </a>
+            <div ng-init="comment.replyTemplate='commenteditortemplatenone.html'" />
+            <a class="" data-ng-click="comment.replyTemplate='commenteditortemplate.html'">
+             <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
+                 <span> reply</span>
+            </div>
+            </a>
+            <div data-ng-include="comment.replyTemplate">
+
+            </div>
         </div>
         <div class="comment" data-ng-repeat="comment in comment.comments"
                 data-ng-include="'commenttemplate.html'"
@@ -113,6 +122,12 @@
         </div>
 
     </script>
-
+<script type="text/ng-template" id="commenteditortemplate.html">
+        <textarea maxlength="255" name="commentText" ng-model="commment.nextText"></textarea>
+    <button ng-click="vmComments.addNew(comment.comments, comment.nextText);comment.replyTemplate='commenteditortemplatenone.html'">Save</button>
+    <button ng-click="comment.replyTemplate='commenteditortemplatenone.html'">Cancel</button>
+    </script>
+    <script type="text/ng-template" id="commenteditortemplatenone.html">        
+    </script>
 </body>
 </html>
