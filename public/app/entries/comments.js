@@ -11,5 +11,11 @@
         /* jshint validthis:true */
         var vm = this;
         vm.showComments = false;
+        vm.addNew = addNew;
+        alert('test');
+
+        function addNew(comments, newText) {
+            alert(newText);
+        };
     };
 })();

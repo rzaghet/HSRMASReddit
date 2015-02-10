@@ -40,36 +40,20 @@
                                 "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
                                 "rating": {
                                     "value": 0
-                                },
-                                "comments": [
-                                                            {
-                                                                "id": 3,
-                                                                "text": "TestComment3",
-                                                                "author": "blabla",
-                                                                "createTime": "2015-01-31T17:32:48.134Z",
-                                                                "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
-                                                                "rating": {
-                                                                    "value": 0
-                                                                }
-
-                                                            }
-                                ]
+                                }
                             }
-
                         ]
                     },
                     {
-                        "id": 4,
-                        "text": "TestComment4",
-                        "author": "blabla",
+                        "id": 1,
+                        "text": "TestComment1",
+                        "author": "xyz",
                         "createTime": "2015-01-31T17:32:48.134Z",
                         "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
                         "rating": {
                             "value": 0
                         }
-
                     }
-  
             ],
         "voters": []
         }];
