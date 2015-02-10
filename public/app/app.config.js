@@ -3,13 +3,18 @@
         '$translateProvider', function($translateProvider) {
 
             $translateProvider.translations('en', {
-                 'TITLE': 'Hello',
-                 'FOO': 'This is a paragraph'
+                'TITLE': 'The Hauser/Mahr/Zaghet Reddit-Clone',
+                'AUTHOR': 'Author',
+                'BY': 'by',
+                'SUBMITTED': 'Submitted'
                 
             });
             $translateProvider.translations('de', {
-                 'TITLE': 'Hallo',
-                 'FOO': 'Dies ist ein Paragraph'
+                'TITLE': 'Der Hauser/Mahr/Zaghet Reddit-Klon',
+                'AUTHOR': 'Autor',
+                'BY': 'von',
+                'SUBMITTED': 'Übertragen'
+
             });
             $translateProvider.preferredLanguage('en');
         }
