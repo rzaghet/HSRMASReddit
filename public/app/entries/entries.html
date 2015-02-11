@@ -13,6 +13,7 @@
     <script src="../../Scripts/angular-route.js"></script>
     <script src="../../Scripts/angular-sanitize.js"></script>
     <script src="../../Scripts/angular-translate.js"></script>
+    <script src="../../Scripts/angular-ui/ui-bootstrap.js"></script>
     <script src="../../Scripts/toastr.js"></script>
     <script src="../../Scripts/moment.js"></script>
     <script src="../../Scripts/moment-timezone.min.js"></script>
@@ -123,11 +124,12 @@
 
     </script>
 <script type="text/ng-template" id="commenteditortemplate.html">
-        <textarea maxlength="255" name="commentText" ng-model="commment.nextText"></textarea>
-    <button ng-click="vmComments.addNew(comment.comments, comment.nextText);comment.replyTemplate='commenteditortemplatenone.html'">Save</button>
-    <button ng-click="comment.replyTemplate='commenteditortemplatenone.html'">Cancel</button>
+        <textarea maxlength="255" name="commentText" ng-model="vmComments.newComment"></textarea>
+        <button ng-click="vmComments.addNew(comment.comments);comment.replyTemplate='commenteditortemplatenone.html'">Save</button>
+        <button ng-click="comment.replyTemplate='commenteditortemplatenone.html'">Cancel</button>
     </script>
-    <script type="text/ng-template" id="commenteditortemplatenone.html">        
+<script type="text/ng-template" id="commenteditortemplatenone.html">
     </script>
+
 </body>
 </html>

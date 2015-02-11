@@ -12,10 +12,20 @@
         var vm = this;
         vm.showComments = false;
         vm.addNew = addNew;
-        alert('test');
+        vm.newComment = '';
 
-        function addNew(comments, newText) {
-            alert(newText);
+        function addNew(comments) {
+            comments.push({
+                "id": 1,
+                "text": vm.newComment,
+                "author": "xyz",
+                "createTime": "2015-01-31T17:32:48.134Z",
+                "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
+                "rating": {
+                    "value": 0
+                }
+            });
+            vm.newComment = '';
         };
     };
 })();
