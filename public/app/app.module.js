@@ -3,7 +3,7 @@
 
     angular.module('app', [
         //'app.core',
-
+        'ui.bootstrap.modal',
         /*Custom Filters*/
         'customfilters',
          'pascalprecht.translate',

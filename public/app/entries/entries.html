@@ -50,9 +50,25 @@
     <button ng-click="redditApp.changeLanguage('de')">Deutsch</button>
 <button ng-click="redditApp.changeLanguage('en')">English</button>
 
+
 <div data-ng-controller="Entries as vm">
 
-    <button data-ng-click="vm.addEntry()">test</button>
+    <button data-ng-click="vm.open()">test</button>
+    <script type="text/ng-template" id="newentry.html">
+        <div modal="showModal" close="vm.cancel()">
+            <div class="modal-header">
+                <h4>Modal Dialog</h4>
+            </div>
+            <div class="modal-body">
+                <p>sample text</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" ng-click="vm.ok()">Ok</button>
+                <button class="btn" ng-click="vm.cancel()">Cancel</button>
+            </div>
+        </div>
+    </script>
+
 
     <div class="entry" data-ng-repeat="entry in vm.entries">
         <div class="entryvote" data-ng-include="'votetemplate.html'">
@@ -79,7 +95,9 @@
         </div>
     </div>
 </div>
-    <script type="text/ng-template" id="votetemplate.html">
+
+
+<script type="text/ng-template" id="votetemplate.html">
         <div class="vote upvote glyphicon glyphicon-thumbs-up"
              data-ng-click="vm.vote(entry, 1)">
         </div>
@@ -125,7 +143,7 @@
     </script>
 <script type="text/ng-template" id="commenteditortemplate.html">
         <textarea maxlength="255" name="commentText" ng-model="vmComments.newComment"></textarea>
-        <button ng-click="vmComments.addNew(comment.comments);comment.replyTemplate='commenteditortemplatenone.html'">Save</button>
+    <button ng-disabled="vmComments.newComment.length===0" ng-click="vmComments.addNew(comment);comment.replyTemplate='commenteditortemplatenone.html'">Save</button>
         <button ng-click="comment.replyTemplate='commenteditortemplatenone.html'">Cancel</button>
     </script>
 <script type="text/ng-template" id="commenteditortemplatenone.html">

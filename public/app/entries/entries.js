@@ -3,13 +3,30 @@
 
     angular
         .module('app.entries')
-        .controller('Entries', Entries);
+        .controller('Entries',Entries);
 
-    //app.$inject = ['$location']; 
+    Entries.$inject = ['$scope', '$modal', '$log'];
 
-    function Entries() {
+
+    function Entries($scope, $modal, $log) {
         /* jshint validthis:true */
         var vm = this;
+
+        $scope.items = ['item1', 'item2', 'item3'];
+
+        vm.open = function (size) {
+            var modalInstance = $modal.open({
+                templateUrl: 'newentry.html',
+                controller: 'ModalEntryController',
+                size: size,
+                resolve: {
+                    items: function() {
+                        return $scope.items;
+                    }
+                }
+            });
+        };
+
         vm.entries = [{
             "id": 0,
             "title": "Title",
@@ -111,5 +128,25 @@
         //}
 
     };
+
+    angular.module('app.entries').controller('ModalEntryController', ModalEntryController);
+
+    ModalEntryController.$inject = ['$scope', '$modalInstance', ''];
+    function ModalEntryController($scope, $modalInstance, items) {
+
+        $scope.items = items;
+        $scope.selected = {
+            item: $scope.items[0]
+        };
+
+        $scope.ok = function () {
+            $modalInstance.close($scope.selected.item);
+        };
+
+        $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
+    }
+
 
 })();

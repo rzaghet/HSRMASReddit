@@ -14,8 +14,9 @@
         vm.addNew = addNew;
         vm.newComment = '';
 
-        function addNew(comments) {
-            comments.push({
+        function addNew(comment) {
+            comment.comments = comment.comments || [];
+            comment.comments.push({
                 "id": 1,
                 "text": vm.newComment,
                 "author": "xyz",
