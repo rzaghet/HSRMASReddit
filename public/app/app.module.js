@@ -3,6 +3,7 @@
 
     angular.module('app', [
         //'app.core',
+        'ui.bootstrap',
         'ui.bootstrap.modal',
         /*Custom Filters*/
         'customfilters',

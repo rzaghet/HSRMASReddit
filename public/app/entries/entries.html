@@ -14,6 +14,7 @@
     <script src="../../Scripts/angular-sanitize.js"></script>
     <script src="../../Scripts/angular-translate.js"></script>
     <script src="../../Scripts/angular-ui/ui-bootstrap.js"></script>
+    <script src="../../Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
     <script src="../../Scripts/toastr.js"></script>
     <script src="../../Scripts/moment.js"></script>
     <script src="../../Scripts/moment-timezone.min.js"></script>
@@ -46,58 +47,67 @@
 
 </head>
 <body data-ng-app="app" ng-strict-di data-ng-controller="App as redditApp">
-<h1>{{ 'TITLE' | translate }}</h1>
+    <h1>{{ 'TITLE' | translate }}</h1>
     <button ng-click="redditApp.changeLanguage('de')">Deutsch</button>
-<button ng-click="redditApp.changeLanguage('en')">English</button>
+    <button ng-click="redditApp.changeLanguage('en')">English</button>
 
 
-<div data-ng-controller="Entries as vm">
+    <div data-ng-controller="Entries as vm">
 
-    <button data-ng-click="vm.open()">test</button>
-    <script type="text/ng-template" id="newentry.html">
-        <div modal="showModal" close="vm.cancel()">
-            <div class="modal-header">
-                <h4>Modal Dialog</h4>
+        <button data-ng-click="vm.open()">test</button>
+        <script type="text/ng-template" id="newentry.html">
+            <div close="cancel()">
+                <div class="modal-header">                    
+                    <h3>{{'NEWLINKTITLE' | translate}}</h3>                    
+                    <h4>{{'NEWLINKSUBTITLE' | translate}}</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="entryTitle" placeholder="{{'DUMMYLINKTITLE' | translate}}" ng-model="entryTitle">
+                        </div>
+                        <div class="form-group">
+                            <input type="url" class="form-control" id="entryUrl" placeholder="{{'DUMMYLINKURL' | translate}}" ng-model="entryUrl">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success glyphicon glyphicon-cloud-upload" ng-disabled="entryTitle.length === 0 || entryUrl.length === 0" ng-click="ok()"> Ok</button>
+                    <button class="btn glyphicon glyphicon-remove" ng-click="cancel()"> Cancel</button>
+                </div>
             </div>
-            <div class="modal-body">
-                <p>sample text</p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-success" ng-click="vm.ok()">Ok</button>
-                <button class="btn" ng-click="vm.cancel()">Cancel</button>
-            </div>
-        </div>
-    </script>
+        </script>
 
 
-    <div class="entry" data-ng-repeat="entry in vm.entries">
-        <div class="entryvote" data-ng-include="'votetemplate.html'">
-        </div>
-        <div class="entrydetails">
-            <div class="entrytitle"><a href="{{entry.url}}">{{entry.title}}</a>
+        <div class="entry" data-ng-repeat="entry in vm.entries">
+            <div class="entryvote" data-ng-include="'votetemplate.html'">
             </div>
-            <div class="entrysubmitdetails">submitted {{entry.createTime | fromNow}} by {{entry.author}}</div>
-            <div class="entryallcomments">
-                <a class="" data-ng-click="entry.showComments = !entry.showComments">
-                    <div class="showhidecomments glyphicon glyphicon-comment">
-                        <span>{{entry.comments.length}} comments</span>
+            <div class="entrydetails">
+                <div class="entrytitle">
+                    <a href="{{entry.url}}">{{entry.title}}</a>
+                </div>
+                <div class="entrysubmitdetails">submitted {{entry.createTime | fromNow}} by {{entry.author}}</div>
+                <div class="entryallcomments">
+                    <a class="" data-ng-click="entry.showComments = !entry.showComments">
+                        <div class="showhidecomments glyphicon glyphicon-comment">
+                            <span>{{entry.comments.length}} comments</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="comments">
+                    <div class="comment" data-ng-repeat="comment in entry.comments"
+                         data-ng-show="entry.showComments"
+                         data-ng-include="'commenttemplate.html'"
+                         data-ng-controller="Comments as vmComments">
                     </div>
-                </a>
-            </div>
-
-            <div class="comments">
-                <div class="comment" data-ng-repeat="comment in entry.comments"
-                     data-ng-show="entry.showComments"
-                     data-ng-include="'commenttemplate.html'"
-                     data-ng-controller="Comments as vmComments">
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<script type="text/ng-template" id="votetemplate.html">
+    <script type="text/ng-template" id="votetemplate.html">
         <div class="vote upvote glyphicon glyphicon-thumbs-up"
              data-ng-click="vm.vote(entry, 1)">
         </div>
@@ -106,7 +116,7 @@
         </div>
     </script>
 
-<script type="text/ng-template" id="commenttemplate.html">
+    <script type="text/ng-template" id="commenttemplate.html">
         <div class="commentvote">
             <div class="upvote glyphicon glyphicon-thumbs-up"
                  data-ng-click="vm.vote(comment, 1)">
@@ -127,26 +137,26 @@
             </a>
             <div ng-init="comment.replyTemplate='commenteditortemplatenone.html'" />
             <a class="" data-ng-click="comment.replyTemplate='commenteditortemplate.html'">
-             <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
-                 <span> reply</span>
-            </div>
+                <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
+                    <span> reply</span>
+                </div>
             </a>
             <div data-ng-include="comment.replyTemplate">
 
             </div>
         </div>
         <div class="comment" data-ng-repeat="comment in comment.comments"
-                data-ng-include="'commenttemplate.html'"
-                data-ng-show="$parent.$parent.comment.showComments">
+             data-ng-include="'commenttemplate.html'"
+             data-ng-show="$parent.$parent.comment.showComments">
         </div>
 
     </script>
-<script type="text/ng-template" id="commenteditortemplate.html">
+    <script type="text/ng-template" id="commenteditortemplate.html">
         <textarea maxlength="255" name="commentText" ng-model="vmComments.newComment"></textarea>
-    <button ng-disabled="vmComments.newComment.length===0" ng-click="vmComments.addNew(comment);comment.replyTemplate='commenteditortemplatenone.html'">Save</button>
+        <button ng-disabled="vmComments.newComment.length===0" ng-click="vmComments.addNew(comment);comment.replyTemplate='commenteditortemplatenone.html'">Reply</button>
         <button ng-click="comment.replyTemplate='commenteditortemplatenone.html'">Cancel</button>
     </script>
-<script type="text/ng-template" id="commenteditortemplatenone.html">
+    <script type="text/ng-template" id="commenteditortemplatenone.html">
     </script>
 
 </body>

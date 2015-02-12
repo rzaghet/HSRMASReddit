@@ -5,7 +5,11 @@
         // Angular modules 
         //'ngAnimate',
         //'ngRoute'
-        'customfilters'
+        'customfilters',
+        'pascalprecht.translate',
+        'ui.bootstrap',
+        'ui.bootstrap.modal'
+
         // Custom modules 
         // 3rd Party Modules
     ]);
