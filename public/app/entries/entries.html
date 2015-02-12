@@ -93,6 +93,18 @@
                             <span>{{entry.comments.length}} comments</span>
                         </div>
                     </a>
+                    <div data-ng-controller="Comments as vmComments">
+                        <div ng-init="entry.replyTemplate='emptytemplate.html'">
+                        </div>
+                    </div>
+                    <a class="" data-ng-click="entry.replyTemplate='entrycommenteditortemplate.html'">
+                        <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
+                            <span> reply</span>
+                        </div>
+                    </a>
+                    <div data-ng-include="entry.replyTemplate">
+
+                    </div>
                 </div>
 
                 <div class="comments">
@@ -116,7 +128,7 @@
         </div>
     </script>
 
-    <script type="text/ng-template" id="commenttemplate.html">
+<script type="text/ng-template" id="commenttemplate.html">
         <div class="commentvote">
             <div class="upvote glyphicon glyphicon-thumbs-up"
                  data-ng-click="vm.vote(comment, 1)">
@@ -135,7 +147,7 @@
                     <span>{{comment.comments.length}} comments</span>
                 </div>
             </a>
-            <div ng-init="comment.replyTemplate='commenteditortemplatenone.html'" />
+            <div ng-init="comment.replyTemplate='emptytemplate.html'" />
             <a class="" data-ng-click="comment.replyTemplate='commenteditortemplate.html'">
                 <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
                     <span> reply</span>
@@ -151,12 +163,20 @@
         </div>
 
     </script>
+
     <script type="text/ng-template" id="commenteditortemplate.html">
         <textarea maxlength="255" name="commentText" ng-model="vmComments.newComment"></textarea>
-        <button ng-disabled="vmComments.newComment.length===0" ng-click="vmComments.addNew(comment);comment.replyTemplate='commenteditortemplatenone.html'">Reply</button>
-        <button ng-click="comment.replyTemplate='commenteditortemplatenone.html'">Cancel</button>
+        <button ng-disabled="vmComments.newComment.length===0" ng-click="vmComments.addNew(comment);comment.replyTemplate='emptytemplate.html'">Reply</button>
+        <button ng-click="comment.replyTemplate='emptytemplate.html'">Cancel</button>
     </script>
-    <script type="text/ng-template" id="commenteditortemplatenone.html">
+
+    <script type="text/ng-template" id="entrycommenteditortemplate.html">
+        <textarea maxlength="255" name="commentText" ng-model="vmComments.newComment"></textarea>
+        <button ng-disabled="vmComments.newComment.length===0" ng-click="vmComments.addNew(entry);entry.replyTemplate='emptytemplate.html'">Reply</button>
+        <button ng-click="entry.replyTemplate='emptytemplate.html'">Cancel</button>
+    </script>
+
+<script type="text/ng-template" id="emptytemplate.html">
     </script>
 
 </body>
