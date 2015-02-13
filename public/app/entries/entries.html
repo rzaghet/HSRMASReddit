@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
     <link href="../../Libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
     <link href="../../client.css" rel="stylesheet" />
 
     <script src="../../Scripts/jquery-2.1.3.js"></script>
@@ -19,6 +20,7 @@
     <script src="../../Scripts/moment.js"></script>
     <script src="../../Scripts/moment-timezone.min.js"></script>
     <script src="../../Scripts/moment-with-locales.min.js"></script>
+    <script src="../../Libs/bootstrap/js/bootstrap.min.js"></script>
 
     <script src="../app.module.js"></script>
     <script src="../app.filters.js"></script>
@@ -45,79 +47,104 @@
     <script src="comments.module.js"></script>
     <script src="comments.js"></script>
 
+
 </head>
 <body data-ng-app="app" ng-strict-di data-ng-controller="App as redditApp">
-    <h1>{{ 'TITLE' | translate }}</h1>
-    <button ng-click="redditApp.changeLanguage('de')">Deutsch</button>
-    <button ng-click="redditApp.changeLanguage('en')">English</button>
-
-
     <div data-ng-controller="Entries as vm">
+        <!--menu-->
+        <div class="navbar navbar-default navbar-static-top navbar-custom" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">{{ 'TITLE' | translate }}</a>
+                </div>
 
-        <button data-ng-click="vm.open()">test</button>
-        <script type="text/ng-template" id="newentry.html">
-            <div close="cancel()">
-                <div class="modal-header">
-                    <h3>{{'NEWLINKTITLE' | translate}}</h3>
-                    <h4>{{'NEWLINKSUBTITLE' | translate}}</h4>
-                </div>
-                <div class="modal-body">
-                    <form class="form-horizontal" role="form">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="entryTitle" placeholder="{{'DUMMYLINKTITLE' | translate}}" ng-model="entryTitle">
-                        </div>
-                        <div class="form-group">
-                            <input type="url" class="form-control" id="entryUrl" placeholder="{{'DUMMYLINKURL' | translate}}" ng-model="entryUrl">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-success glyphicon glyphicon-cloud-upload" ng-disabled="entryTitle.length === 0 || entryUrl.length === 0" ng-click="ok()"> Ok</button>
-                    <button class="btn glyphicon glyphicon-remove" ng-click="cancel()"> Cancel</button>
-                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#" data-ng-click="vm.open()">New Entry</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Change Language<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a ng-click="redditApp.changeLanguage('de')">Deutsch</a></li>
+                                <li><a ng-click="redditApp.changeLanguage('en')">English</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
             </div>
-        </script>
+        </div>
 
-
-        <div class="entry" data-ng-repeat="entry in vm.entries">
-            <div class="entryvote" data-ng-include="'votetemplate.html'">
-            </div>
-            <div class="entrydetails">
-                <div class="entrytitle">
-                    <a href="{{entry.url}}">{{entry.title}}</a>
-                </div>
-                <div class="entrysubmitdetails">submitted {{entry.createTime | fromNow}} by {{entry.author}}</div>
-                <div class="entryallcomments">
-                    <a class="" data-ng-click="entry.showComments = !entry.showComments">
-                        <div class="showhidecomments glyphicon glyphicon-comment">
-                            <span>{{entry.comments.length}} comments</span>
-                        </div>
-                    </a>
-                    <div data-ng-controller="Comments as vmEntryComments">
-                        <div ng-init="entry.replyTemplate='emptytemplate.html'">
-                        </div>
-
-                        <a class="" data-ng-click="entry.replyTemplate='entrycommenteditortemplate.html'">
-                            <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
-                                <span> reply</span>
+        <div class="container">
+            <!-- core -->
+            <script type="text/ng-template" id="newentry.html">
+                <div close="cancel()">
+                    <div class="modal-header">
+                        <h3>{{'NEWLINKTITLE' | translate}}</h3>
+                        <h4>{{'NEWLINKSUBTITLE' | translate}}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="entryTitle" placeholder="{{'DUMMYLINKTITLE' | translate}}" ng-model="entryTitle">
                             </div>
-                        </a>
-                        <div data-ng-include="entry.replyTemplate">
-                        </div>
+                            <div class="form-group">
+                                <input type="url" class="form-control" id="entryUrl" placeholder="{{'DUMMYLINKURL' | translate}}" ng-model="entryUrl">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success glyphicon glyphicon-cloud-upload" ng-disabled="entryTitle.length === 0 || entryUrl.length === 0" ng-click="ok()"> Ok</button>
+                        <button class="btn glyphicon glyphicon-remove" ng-click="cancel()"> Cancel</button>
                     </div>
                 </div>
+            </script>
 
-                <div class="comments">
-                    <div class="comment" data-ng-repeat="comment in entry.comments"
-                         data-ng-show="entry.showComments"
-                         data-ng-include="'commenttemplate.html'"
-                         data-ng-controller="Comments as vmComments">
+
+            <div class="entry" data-ng-repeat="entry in vm.entries">
+                <div class="entryvote" data-ng-include="'votetemplate.html'">
+                </div>
+                <div class="entrydetails">
+                    <div class="entrytitle">
+                        <a href="{{entry.url}}">{{entry.title}}</a>
+                    </div>
+                    <div class="entrysubmitdetails">submitted {{entry.createTime | fromNow}} by {{entry.author}}</div>
+                    <div class="entryallcomments">
+                        <a class="" data-ng-click="entry.showComments = !entry.showComments">
+                            <div class="showhidecomments glyphicon glyphicon-comment">
+                                <span>{{entry.comments.length}} comments</span>
+                            </div>
+                        </a>
+                        <div data-ng-controller="Comments as vmEntryComments">
+                            <div ng-init="entry.replyTemplate='emptytemplate.html'">
+                            </div>
+
+                            <a class="" data-ng-click="entry.replyTemplate='entrycommenteditortemplate.html'">
+                                <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
+                                    <span> reply</span>
+                                </div>
+                            </a>
+                            <div data-ng-include="entry.replyTemplate">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comments">
+                        <div class="comment" data-ng-repeat="comment in entry.comments"
+                             data-ng-show="entry.showComments"
+                             data-ng-include="'commenttemplate.html'"
+                             data-ng-controller="Comments as vmComments">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
     <script type="text/ng-template" id="votetemplate.html">
         <div class="vote upvote glyphicon glyphicon-thumbs-up"
@@ -164,7 +191,7 @@
 
     </script>
 
-<script type="text/ng-template" id="commenteditortemplate.html">
+    <script type="text/ng-template" id="commenteditortemplate.html">
         <form class="form-horizontal" role="form">
             <div class="form-group col-sm-4 ">
                 <textarea class="form-control" maxlength="255" name="commentText" ng-model="vmComments.newComment"></textarea>
@@ -178,7 +205,7 @@
         </form>
     </script>
 
-<script type="text/ng-template" id="entrycommenteditortemplate.html">
+    <script type="text/ng-template" id="entrycommenteditortemplate.html">
         <form class="form-horizontal" role="form">
             <div class="form-group col-sm-4">
                 <textarea class="form-control" maxlength="255" name="commentText" ng-model="vmEntryComments.newComment"></textarea>
@@ -194,6 +221,5 @@
 
     <script type="text/ng-template" id="emptytemplate.html">
     </script>
-
 </body>
 </html>
