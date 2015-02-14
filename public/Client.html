@@ -47,6 +47,8 @@
     <script src="/app/entries/comments.module.js"></script>
     <script src="/app/entries/comments.js"></script>
 
+    <script src="app/accounts/accounts.module.js"></script>
+    <script src="app/accounts/accounts.js"></script>
 
 </head>
 <body data-ng-app="app" ng-strict-di data-ng-controller="App as redditApp">
@@ -65,25 +67,27 @@
                 </div>
 
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#" data-ng-click="vm.open()">New Entry</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Change Language<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a ng-click="redditApp.changeLanguage('de')">Deutsch</a></li>
-                                <li><a ng-click="redditApp.changeLanguage('en')">English</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#" data-ng-click="redditApp.showAboutDialog()">About</a></li>
-                    </ul>
+                    <div data-ng-controller="Accounts as vmAccounts">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#" data-ng-click="vm.open()">New Entry</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Change Language<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a ng-click="redditApp.changeLanguage('de')">Deutsch</a></li>
+                                    <li><a ng-click="redditApp.changeLanguage('en')">English</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" data-ng-click="redditApp.showAboutDialog()">About</a></li>
+                            <li><a href="#" data-ng-click="login">Login</a></li>
+                            <li><a href="#" data-ng-click="showAccountRegisterDialog()">Register</a></li>
+                        </ul>
+                    </div>
                 </div><!--/.nav-collapse -->
             </div>
         </div>
 
         <div class="container">
             <!-- core -->
-
-
             <div class="entry" data-ng-repeat="entry in vm.entries">
                 <div class="entryvote" data-ng-include="'votetemplate.html'">
                 </div>
@@ -125,7 +129,7 @@
     </div>
 
 
-<script type="text/ng-template" id="newentry.html">
+    <script type="text/ng-template" id="newentry.html">
         <div close="cancel()">
             <div class="modal-header">
                 <h3>{{'NEWLINKTITLE' | translate}}</h3>
@@ -148,7 +152,7 @@
         </div>
     </script>
 
-<script type="text/ng-template" id="about.html">
+    <script type="text/ng-template" id="about.html">
         <div close="cancel()">
             <div class="modal-header">
                 <h3>{{'ABOUT' | translate}}</h3>
@@ -160,14 +164,13 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-success glyphicon glyphicon-cloud-upload" ng-disabled="entryTitle.length === 0 || entryUrl.length === 0" ng-click="ok()"> Ok</button>
-                <button class="btn glyphicon glyphicon-remove" ng-click="cancel()"> Cancel</button>
+                <button class="btn glyphicon glyphicon-heart" ng-click="ok()"> Ok</button>
             </div>
         </div>
     </script>
 
 
-<script type="text/ng-template" id="votetemplate.html">
+    <script type="text/ng-template" id="votetemplate.html">
         <div class="vote upvote glyphicon glyphicon-thumbs-up"
              data-ng-click="vm.vote(entry, 1)">
         </div>
@@ -241,6 +244,41 @@
     </script>
 
     <script type="text/ng-template" id="emptytemplate.html">
+    </script>
+
+<script type="text/ng-template" id="accountregister.html">
+        <form class="form-horizontal" role="form" ng-controller="Accounts">
+            <div close="cancel()">
+                <div class="modal-header">
+                    <h3>{{'REGISTER' | translate}}</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input class="form-control" id="inputUserName" placeholder="Username" ng-model="formInfo.userName">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="inputPassword1" placeholder="Password" ng-model="formInfo.password1">
+
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="inputPassword2" placeholder="Repeat Password" ng-model="formInfo.password2">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                        </div>
+                    </div>
+                    <span>{{formInfo}}</span>
+                    <span ng-show="userNameRequired">{{userNameRequired}}</span>
+                    <span ng-show="password1Required">{{password1Required}}</span>
+                    <span ng-show="password2Required">{{password2Required}}</span>
+                    <span ng-show="passwordNotEqual">{{passwordNotEqual}}</span>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" ng-click="saveData()">{{'REGISTER' | translate}}</button>
+                </div>
+            </div>
+        </form>
     </script>
 </body>
 </html>

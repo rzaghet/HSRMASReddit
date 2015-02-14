@@ -12,6 +12,7 @@
          * Feature areas
          */
         'app.entries',
-        'app.comments'
+        'app.comments',
+        'app.accounts'
     ]);
 })();
