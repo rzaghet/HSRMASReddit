@@ -44,6 +44,7 @@
     <Content Include="app\app.module.js" />
     <Content Include="client.css" />
     <Content Include="Client.html" />
+    <Content Include="content\About.jpg" />
     <Content Include="content\toastr.css" />
     <Content Include="content\toastr.min.css" />
     <Content Include="core.js" />

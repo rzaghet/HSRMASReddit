@@ -144,17 +144,22 @@
 
     ModalEntryController.$inject = ['$scope', '$modalInstance', 'addEntry'];
     function ModalEntryController($scope, $modalInstance, addEntry) {
-        $scope.entryTitle = "";
-        $scope.entryUrl = "";
+        function initializeScope() {
+            $scope.entryTitle = "";
+            $scope.entryUrl = "";
+        };
+
+        initializeScope();
+        
         //$scope.items = items;
 
         $scope.ok = function () {
-            
             addEntry({ title: $scope.entryTitle, url: $scope.entryUrl, createTime: Date.now, author:'authenticated user', rating: {value:0} });
             $modalInstance.close();
         };
 
         $scope.cancel = function () {
+            initializeScope();
             $modalInstance.dismiss('cancel');
         };
     }

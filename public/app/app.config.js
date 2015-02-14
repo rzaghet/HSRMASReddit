@@ -27,7 +27,9 @@
                 'DUMMYREPEATPW': 'Repeat password',
                 'LANGUAGE': 'Language',
                 'GERMAN': 'German',
-                'ENGLISH': 'English'
+                'ENGLISH': 'English',
+                'ABOUT': "Über",
+                'ABOUTTEXT': "MAS RedditClone entwickelt von..."
             });
             $translateProvider.translations('de', {
                 'TITLE': 'Reddit Klon',
@@ -54,7 +56,9 @@
                 'DUMMYREPEATPW': 'Passwort wiederholen',
                 'LANGUAGE': 'Sprache',
                 'GERMAN': 'Deutsch',
-                'ENGLISH': 'Englisch'
+                'ENGLISH': 'Englisch',
+                'ABOUT': "About",
+                'ABOUTTEXT': "MAS RedditClone developed by..."
             });
             $translateProvider.preferredLanguage('en');
         }
