@@ -28,8 +28,12 @@
                 'LANGUAGE': 'Language',
                 'GERMAN': 'German',
                 'ENGLISH': 'English',
-                'ABOUT': "About",
-                'ABOUTTEXT': "MAS RedditClone developed by..."
+                'ABOUT': 'About',
+                'ABOUTTEXT': 'MAS RedditClone developed by...',
+                'NEWLINK': 'New Link',
+                'OK': 'Ok',
+                'CANCEL': 'Cancel',
+                'REPEATPW': 'Repeat Password'
             });
             $translateProvider.translations('de', {
                 'TITLE': 'Reddit Klon',
@@ -57,8 +61,12 @@
                 'LANGUAGE': 'Sprache',
                 'GERMAN': 'Deutsch',
                 'ENGLISH': 'Englisch',
-                'ABOUT': "Über",
-                'ABOUTTEXT': "MAS RedditClone entwickelt von..."
+                'ABOUT': 'Über',
+                'ABOUTTEXT': 'MAS RedditClone entwickelt von...',
+                'NEWLINK': 'Neuer Link',
+                'OK': 'Ok',
+                'CANCEL': 'Abbruch',
+                'REPEATPW': 'Passwort wiederholen'
             });
             $translateProvider.preferredLanguage('en');
         }
