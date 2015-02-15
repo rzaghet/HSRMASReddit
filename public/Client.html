@@ -72,17 +72,17 @@
             <div class="navbar-collapse collapse">
                 <div data-ng-controller="Accounts as vmAccounts">
                     <ul class="nav navbar-nav">
-                        <li><a href="#" data-ng-click="vm.open()">New Entry</a></li>
+                        <li><a href="#" data-ng-click="vm.open()">{{'NEWLINK' | translate}}</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Change Language<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a ng-click="redditApp.changeLanguage('de')">Deutsch</a></li>
-                                <li><a ng-click="redditApp.changeLanguage('en')">English</a></li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{'LANGUAGE' | translate}}<b class="caret"></b></a>
+                            <ul class="dropdown-menu" data-ng-controller="LangCtrl">
+                                <li><a ng-click="changeLang('de_DE')">{{'GERMAN' | translate}}</a></li>
+                                <li><a ng-click="changeLang('en_US')">{{'ENGLISH' | translate}}</a></li>
                             </ul>
                         </li>
-                        <li><a href="#" data-ng-click="redditApp.showAboutDialog()">About</a></li>
-                        <li><a href="#" data-ng-click="vmAccounts.showAccountRegisterDialog()">Register</a></li>
-                        <li><a href="#" data-ng-click="vmAccounts.showLoginDialog()">Login</a></li>
+                        <li><a href="#" data-ng-click="redditApp.showAboutDialog()">{{'ABOUT' | translate}}</a></li>
+                        <li><a href="#" data-ng-click="vmAccounts.showAccountRegisterDialog()">{{'REGISTER' | translate}}</a></li>
+                        <li><a href="#" data-ng-click="vmAccounts.showLoginDialog()">{{'LOGIN' | translate}}</a></li>
                     </ul>
                 </div>
             </div><!--/.nav-collapse -->
@@ -98,11 +98,11 @@
                 <div class="entrytitle">
                     <a href="{{entry.url}}">{{entry.title}}</a>
                 </div>
-                <div class="entrysubmitdetails">submitted {{entry.createTime | fromNow}} by {{entry.author}}</div>
+                <div class="entrysubmitdetails">{{'SUBMITTED' | translate}} {{entry.createTime | fromNow}} {{'BY' | translate}} {{entry.author}}</div>
                 <div class="entryallcomments">
                     <a class="" data-ng-click="entry.showComments = !entry.showComments">
                         <div class="showhidecomments glyphicon glyphicon-comment">
-                            <span>{{entry.comments.length}} comments</span>
+                            <span>{{entry.comments.length}} {{'COMMENTS' | translate}}</span>
                         </div>
                     </a>
                     <div data-ng-controller="Comments as vmEntryComments">
@@ -111,7 +111,7 @@
 
                         <a class="" data-ng-click="entry.replyTemplate='entrycommenteditortemplate.html'">
                             <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
-                                <span> reply</span>
+                                <span> {{'REPLY' | translate}}</span>
                             </div>
                         </a>
                         <div data-ng-include="entry.replyTemplate">
@@ -141,16 +141,16 @@
             <div class="modal-body">
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="entryTitle" placeholder="{{'DUMMYLINKTITLE' | translate}}" ng-model="entryTitle">
+                        <input type="text" class="form-control" id="entryTitle" placeholder="DUMMYLINKTITLE" ng-model="entryTitle">
                     </div>
                     <div class="form-group">
-                        <input type="url" class="form-control" id="entryUrl" placeholder="{{'DUMMYLINKURL' | translate}}" ng-model="entryUrl">
+                        <input type="url" class="form-control" id="entryUrl" placeholder="DUMMYLINKURL" ng-model="entryUrl">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-success glyphicon glyphicon-cloud-upload" ng-disabled="entryTitle.length === 0 || entryUrl.length === 0" ng-click="ok()"> Ok</button>
-                <button class="btn glyphicon glyphicon-remove" ng-click="cancel()"> Cancel</button>
+                <button class="btn btn-success glyphicon glyphicon-cloud-upload" ng-disabled="entryTitle.length === 0 || entryUrl.length === 0" ng-click="ok()"> {{'OK' | translate}}</button>
+                <button class="btn glyphicon glyphicon-remove" ng-click="cancel()"> {{'CANCEL' | translate}}</button>
             </div>
         </div>
     </script>
@@ -167,7 +167,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn glyphicon glyphicon-heart" ng-click="ok()"> Ok</button>
+                <button class="btn glyphicon glyphicon-heart" ng-click="ok()"> {{'OK' | translate}}</button>
             </div>
         </div>
     </script>
@@ -193,12 +193,12 @@
         </div>
         <div class="commentdetails">
             <div class="commenttext">{{comment.text}}</div>
-            <div class="commentsubmitdetails">submitted {{comment.createTime | fromNow}} by {{comment.author}}</div>
+            <div class="commentsubmitdetails">{{'SUBMITTED' | translate}} {{comment.createTime | fromNow}} {{'BY' | translate}} {{comment.author}}</div>
         </div>
         <div class="commentallcomments">
             <a class="" data-ng-click="comment.showComments = !comment.showComments">
                 <div class="showhidecomments glyphicon glyphicon-comment">
-                    <span>{{comment.comments.length}} comments</span>
+                    <span>{{comment.comments.length}} {{'COMMENTS' | translate}}</span>
                 </div>
             </a>
             <div ng-init="comment.replyTemplate='emptytemplate.html'" />
@@ -225,8 +225,8 @@
             </div>
             <div class="form-group col-sm-4 col-sm-offset-2">
                 <div class="buttondisplay pull-right">
-                    <button class="btn" ng-disabled="vmComments.newComment.length===0" ng-click="vmComments.addNew(comment);comment.replyTemplate='emptytemplate.html'">Reply</button>
-                    <button class="btn" ng-click="comment.replyTemplate='emptytemplate.html'">Cancel</button>
+                    <button class="btn" ng-disabled="vmComments.newComment.length===0" ng-click="vmComments.addNew(comment);comment.replyTemplate='emptytemplate.html'">{{'REPLY' | translate}}</button>
+                    <button class="btn" ng-click="comment.replyTemplate='emptytemplate.html'">{{'CANCEL' | translate}}</button>
                 </div>
             </div>
         </form>
@@ -239,8 +239,8 @@
             </div>
             <div class="form-group col-sm-4 clearfixed">
                 <div class="buttondisplay pull-right">
-                    <button class="btn" ng-disabled="vmEntryComments.newComment.length===0" ng-click="vmEntryComments.addNew(entry);entry.replyTemplate='emptytemplate.html'">Reply</button>
-                    <button class="btn" ng-click="entry.replyTemplate='emptytemplate.html'">Cancel</button>
+                    <button class="btn" ng-disabled="vmEntryComments.newComment.length===0" ng-click="vmEntryComments.addNew(entry);entry.replyTemplate='emptytemplate.html'">{{'REPLY' | translate}}</button>
+                    <button class="btn" ng-click="entry.replyTemplate='emptytemplate.html'">{{'CANCEL' | translate}}</button>
                 </div>
             </div>
         </form>
@@ -258,14 +258,14 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input class="form-control" id="inputUserName" placeholder="Username" ng-model="vmRegisterAccount.formInfo.userName">
+                            <input class="form-control" id="inputUserName" placeholder="USER" ng-model="vmRegisterAccount.formInfo.userName">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="inputPassword1" placeholder="Password" ng-model="vmRegisterAccount.formInfo.password1">
+                            <input type="password" class="form-control" id="inputPassword1" placeholder="PW" ng-model="vmRegisterAccount.formInfo.password1">
 
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="inputPassword2" placeholder="Repeat Password" ng-model="vmRegisterAccount.formInfo.password2">
+                            <input type="password" class="form-control" id="inputPassword2" placeholder="REPEATPW" ng-model="vmRegisterAccount.formInfo.password2">
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
@@ -296,10 +296,10 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input class="form-control" id="inputUserName" placeholder="Username" ng-model="vmLoginAccount.userName">
+                            <input class="form-control" id="inputUserName" placeholder="USER" ng-model="vmLoginAccount.userName">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="vmLoginAccount.password">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="PW" ng-model="vmLoginAccount.password">
 
                         </div>
                     </div>
