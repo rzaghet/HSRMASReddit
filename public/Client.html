@@ -81,8 +81,9 @@
                             </ul>
                         </li>
                         <li><a href="#" data-ng-click="redditApp.showAboutDialog()">{{'ABOUT' | translate}}</a></li>
-                        <li><a href="#" data-ng-click="vmAccounts.showAccountRegisterDialog()">{{'REGISTER' | translate}}</a></li>
-                        <li><a href="#" data-ng-click="vmAccounts.showLoginDialog()">{{'LOGIN' | translate}}</a></li>
+                        <li><a href="#" data-ng-click="vmAccounts.showAccountRegisterDialog()" ng-hide="redditApp.dataservice.currentUser.isAuthenticated">{{'REGISTER' | translate}}</a></li>
+                        <li><a href="#" data-ng-click="vmAccounts.showLoginDialog()" ng-hide="redditApp.dataservice.currentUser.isAuthenticated">{{'LOGIN' | translate}}</a></li>
+                        <li><a href="#" data-ng-click="" ng-show="redditApp.dataservice.currentUser.isAuthenticated">{{'LOGOUT' | translate}}</a></li>
                     </ul>
                 </div>
             </div><!--/.nav-collapse -->
