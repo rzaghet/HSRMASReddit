@@ -5,12 +5,15 @@
         .module('app')
         .controller('App', RedditApp);
 
-    RedditApp.$inject = ['$scope','$modal', '$log'];
+    RedditApp.$inject = ['$scope','$modal', '$log', 'dataservice'];
 
-    function RedditApp($scope, $modal, $log) {
+    function RedditApp($scope, $modal, $log, dataservice) {
+        //alert(dataservice.getUsers());
+        //alert(dataservice.registerUser({name:'abc1', password:'abc1'}));
         var vm = this;
         vm.changeLanguage = changeLanguage;
         vm.showAboutDialog = showAboutDialog;
+        vm.dataservice = dataservice;
 
         function showAboutDialog(size) {
             var modalInstance = $modal.open({
@@ -27,8 +30,8 @@
         };
 
         function changeLanguage(newLocale) {
-            window.moment.lang(newLocale);
-            $scope.reload();
+            window.moment.locale(newLocale);
+            //$scope.reload();
         }
     };
 

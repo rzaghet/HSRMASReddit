@@ -55,84 +55,84 @@
 
 </head>
 <body data-ng-app="app" data-ng-controller="App as redditApp">
-    <div data-ng-controller="Entries as vm">
-        <!--menu-->
-        <div class="navbar navbar-default navbar-static-top navbar-custom" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">{{ 'TITLE' | translate }}</a>
-                </div>
-
-                <div class="navbar-collapse collapse">
-                    <div data-ng-controller="Accounts as vmAccounts">
-                        <ul class="nav navbar-nav">
-                            <li><a href="#" data-ng-click="vm.open()">New Entry</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Change Language<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a ng-click="redditApp.changeLanguage('de')">Deutsch</a></li>
-                                    <li><a ng-click="redditApp.changeLanguage('en')">English</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#" data-ng-click="redditApp.showAboutDialog()">About</a></li>
-                            <li><a href="#" data-ng-click="login">Login</a></li>
-                            <li><a href="#" data-ng-click="showAccountRegisterDialog()">Register</a></li>
-                        </ul>
-                    </div>
-                </div><!--/.nav-collapse -->
-            </div>
-        </div>
-
+<div data-ng-controller="Entries as vm">
+    <!--menu-->
+    <div class="navbar navbar-default navbar-static-top navbar-custom" role="navigation">
         <div class="container">
-            <!-- core -->
-            <div class="entry" data-ng-repeat="entry in vm.entries">
-                <div class="entryvote" data-ng-include="'votetemplate.html'">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">{{ 'TITLE' | translate }}</a>
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <div data-ng-controller="Accounts as vmAccounts">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" data-ng-click="vm.open()">New Entry</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Change Language<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a ng-click="redditApp.changeLanguage('de')">Deutsch</a></li>
+                                <li><a ng-click="redditApp.changeLanguage('en')">English</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" data-ng-click="redditApp.showAboutDialog()">About</a></li>
+                        <li><a href="#" data-ng-click="vmAccounts.showAccountRegisterDialog()">Register</a></li>
+                        <li><a href="#" data-ng-click="vmAccounts.showLoginDialog()">Login</a></li>
+                    </ul>
                 </div>
-                <div class="entrydetails">
-                    <div class="entrytitle">
-                        <a href="{{entry.url}}">{{entry.title}}</a>
-                    </div>
-                    <div class="entrysubmitdetails">submitted {{entry.createTime | fromNow}} by {{entry.author}}</div>
-                    <div class="entryallcomments">
-                        <a class="" data-ng-click="entry.showComments = !entry.showComments">
-                            <div class="showhidecomments glyphicon glyphicon-comment">
-                                <span>{{entry.comments.length}} comments</span>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- core -->
+        <div class="entry" data-ng-repeat="entry in vm.entries">
+            <div class="entryvote" data-ng-include="'votetemplate.html'">
+            </div>
+            <div class="entrydetails">
+                <div class="entrytitle">
+                    <a href="{{entry.url}}">{{entry.title}}</a>
+                </div>
+                <div class="entrysubmitdetails">submitted {{entry.createTime | fromNow}} by {{entry.author}}</div>
+                <div class="entryallcomments">
+                    <a class="" data-ng-click="entry.showComments = !entry.showComments">
+                        <div class="showhidecomments glyphicon glyphicon-comment">
+                            <span>{{entry.comments.length}} comments</span>
+                        </div>
+                    </a>
+                    <div data-ng-controller="Comments as vmEntryComments">
+                        <div ng-init="entry.replyTemplate='emptytemplate.html'">
+                        </div>
+
+                        <a class="" data-ng-click="entry.replyTemplate='entrycommenteditortemplate.html'">
+                            <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
+                                <span> reply</span>
                             </div>
                         </a>
-                        <div data-ng-controller="Comments as vmEntryComments">
-                            <div ng-init="entry.replyTemplate='emptytemplate.html'">
-                            </div>
-
-                            <a class="" data-ng-click="entry.replyTemplate='entrycommenteditortemplate.html'">
-                                <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
-                                    <span> reply</span>
-                                </div>
-                            </a>
-                            <div data-ng-include="entry.replyTemplate">
-                            </div>
+                        <div data-ng-include="entry.replyTemplate">
                         </div>
                     </div>
+                </div>
 
-                    <div class="comments">
-                        <div class="comment" data-ng-repeat="comment in entry.comments"
-                             data-ng-show="entry.showComments"
-                             data-ng-include="'commenttemplate.html'"
-                             data-ng-controller="Comments as vmComments">
-                        </div>
+                <div class="comments">
+                    <div class="comment" data-ng-repeat="comment in entry.comments"
+                         data-ng-show="entry.showComments"
+                         data-ng-include="'commenttemplate.html'"
+                         data-ng-controller="Comments as vmComments">
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
-    <script type="text/ng-template" id="newentry.html">
+<script type="text/ng-template" id="newentry.html">
         <div close="cancel()">
             <div class="modal-header">
                 <h3>{{'NEWLINKTITLE' | translate}}</h3>
@@ -155,7 +155,7 @@
         </div>
     </script>
 
-    <script type="text/ng-template" id="about.html">
+<script type="text/ng-template" id="about.html">
         <div close="cancel()">
             <div class="modal-header">
                 <h3>{{'ABOUT' | translate}}</h3>
@@ -173,7 +173,7 @@
     </script>
 
 
-    <script type="text/ng-template" id="votetemplate.html">
+<script type="text/ng-template" id="votetemplate.html">
         <div class="vote upvote glyphicon glyphicon-thumbs-up"
              data-ng-click="vm.vote(entry, 1)">
         </div>
@@ -182,7 +182,7 @@
         </div>
     </script>
 
-    <script type="text/ng-template" id="commenttemplate.html">
+<script type="text/ng-template" id="commenttemplate.html">
         <div class="commentvote">
             <div class="upvote glyphicon glyphicon-thumbs-up"
                  data-ng-click="vm.vote(comment, 1)">
@@ -218,7 +218,7 @@
 
     </script>
 
-    <script type="text/ng-template" id="commenteditortemplate.html">
+<script type="text/ng-template" id="commenteditortemplate.html">
         <form class="form-horizontal" role="form">
             <div class="form-group col-sm-4 ">
                 <textarea class="form-control" maxlength="255" name="commentText" ng-model="vmComments.newComment"></textarea>
@@ -232,7 +232,7 @@
         </form>
     </script>
 
-    <script type="text/ng-template" id="entrycommenteditortemplate.html">
+<script type="text/ng-template" id="entrycommenteditortemplate.html">
         <form class="form-horizontal" role="form">
             <div class="form-group col-sm-4">
                 <textarea class="form-control" maxlength="255" name="commentText" ng-model="vmEntryComments.newComment"></textarea>
@@ -246,42 +246,70 @@
         </form>
     </script>
 
-    <script type="text/ng-template" id="emptytemplate.html">
+<script type="text/ng-template" id="emptytemplate.html">
     </script>
 
-    <script type="text/ng-template" id="accountregister.html">
-        <form class="form-horizontal" role="form" ng-controller="Accounts">
-            <div close="cancel()">
-                <div class="modal-header">
-                    <h3>{{'REGISTER' | translate}}</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input class="form-control" id="inputUserName" placeholder="Username" ng-model="formInfo.userName">
+<script type="text/ng-template" id="accountregister.html">
+        <div data-ng-controller="Accounts as vmRegisterAccount">
+            <form class="form-horizontal" role="form">
+                <div close="cancel()">
+                    <div class="modal-header">
+                        <h3>{{'REGISTER' | translate}}</h3>
                     </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="inputPassword1" placeholder="Password" ng-model="formInfo.password1">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input class="form-control" id="inputUserName" placeholder="Username" ng-model="vmRegisterAccount.formInfo.userName">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="inputPassword1" placeholder="Password" ng-model="vmRegisterAccount.formInfo.password1">
+
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="inputPassword2" placeholder="Repeat Password" ng-model="vmRegisterAccount.formInfo.password2">
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                            </div>
+                        </div>
+                        <span>{{vmRegisterAccount.formInfo}}</span>
+                        <span ng-show="userNameRequired">{{vmRegisterAccount.userNameRequired}}</span>
+                        <span ng-show="password1Required">{{vmRegisterAccount.password1Required}}</span>
+                        <span ng-show="password2Required">{{vmRegisterAccount.password2Required}}</span>
+                        <span ng-show="passwordNotEqual">{{vmRegisterAccount.passwordNotEqual}}</span>
 
                     </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" id="inputPassword2" placeholder="Repeat Password" ng-model="formInfo.password2">
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" ng-click="vmRegisterAccount.registerUser()">{{'REGISTER' | translate}}</button>
                     </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
+                </div>
+            </form>
+        </div>
+    </script>
+
+
+<script type="text/ng-template" id="login.html">
+        <div data-ng-controller="Accounts as vmLoginAccount">
+            <form class="form-horizontal" role="form">
+                <div close="cancel()">
+                    <div class="modal-header">
+                        <h3>{{'LOGIN' | translate}}</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input class="form-control" id="inputUserName" placeholder="Username" ng-model="vmLoginAccount.userName">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="vmLoginAccount.password">
+
                         </div>
                     </div>
-                    <span>{{formInfo}}</span>
-                    <span ng-show="userNameRequired">{{userNameRequired}}</span>
-                    <span ng-show="password1Required">{{password1Required}}</span>
-                    <span ng-show="password2Required">{{password2Required}}</span>
-                    <span ng-show="passwordNotEqual">{{passwordNotEqual}}</span>
-
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" ng-disabled="vmLoginAccount.userName.length === 0 || vmLoginAccount.password.length === 0" ng-click="vmLoginAccount.login().then(ok())">{{'LOGIN' | translate}}</button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" ng-click="saveData()">{{'REGISTER' | translate}}</button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </script>
+
 </body>
 </html>

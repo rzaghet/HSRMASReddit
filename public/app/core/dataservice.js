@@ -10,6 +10,10 @@
         var isPrimed = false;
         var primePromise;
 
+        function emptyUser() {
+            return { name: '', isAuthenticated: false };
+        };
+
         var service = {
             getEntries: getEntries,
             getLogin: getLogin,
@@ -26,10 +30,18 @@
             dislikeComment: dislikeComment,
             logout: logout,
             ready: ready,
-            test: function() { alert('test'); }
+            authenticateUser: authenticateUser,
+            currentUser: emptyUser()
         };
 
         return service;
+
+        function authenticateUser(userName) {
+            service.currentUser = {
+                name: userName,
+                isAuthenticated: true
+            };
+        };
 
         function getEntries() {
             return $http.get('/entries')
@@ -67,7 +79,7 @@
                 });
 
             function authenticateComplete(data, status, headers, config) {
-                return data.data[0].data.results;
+                return data.data;
             }
         };
 
@@ -81,7 +93,8 @@
                 });
 
             function getRegisterUserComplete(data, status, headers, config) {
-                return data.data[0].data.results;
+                console.log(data);
+                return data.data[0];
             }
         };
 
@@ -94,7 +107,8 @@
                 });
 
             function getUsersComplete(data, status, headers, config) {
-                return data.data[0].data.results;
+                console.log(data.data);
+                return data.data;
             }
         };
 
