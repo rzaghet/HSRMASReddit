@@ -141,10 +141,10 @@
             <form class="form-horizontal" role="form" name="newEntryForm">
             <div class="modal-body">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="entryTitle" placeholder="DUMMYLINKTITLE" ng-model="entryTitle">
+                        <input type="text" class="form-control" name="entryTitle" placeholder="{{'DUMMYLINKTITLE' | translate}}" ng-model="entryTitle">
                     </div>
                     <div class="form-group">
-                        <input type="url" class="form-control" name="entryUrl" placeholder="DUMMYLINKURL" ng-model="entryUrl">
+                        <input type="url" class="form-control" name="entryUrl" placeholder="{{'DUMMYLINKURL' | translate}}" ng-model="entryUrl">
                     </div>
 
             </div>
@@ -259,14 +259,14 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input class="form-control" id="inputUserName" placeholder="USER" ng-model="vmRegisterAccount.formInfo.userName">
+                            <input class="form-control" id="inputUserName" placeholder="{{'USER' |translate}}" ng-model="vmRegisterAccount.formInfo.userName">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="inputPassword1" placeholder="PW" ng-model="vmRegisterAccount.formInfo.password1">
+                            <input type="password" class="form-control" id="inputPassword1" placeholder="{{'PW' |translate}}" ng-model="vmRegisterAccount.formInfo.password1">
 
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="inputPassword2" placeholder="REPEATPW" ng-model="vmRegisterAccount.formInfo.password2">
+                            <input type="password" class="form-control" id="inputPassword2" placeholder="{{'REPEATPW' |translate}}" ng-model="vmRegisterAccount.formInfo.password2">
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
@@ -297,10 +297,10 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input class="form-control" id="inputUserName" placeholder="USER" ng-model="vmLoginAccount.userName">
+                            <input class="form-control" id="inputUserName" placeholder="{{'USER' |translate}}" ng-model="vmLoginAccount.userName">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="PW" ng-model="vmLoginAccount.password">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="{{'PW' |translate}}" ng-model="vmLoginAccount.password">
 
                         </div>
                     </div>
