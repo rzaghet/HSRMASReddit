@@ -5,61 +5,61 @@
         .module('app.entries')
         .controller('Entries',Entries);
 
-    Entries.$inject = ['$scope', '$modal', '$log'];
+    Entries.$inject = ['$scope', '$modal', '$log', 'dataservice'];
 
-
-    function Entries($scope, $modal, $log) {
+    function Entries($scope, $modal, $log, dataservice) {
         /* jshint validthis:true */
         var vm = this;
-       
-        
-        vm.entries = [{
-            "id": 0,
-            "title": "Title",
-            "author": "Author",
-            "url": "http://www.google.ch",
-            "createTime": "2015-01-31T17:32:48.132Z",
-            "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
-            "rating": {
-                "value": 0
-            },
-            "comments":
-            [
-                    {
-                        "id": 0,
-                        "text": "TestComment",
-                        "author": "Author",
-                        "createTime": "2015-01-31T17:32:48.134Z",
-                        "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
-                        "rating": {
-                            "value": 0
-                        },
-                        "comments": [
-                            {
-                                "id": 1,
-                                "text": "TestComment1",
-                                "author": "xyz",
-                                "createTime": "2015-01-31T17:32:48.134Z",
-                                "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
-                                "rating": {
-                                    "value": 0
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "id": 1,
-                        "text": "TestComment1",
-                        "author": "xyz",
-                        "createTime": "2015-01-31T17:32:48.134Z",
-                        "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
-                        "rating": {
-                            "value": 0
-                        }
-                    }
-            ],
-        "voters": []
-        }];
+
+        dataservice.getEntries().then(function (entriesResult) { vm.entries = entriesResult; });
+
+        //vm.entries = [{
+        //    "id": 0,
+        //    "title": "Title",
+        //    "author": "Author",
+        //    "url": "http://www.google.ch",
+        //    "createTime": "2015-01-31T17:32:48.132Z",
+        //    "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
+        //    "rating": {
+        //        "value": 0
+        //    },
+        //    "comments":
+        //    [
+        //            {
+        //                "id": 0,
+        //                "text": "TestComment",
+        //                "author": "Author",
+        //                "createTime": "2015-01-31T17:32:48.134Z",
+        //                "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
+        //                "rating": {
+        //                    "value": 0
+        //                },
+        //                "comments": [
+        //                    {
+        //                        "id": 1,
+        //                        "text": "TestComment1",
+        //                        "author": "xyz",
+        //                        "createTime": "2015-01-31T17:32:48.134Z",
+        //                        "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
+        //                        "rating": {
+        //                            "value": 0
+        //                        }
+        //                    }
+        //                ]
+        //            },
+        //            {
+        //                "id": 1,
+        //                "text": "TestComment1",
+        //                "author": "xyz",
+        //                "createTime": "2015-01-31T17:32:48.134Z",
+        //                "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
+        //                "rating": {
+        //                    "value": 0
+        //                }
+        //            }
+        //    ],
+        //"voters": []
+        //}];
 
         vm.open = openModalEntryController;
         vm.addEntry = addEntry;

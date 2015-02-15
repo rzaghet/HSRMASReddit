@@ -52,7 +52,7 @@
                 });
 
             function getEntriesComplete(data, status, headers, config) {
-                return data.data[0].data.results;
+                return data.data;
             };
         };
 
