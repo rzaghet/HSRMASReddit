@@ -113,7 +113,7 @@
         };
 
         function newEntry(entry) {
-            return $http.post('/entry')
+            return $http.post('/entry', entry)
                 .then(newEntryComplete)
                 .catch(function (message) {
                     exception.catcher('XHR Failed for newEntry')(message);
@@ -121,7 +121,7 @@
                 });
 
             function newEntryComplete(data, status, headers, config) {
-                return data.data[0].data.results;
+                return data.data;
             }
         };
 

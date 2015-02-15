@@ -71,6 +71,7 @@
         function openModalEntryController (size) {
                 var modalInstance = $modal.open({
                     templateUrl: 'newentry.html',
+                    controllerAs: '',
                     controller: 'ModalEntryController',
                     size: size,
                     resolve: {
@@ -92,7 +93,13 @@
         };
 
         function addEntry(newEntry) {
-            vm.entries.push(newEntry);
+            return dataservice.newEntry(newEntry)
+                .then(function(newEntryResult) {
+                    var promise = this;
+                console.log(newEntryResult);
+                    vm.entries.push(newEntryResult);
+                    return promise;
+                });
         }
 
         //function addEntry() {
@@ -144,9 +151,11 @@
 
     ModalEntryController.$inject = ['$scope', '$modalInstance', 'addEntry'];
     function ModalEntryController($scope, $modalInstance, addEntry) {
+        var vmNewEntry = $scope;
+
         function initializeScope() {
-            $scope.entryTitle = "";
-            $scope.entryUrl = "";
+            vmNewEntry.entryTitle = "";
+            vmNewEntry.entryUrl = "";
         };
 
         initializeScope();
@@ -154,7 +163,10 @@
         //$scope.items = items;
 
         $scope.ok = function () {
-            addEntry({ title: $scope.entryTitle, url: $scope.entryUrl, createTime: Date.now, author:'authenticated user', rating: {value:0} });
+            console.log($scope);
+            console.log($scope.entryTitle);
+            console.log($scope.entryUrl);
+            addEntry({ title: vmNewEntry.entryTitle, url: vmNewEntry.entryUrl, createTime: Date.now, rating: { value: 0 } });
             $modalInstance.close();
         };
 
