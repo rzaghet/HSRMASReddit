@@ -33,7 +33,8 @@
                 'NEWLINK': 'New Link',
                 'OK': 'Ok',
                 'CANCEL': 'Cancel',
-                'REPEATPW': 'Repeat Password'
+                'REPEATPW': 'Repeat Password',
+                'GREETING' : 'Hi'
             });
             $translateProvider.translations('de_DE', {
                 'TITLE': 'Reddit Klon',
@@ -66,7 +67,8 @@
                 'NEWLINK': 'Neuer Link',
                 'OK': 'Ok',
                 'CANCEL': 'Abbruch',
-                'REPEATPW': 'Passwort wiederholen'
+                'REPEATPW': 'Passwort wiederholen',
+                'GREETING' : 'Hallo'
             });
             $translateProvider.preferredLanguage('en_US');
         }
