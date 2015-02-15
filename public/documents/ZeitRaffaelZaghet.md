@@ -25,6 +25,9 @@
     - improved app handling for angularjs
     - Continue with entries html
 
+    ####13.02.2015 and 14.02.2015
+    - improved layout; moved main app to client.html
+    - 4 hours
     
     
     

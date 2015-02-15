@@ -82,6 +82,13 @@ App.Logout() --> CurrentUser => AnonymousUser (Authenticated = false)
     -> .d.ts = Javascript to TypeScript Definition File
     -> .ts.map = Debugging information (Symbol file)
 
+###Browser compatibility
+We tested the application with the newest browsers for (15.02.2015):
+
+- Internet Explorer
+- Chrome
+- Firefox
+
 
 ####Readme.md information
 

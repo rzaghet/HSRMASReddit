@@ -21,21 +21,24 @@
     <script src="/Scripts/moment-timezone.min.js"></script>
     <script src="/Scripts/moment-with-locales.min.js"></script>
     <script src="/Libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/Scripts/ngplus-overlay.js"></script>
+
+    <script src="/app/blocks/logger/logger.module.js"></script>
+    <script src="/app/blocks/logger/logger.js"></script>
+
+
+    <script src="/app/blocks/exception/exception.module.js"></script>
+    <script src="/app/blocks/exception/exception-handler.provider.js"></script>
+    <script src="/app/blocks/exception/exception.js"></script>
+    <script src="/app/blocks/router/router.module.js"></script>
+    <script src="/app/blocks/router/routehelper.js"></script>
 
     <script src="/app/app.module.js"></script>
     <script src="/app/app.filters.js"></script>
     <script src="/app/app.config.js"></script>
     <script src="/app/app.js"></script>
 
-    <script src="/app/blocks/exception/exception.module.js"></script>
-    <script src="/app/blocks/exception/exception-handler.provider.js"></script>
-    <script src="/app/blocks/exception/exception.js"></script>
 
-    <script src="/app/blocks/logger/logger.module.js"></script>
-    <script src="/app/blocks/logger/logger.js"></script>
-
-    <script src="/app/blocks/router/router.module.js"></script>
-    <script src="/app/blocks/router/routehelper.js"></script>
 
     <script src="/app/core/core.module.js"></script>
     <script src="/app/core/constants.js"></script>
@@ -51,7 +54,7 @@
     <script src="app/accounts/accounts.js"></script>
 
 </head>
-<body data-ng-app="app" ng-strict-di data-ng-controller="App as redditApp">
+<body data-ng-app="app" data-ng-controller="App as redditApp">
     <div data-ng-controller="Entries as vm">
         <!--menu-->
         <div class="navbar navbar-default navbar-static-top navbar-custom" role="navigation">
@@ -246,7 +249,7 @@
     <script type="text/ng-template" id="emptytemplate.html">
     </script>
 
-<script type="text/ng-template" id="accountregister.html">
+    <script type="text/ng-template" id="accountregister.html">
         <form class="form-horizontal" role="form" ng-controller="Accounts">
             <div close="cancel()">
                 <div class="modal-header">

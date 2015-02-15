@@ -11,6 +11,11 @@
         /*
          * Feature areas
          */
+        'blocks.logger',
+        'blocks.exception',
+        'blocks.router',
+
+        'app.core',
         'app.entries',
         'app.comments',
         'app.accounts'

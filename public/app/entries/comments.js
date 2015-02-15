@@ -20,7 +20,7 @@
                 "id": 1,
                 "text": vm.newComment,
                 "author": "xyz",
-                "createTime": "2015-01-31T17:32:48.134Z",
+                "createTime": Date.now,
                 "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
                 "rating": {
                     "value": 0

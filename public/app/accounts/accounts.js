@@ -51,7 +51,6 @@
 
 
                 function openModalAccountRegisterController(size) {
-                    alert('test');
                     var modalInstance = $modal.open({
                         templateUrl: 'accountregister.html',
                         controller: 'ModalAccountRegisterController',
