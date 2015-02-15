@@ -2,7 +2,7 @@
     angular.module('app').config([
         '$translateProvider', function($translateProvider) {
 
-            $translateProvider.translations('en', {
+            $translateProvider.translations('en_US', {
                 'TITLE': 'Reddit Clone',
                 'AUTHOR': 'Author',
                 'BY': 'by',
@@ -35,7 +35,7 @@
                 'CANCEL': 'Cancel',
                 'REPEATPW': 'Repeat Password'
             });
-            $translateProvider.translations('de', {
+            $translateProvider.translations('de_DE', {
                 'TITLE': 'Reddit Klon',
                 'AUTHOR': 'Autor',
                 'BY': 'von',
@@ -68,7 +68,7 @@
                 'CANCEL': 'Abbruch',
                 'REPEATPW': 'Passwort wiederholen'
             });
-            $translateProvider.preferredLanguage('en');
+            $translateProvider.preferredLanguage('en_US');
         }
     ]);
 })();

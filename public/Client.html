@@ -75,9 +75,9 @@
                         <li><a href="#" data-ng-click="vm.open()">{{'NEWLINK' | translate}}</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{'LANGUAGE' | translate}}<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a ng-click="redditApp.changeLanguage('de')">{{'GERMAN' | translate}}</a></li>
-                                <li><a ng-click="redditApp.changeLanguage('en')">{{'ENGLISH' | translate}}</a></li>
+                            <ul class="dropdown-menu" data-ng-controller="LangCtrl">
+                                <li><a ng-click="changeLang('de_DE')">{{'GERMAN' | translate}}</a></li>
+                                <li><a ng-click="changeLang('en_US')">{{'ENGLISH' | translate}}</a></li>
                             </ul>
                         </li>
                         <li><a href="#" data-ng-click="redditApp.showAboutDialog()">{{'ABOUT' | translate}}</a></li>
@@ -111,7 +111,7 @@
 
                         <a class="" data-ng-click="entry.replyTemplate='entrycommenteditortemplate.html'">
                             <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
-                                <span> reply</span>
+                                <span> {{'REPLY' | translate}}</span>
                             </div>
                         </a>
                         <div data-ng-include="entry.replyTemplate">
