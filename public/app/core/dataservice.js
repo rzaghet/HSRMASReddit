@@ -31,7 +31,8 @@
             logout: logout,
             ready: ready,
             authenticateUser: authenticateUser,
-            currentUser: emptyUser()
+            currentUser: emptyUser(),
+            logoutUser: logoutUser
         };
 
         return service;
@@ -40,6 +41,13 @@
             service.currentUser = {
                 name: userName,
                 isAuthenticated: true
+            };
+        };
+
+        function logoutUser() {
+            service.currentUser = {
+                name: "",
+                isAuthenticated: false
             };
         };
 
@@ -227,7 +235,7 @@
                 });
 
             function logoutComplete(data, status, headers, config) {
-                return data.data[0].data.results;
+                return data.data;
             }
         };
 

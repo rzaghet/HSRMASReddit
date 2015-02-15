@@ -15,6 +15,18 @@
         vm.password = '';
         vm.userName = '';
         vm.login = login;
+        vm.logoutUser = logoutUser;
+
+        function logoutUser() {
+            return dataservice.logout()
+                    .then(function (logoutSuccess) {
+                        var promise = this;
+                        if (logoutSuccess) {
+                            dataservice.logoutUser();
+                        }
+                        return promise;
+                    });
+        };
 
         function login() {
             var user = {
@@ -30,6 +42,9 @@
                 return promise;
             });
         };
+
+        
+
 
         function registerUser() {
             console.log(vm.formInfo);
