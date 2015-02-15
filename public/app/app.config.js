@@ -28,8 +28,8 @@
                 'LANGUAGE': 'Language',
                 'GERMAN': 'German',
                 'ENGLISH': 'English',
-                'ABOUT': "Über",
-                'ABOUTTEXT': "MAS RedditClone entwickelt von..."
+                'ABOUT': "About",
+                'ABOUTTEXT': "MAS RedditClone developed by..."
             });
             $translateProvider.translations('de', {
                 'TITLE': 'Reddit Klon',
@@ -48,17 +48,17 @@
                 'REGISTER': 'Registrieren',
                 'NEWLINKBUTTON': 'Übertrage neuen Link',
                 'NEWLINKTITLE': 'Übertrage einen neuen Link',
-                'NEWLINKSUBTITLE': 'Die community wartet auf deinen Link!',
+                'NEWLINKSUBTITLE': 'Die Community wartet auf deinen Link!',
                 'DUMMYLINKTITLE': 'Titel...',
                 'DUMMYLINKURL': 'URL...',
                 'NEWUSERTITLE': 'Erzeuge einen neuen Benutzer-Konto',
-                'NEWUSERSUBTITLE': 'Du brauhst nur einen Benutzernamen und eine Passwort',
+                'NEWUSERSUBTITLE': 'Du brauchst nur einen Benutzernamen und ein Passwort',
                 'DUMMYREPEATPW': 'Passwort wiederholen',
                 'LANGUAGE': 'Sprache',
                 'GERMAN': 'Deutsch',
                 'ENGLISH': 'Englisch',
-                'ABOUT': "About",
-                'ABOUTTEXT': "MAS RedditClone developed by..."
+                'ABOUT': "Über",
+                'ABOUTTEXT': "MAS RedditClone entwickelt von..."
             });
             $translateProvider.preferredLanguage('en');
         }
