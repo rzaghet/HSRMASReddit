@@ -11,7 +11,6 @@
         //alert(dataservice.getUsers());
         //alert(dataservice.registerUser({name:'abc1', password:'abc1'}));
         var vm = this;
-        vm.changeLanguage = changeLanguage;
         vm.showAboutDialog = showAboutDialog;
         vm.dataservice = dataservice;
 
@@ -28,11 +27,6 @@
             });
 
         };
-
-        function changeLanguage(newLocale) {
-            window.moment.locale(newLocale);
-            //$scope.reload();
-        }
     };
 
     angular.module('app').controller('ModalAboutController', ModalAboutController);
@@ -43,5 +37,29 @@
             $modalInstance.close();
         };
     }
+
+
+
+    angular.module('app').controller('LangCtrl', Translator);
+
+    Translator.$inject = ['$scope','$translate', '$window'];
+    function Translator($scope, $translate, $window) {
+        $scope.changeLang = function (key) {
+            var vm = this;
+
+            $translate.use(key).then(function (key) {
+                if(key === 'de_DE') {
+                    $window.moment.locale('de');
+                }
+                if(key === 'en_US') {
+                    $window.moment.locale('en');
+                }
+
+                console.log("Sprache zu " + key + " gewechselt.");
+            }, function (key) {
+                console.log("Irgendwas lief schief.");
+            });
+        };
+    };
 
 }());

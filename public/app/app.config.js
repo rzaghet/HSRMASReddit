@@ -2,7 +2,7 @@
     angular.module('app').config([
         '$translateProvider', function($translateProvider) {
 
-            $translateProvider.translations('en', {
+            $translateProvider.translations('en_US', {
                 'TITLE': 'Reddit Clone',
                 'AUTHOR': 'Author',
                 'BY': 'by',
@@ -28,10 +28,14 @@
                 'LANGUAGE': 'Language',
                 'GERMAN': 'German',
                 'ENGLISH': 'English',
-                'ABOUT': "About",
-                'ABOUTTEXT': "MAS RedditClone developed by..."
+                'ABOUT': 'About',
+                'ABOUTTEXT': 'MAS RedditClone developed by...',
+                'NEWLINK': 'New Link',
+                'OK': 'Ok',
+                'CANCEL': 'Cancel',
+                'REPEATPW': 'Repeat Password'
             });
-            $translateProvider.translations('de', {
+            $translateProvider.translations('de_DE', {
                 'TITLE': 'Reddit Klon',
                 'AUTHOR': 'Autor',
                 'BY': 'von',
@@ -57,10 +61,14 @@
                 'LANGUAGE': 'Sprache',
                 'GERMAN': 'Deutsch',
                 'ENGLISH': 'Englisch',
-                'ABOUT': "Über",
-                'ABOUTTEXT': "MAS RedditClone entwickelt von..."
+                'ABOUT': 'Über',
+                'ABOUTTEXT': 'MAS RedditClone entwickelt von...',
+                'NEWLINK': 'Neuer Link',
+                'OK': 'Ok',
+                'CANCEL': 'Abbruch',
+                'REPEATPW': 'Passwort wiederholen'
             });
-            $translateProvider.preferredLanguage('en');
+            $translateProvider.preferredLanguage('en_US');
         }
     ]);
 })();
