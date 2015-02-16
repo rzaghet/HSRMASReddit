@@ -11,8 +11,8 @@
         /* jshint validthis:true */
         var vm = this;
 
-        dataservice.getEntries().then(function (entriesResult) { vm.entries = entriesResult; });
-
+        dataservice.getEntries().then(function (entriesResult) { vm.entries = entriesResult});
+        
         //vm.entries = [{
         //    "id": 0,
         //    "title": "Title",
@@ -65,7 +65,8 @@
         vm.addEntry = addEntry;
         //vm.votingEnabled = false;
         vm.title = "test";
-        vm.vote = vote;
+        vm.voteEntry = voteEntry;
+        vm.voteComment = voteComment;
         vm.showComments = false;
         
         function openModalEntryController (size) {
@@ -88,8 +89,35 @@
 
             };
         
-        function vote(item, voteNumber) {
-            item.rating.value += voteNumber;
+        function voteEntry(item, voteNumber) {
+            if (voteNumber === 1) {
+                dataservice.likeEntry(item.id).then(function (voteCountResult) {
+                    item.rating.value = voteCountResult;
+                });
+            }
+            if (voteNumber === -1) {
+                dataservice.dislikeEntry(item.id).then(function (voteCountResult) {
+                    item.rating.value = voteCountResult;
+                });
+            }
+
+            //;
+            //item.rating.value += voteNumber;
+        };
+
+        function voteComment(item, voteNumber) {
+            if (voteNumber === 1) {
+                dataservice.likeComment(item.id).then(function (voteCountResult) {
+                    item.rating.value = voteCountResult;
+                });
+            }
+
+            if (voteNumber === -1) {
+                dataservice.dislikeComment(item.id).then(function (voteCountResult) {
+                    item.rating.value = voteCountResult;
+                });
+            }
+            //item.rating.value += voteNumber;
         };
 
         function addEntry(newEntry) {

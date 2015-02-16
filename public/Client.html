@@ -183,24 +183,24 @@
 <script type="text/ng-template" id="votetemplate.html">
     <div class="vote upvote glyphicon glyphicon-thumbs-up"
          data-ng-class="{votedisabled: !redditApp.dataservice.currentUser.isAuthenticated}"
-         data-ng-click="!redditApp.dataservice.currentUser.isAuthenticated || vm.vote(entry, 1)">
+         data-ng-click="!redditApp.dataservice.currentUser.isAuthenticated || vm.voteEntry(entry, 1)">
     </div>
         <div class="totalvote">{{entry.rating.value}}</div>
     <div class="vote downvote glyphicon glyphicon-thumbs-down"
          data-ng-class="{votedisabled: !redditApp.dataservice.currentUser.isAuthenticated}"
-         data-ng-click="!redditApp.dataservice.currentUser.isAuthenticated || vm.vote(entry, -1)"></div>
+         data-ng-click="!redditApp.dataservice.currentUser.isAuthenticated || vm.voteEntry(entry, -1)"></div>
     </script>
 
 <script type="text/ng-template" id="commenttemplate.html">
         <div class="commentvote">
             <div class="upvote glyphicon glyphicon-thumbs-up"
                  data-ng-class="{votedisabled: !redditApp.dataservice.currentUser.isAuthenticated}"
-                 data-ng-click="!redditApp.dataservice.currentUser.isAuthenticated || vm.vote(comment, 1)">
+                 data-ng-click="!redditApp.dataservice.currentUser.isAuthenticated || vm.voteComment(comment, 1)">
             </div>
             <div class="totalvote">{{comment.rating.value}}</div>
             <div class="downvote glyphicon glyphicon-thumbs-down"
                  data-ng-class="{votedisabled: !redditApp.dataservice.currentUser.isAuthenticated}"
-                 data-ng-click="!redditApp.dataservice.currentUser.isAuthenticated || vm.vote(comment, -1)">
+                 data-ng-click="!redditApp.dataservice.currentUser.isAuthenticated || vm.voteComment(comment, -1)">
             </div>
         </div>
         <div class="commentdetails">

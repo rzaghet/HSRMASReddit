@@ -142,7 +142,8 @@
                 });
 
             function likeEntryComplete(data, status, headers, config) {
-                return data.data[0].data.results;
+                console.log(data.data);
+                return data.data;
             }
         };
 
@@ -155,7 +156,7 @@
                 });
 
             function dislikeEntryComplete(data, status, headers, config) {
-                return data.data[0].data.results;
+                return data.data;
             }
         };
 
@@ -209,7 +210,7 @@
                 });
 
             function likeCommentComplete(data, status, headers, config) {
-                return data.data[0].data.results;
+                return data.data;
             }
         };
 
@@ -222,7 +223,7 @@
                 });
 
             function dislikeCommentComplete(data, status, headers, config) {
-                return data.data[0].data.results;
+                return data.data;
             }
         };
 
