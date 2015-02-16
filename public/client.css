@@ -52,6 +52,11 @@
     color: red;
 }
 
+.votedisabled {
+    color: grey;
+}
+
+
 .entrytitle {
     font-size: 20px;
 }

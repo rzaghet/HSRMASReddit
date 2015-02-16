@@ -63,7 +63,7 @@
 
         vm.open = openModalEntryController;
         vm.addEntry = addEntry;
-        vm.votingEnabled = false;
+        //vm.votingEnabled = false;
         vm.title = "test";
         vm.vote = vote;
         vm.showComments = false;
