@@ -29,24 +29,45 @@
     cursor: pointer;
 }
 
-/*.comment {
+.showhidecomments {
+    float: left;
+}
+
+.showhidecommenteditor {
+    float: left;
+    margin-left: 15px;
+}
+
+.showhidecommentcomments:hover {
+    cursor: pointer;
+}
+
+.showhidecommentcommenteditor:hover {
+    cursor: pointer;
+}
+
+.showhidecommentcomments {
     float: left;
     margin-left: 20px;
-    margin-right: 20px;
-}*/
+}
 
-
-/*.commentdetails {
+.comment {
     float: left;
-}*/
-
-/*.commentallcomments {
     clear: both;
-}*/
+    padding-left: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 
-/*.commentvote {
+.commentdetails {
     float: left;
-}*/
+    margin-left: 20px;
+}
+
+.commentvote {
+    float: left;
+}
+
 
 .upvote {
     color: green;
