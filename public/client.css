@@ -25,24 +25,28 @@
     cursor: pointer;    
 }
 
-.comment {
+.showhidecommenteditor:hover {
+    cursor: pointer;
+}
+
+/*.comment {
     float: left;
     margin-left: 20px;
     margin-right: 20px;
-}
+}*/
 
 
-.commentdetails {
+/*.commentdetails {
     float: left;
-}
+}*/
 
-.commentallcomments {
+/*.commentallcomments {
     clear: both;
-}
+}*/
 
-.commentvote {
+/*.commentvote {
     float: left;
-}
+}*/
 
 .upvote {
     color: green;
