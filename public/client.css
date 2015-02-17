@@ -10,7 +10,6 @@
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
-
 }
 
 .vote {
@@ -20,22 +19,12 @@
     cursor: pointer;
 }
 
-
 .showhidecomments:hover {
     cursor: pointer;    
 }
 
 .showhidecommenteditor:hover {
     cursor: pointer;
-}
-
-.showhidecomments {
-    float: left;
-}
-
-.showhidecommenteditor {
-    float: left;
-    margin-left: 15px;
 }
 
 .showhidecommentcomments:hover {
@@ -47,8 +36,11 @@
 }
 
 .showhidecommentcomments {
-    float: left;
-    margin-left: 20px;
+    padding-left: 20px;
+}
+
+.showhidecommentcommenteditor {
+    padding-left: 35px;
 }
 
 .comment {
@@ -68,6 +60,19 @@
     float: left;
 }
 
+.commenttext {
+    color: #008800;
+}
+
+.commentdialog {
+    display: inline;
+    float: left;
+    clear: both;
+}
+
+.commenttextarea {
+    width: 300px;
+}
 
 .upvote {
     color: green;
@@ -88,15 +93,6 @@
 
 .buttondisplay {
     display: block;
-}
-
-.commentdialog {
-    float: left;
-    clear: both;
-}
-
-.commenttextarea {
-    width: 300px;
 }
 
 /**bootstrap menu*/
