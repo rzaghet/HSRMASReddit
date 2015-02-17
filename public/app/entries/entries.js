@@ -12,7 +12,16 @@
         var vm = this;
 
         dataservice.getEntries().then(function (entriesResult) { vm.entries = entriesResult});
-        
+        dataservice.onNewEntry.subscribe(function (newLink) {
+            vm.entries.push(newLink);
+            $scope.$digest();
+        });
+
+        dataservice.onNewEntryComment.subscribe(function (newEntryComment) {
+            
+            $scope.$digest();
+        });
+
         //vm.entries = [{
         //    "id": 0,
         //    "title": "Title",
@@ -124,8 +133,8 @@
             return dataservice.newEntry(newEntry)
                 .then(function(newEntryResult) {
                     var promise = this;
-                console.log(newEntryResult);
-                    vm.entries.push(newEntryResult);
+                //console.log(newEntryResult);
+                //    vm.entries.push(newEntryResult);
                     return promise;
                 });
         }

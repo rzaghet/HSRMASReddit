@@ -118,7 +118,7 @@ app.post('/entry', function(req, res) {
     var newLink = new Link(entries.length, req.body.title, users[req.session.user_id].name, req.body.url);	
  	entries.push(newLink);
  	res.json(newLink);
- 	io.sockets.emit('message', { action: "AddLink" });
+ 	io.sockets.emit('message', { action: "AddLink", data:newLink});
 });
 
 app.get('/entry/:id', function(req, res) {
@@ -142,7 +142,7 @@ app.post('/entry/:id/comment', checkAuth, function (req, res) {
     var entry = entries[req.params.id];
     entry.comments.push(newComment);
     res.json(newComment);
-    io.sockets.emit('message', { action: "AddComment" });
+    io.sockets.emit('message', { action: "AddEntryComment", data: {entryId: entry.id, newComment: newComment} });
 });
 
 app.post('/comment/:id/', checkAuth, function (req, res) {

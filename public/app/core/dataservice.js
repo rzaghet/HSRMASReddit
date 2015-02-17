@@ -14,6 +14,51 @@
             return { name: '', isAuthenticated: false };
         };
 
+      
+
+
+        function IoObserver() {
+            this.handlers = [];
+        }
+
+        IoObserver.prototype = {
+            subscribe: function(fn) {
+                this.handlers.push(fn);
+            },
+
+            unsubscribe: function(fn) {
+                this.handlers = this.handlers.filter(
+                    function(item) {
+                        if (item !== fn) {
+                            return item;
+                        }
+                        return null;
+                    }
+                );
+            },
+
+            fire: function(o, thisObj) {
+                var scope = thisObj || window;
+                this.handlers.forEach(function(item) {
+                    item.call(scope, o);
+                });
+            }
+        };
+
+        var onNewEntry = new IoObserver();
+        var onNewEntryComment = new IoObserver();
+
+        var socket = window.io.connect('http://localhost:4730');
+        socket.on('message', function (messageInfo) {
+            if (messageInfo.action === 'AddLink') {
+                onNewEntry.fire(messageInfo.data);
+            }
+
+            if (messageInfo.action === 'AddEntryComment') {
+                onNewEntryComment.fire(messageInfo.data);
+            }
+        });
+
         var service = {
             getEntries: getEntries,
             getLogin: getLogin,
@@ -32,7 +77,9 @@
             ready: ready,
             authenticateUser: authenticateUser,
             currentUser: emptyUser(),
-            logoutUser: logoutUser
+            logoutUser: logoutUser,
+            onNewEntry: onNewEntry,
+            onNewEntryComment: onNewEntryComment
         };
 
         return service;
