@@ -90,7 +90,14 @@
     display: block;
 }
 
+.commentdialog {
+    float: left;
+    clear: both;
+}
 
+.commenttextarea {
+    width: 300px;
+}
 
 /**bootstrap menu*/
 .navbar-custom {
