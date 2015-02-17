@@ -25,24 +25,49 @@
     cursor: pointer;    
 }
 
-.comment {
-    float: left;
-    margin-left: 20px;
-    margin-right: 20px;
+.showhidecommenteditor:hover {
+    cursor: pointer;
 }
 
+.showhidecomments {
+    float: left;
+}
+
+.showhidecommenteditor {
+    float: left;
+    margin-left: 15px;
+}
+
+.showhidecommentcomments:hover {
+    cursor: pointer;
+}
+
+.showhidecommentcommenteditor:hover {
+    cursor: pointer;
+}
+
+.showhidecommentcomments {
+    float: left;
+    margin-left: 20px;
+}
+
+.comment {
+    float: left;
+    clear: both;
+    padding-left: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 
 .commentdetails {
     float: left;
-}
-
-.commentallcomments {
-    clear: both;
+    margin-left: 20px;
 }
 
 .commentvote {
     float: left;
 }
+
 
 .upvote {
     color: green;
@@ -65,7 +90,14 @@
     display: block;
 }
 
+.commentdialog {
+    float: left;
+    clear: both;
+}
 
+.commenttextarea {
+    width: 300px;
+}
 
 /**bootstrap menu*/
 .navbar-custom {

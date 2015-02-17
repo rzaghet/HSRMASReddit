@@ -218,14 +218,14 @@
         </div>
         <div class="commentallcomments">
             <a class="" data-ng-click="comment.showComments = !comment.showComments">
-                <div class="showhidecomments glyphicon glyphicon-comment">
+                <div class="showhidecommentcomments glyphicon glyphicon-comment">
                     <span>{{comment.comments.length}} {{'COMMENTS' | translate}}</span>
                 </div>
             </a>
             <div ng-init="comment.replyTemplate='emptytemplate.html'" />
             <a class="" data-ng-click="comment.replyTemplate='commenteditortemplate.html'">
                 <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
-                    <span> reply</span>
+                    <span> {{'REPLY' | translate}}</span>
                 </div>
             </a>
             <div data-ng-include="comment.replyTemplate">
@@ -240,31 +240,35 @@
     </script>
 
 <script type="text/ng-template" id="commenteditortemplate.html">
-        <form class="form-horizontal" role="form">
-            <div class="form-group col-sm-4 ">
-                <textarea class="form-control" maxlength="255" name="commentText" ng-model="vmComments.newComment"></textarea>
-            </div>
-            <div class="form-group col-sm-4 col-sm-offset-2">
-                <div class="buttondisplay pull-right">
-                    <button class="btn" ng-disabled="vmComments.newComment.length===0" ng-click="vmComments.addNew(comment, comment.id, 'comment');comment.replyTemplate='emptytemplate.html'">{{'REPLY' | translate}}</button>
-                    <button class="btn" ng-click="comment.replyTemplate='emptytemplate.html'">{{'CANCEL' | translate}}</button>
+        <div class="commentdialog">
+            <form class="form-horizontal" role="form">
+                <div class="form-group col-sm-4 commenttextarea">
+                    <textarea class="form-control" maxlength="255" name="commentText" ng-model="vmComments.newComment"></textarea>
                 </div>
-            </div>
-        </form>
+                <div class="form-group col-sm-4 col-sm-offset-2">
+                    <div class="buttondisplay pull-right">
+                        <button class="btn" ng-disabled="vmComments.newComment.length===0" ng-click="vmComments.addNew(comment, comment.id, 'comment');comment.replyTemplate='emptytemplate.html'">{{'REPLY' | translate}}</button>
+                        <button class="btn" ng-click="comment.replyTemplate='emptytemplate.html'">{{'CANCEL' | translate}}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </script>
 
 <script type="text/ng-template" id="entrycommenteditortemplate.html">
-        <form class="form-horizontal" role="form">
-            <div class="form-group col-sm-4">
-                <textarea class="form-control" maxlength="255" name="commentText" ng-model="vmEntryComments.newComment"></textarea>
-            </div>
-            <div class="form-group col-sm-4 clearfixed">
-                <div class="buttondisplay pull-right">
-                    <button class="btn" ng-disabled="vmEntryComments.newComment.length===0" ng-click="vmEntryComments.addNew(entry, entry.id, 'entry');entry.replyTemplate='emptytemplate.html'">{{'REPLY' | translate}}</button>
-                    <button class="btn" ng-click="entry.replyTemplate='emptytemplate.html'">{{'CANCEL' | translate}}</button>
+        <div class="commentdialog">
+            <form class="form-horizontal" role="form">
+                <div class="form-group col-sm-4 commenttextarea">
+                    <textarea class="form-control" maxlength="255" name="commentText" ng-model="vmEntryComments.newComment"></textarea>
                 </div>
-            </div>
-        </form>
+                <div class="form-group col-sm-4 clearfixed">
+                    <div class="buttondisplay pull-right">
+                        <button class="btn" ng-disabled="vmEntryComments.newComment.length===0" ng-click="vmEntryComments.addNew(entry, entry.id, 'entry');entry.replyTemplate='emptytemplate.html'">{{'REPLY' | translate}}</button>
+                        <button class="btn" ng-click="entry.replyTemplate='emptytemplate.html'">{{'CANCEL' | translate}}</button>
+                    </div>
+                </div>
+            </form>, entry.id, 'entry'
+        </div>
     </script>
 
 <script type="text/ng-template" id="emptytemplate.html">
