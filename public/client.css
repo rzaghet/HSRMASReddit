@@ -29,26 +29,31 @@
     cursor: pointer;
 }
 
-.showhidecomments {
-    float: left;
-}
-
-.showhidecommenteditor {
-    float: left;
-    margin-left: 15px;
-}
-
 .showhidecommentcomments:hover {
     cursor: pointer;
 }
 
-.showhidecommentcommenteditor:hover {
-    cursor: pointer;
+/*.entryallcomments {
+    display: inline;
+}*/
+
+.showhidecomments {
+    /*float: left;*/
+}
+
+.showhidecommenteditor {
+    /*float: left;*/
+    /*margin-left: 10px;*/
 }
 
 .showhidecommentcomments {
-    float: left;
-    margin-left: 20px;
+    /*float: left;*/
+    padding-left: 20px;
+}
+
+.showhidecommentcommenteditor {
+    /*float: left;*/
+    padding-left: 35px;
 }
 
 .comment {
@@ -68,6 +73,14 @@
     float: left;
 }
 
+/*.commentdialog {
+    float: left;
+    clear: both;
+}*/
+
+/*.commenttextarea {
+    width: 300px;
+}*/
 
 .upvote {
     color: green;
@@ -88,15 +101,6 @@
 
 .buttondisplay {
     display: block;
-}
-
-.commentdialog {
-    float: left;
-    clear: both;
-}
-
-.commenttextarea {
-    width: 300px;
 }
 
 /**bootstrap menu*/
