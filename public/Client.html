@@ -216,7 +216,7 @@
             <div ng-init="comment.replyTemplate='emptytemplate.html'" />
             <a class="" data-ng-click="comment.replyTemplate='commenteditortemplate.html'">
                 <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
-                    <span> reply</span>
+                    <span> {{'REPLY' | translate}}</span>
                 </div>
             </a>
             <div data-ng-include="comment.replyTemplate">
