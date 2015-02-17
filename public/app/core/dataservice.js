@@ -170,7 +170,7 @@
                 });
 
             function getEntryComplete(data, status, headers, config) {
-                return data.data[0].data.results;
+                return data.data[0];
             }
         };
 
@@ -183,13 +183,13 @@
                 });
 
             function newEntryCommentComplete(data, status, headers, config) {
-                return data.data[0].data.results;
+                return data.data;
             }
         };
 
 
         function newCommentComment(commentId, comment) {
-            return $http.post('/entry/' + commentId + '/comment', { text: comment.text })
+            return $http.post('/comment/' + commentId + '/', { text: comment.text })
                 .then(newCommentCommentComplete)
                 .catch(function (message) {
                     exception.catcher('XHR Failed for newCommentComment')(message);
@@ -197,7 +197,7 @@
                 });
 
             function newCommentCommentComplete(data, status, headers, config) {
-                return data.data[0].data.results;
+                return data.data;
             }
         };
 
