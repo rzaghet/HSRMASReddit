@@ -149,7 +149,7 @@
 
             function getRegisterUserComplete(data, status, headers, config) {
                 console.log(data);
-                return data.data[0];
+                return data.data;
             }
         };
 

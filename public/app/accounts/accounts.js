@@ -52,26 +52,20 @@
         function registerUser() {
             console.log(vm.formInfo);
           
-            var responsePromise = $.post("http://localhost:4730/register",
-            {
+            var registerUser = {
                 name: vm.formInfo.userName,
                 password: vm.formInfo.password1
-            });
+            };
 
-            
-            responsePromise.success(function (dataFromServer, status, headers, config) {
-                console.log(dataFromServer.data);
-
-                //login User
-                vm.userName = vm.formInfo.userName;
-                vm.password = vm.formInfo.password1;
-                login();
-
-            });
-            responsePromise.error(function (data, status, headers, config) {
-                alert("Submitting form failed!");
-            });
-
+            return dataservice.registerUser(registerUser)
+                    .then(function (registerSuccess) {
+                        var promise = this;
+                        if (registerSuccess) {
+                            vm.userName = vm.formInfo.userName;
+                            vm.password = vm.formInfo.password1;
+                            login();
+                        }
+                    })
         };
 
 
