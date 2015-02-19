@@ -54,7 +54,7 @@
                         var promise = this;
                         if (getUsersSuccess) {
                             console.info(getUsersSuccess)
-                            for (var i = 0; i < getUsersSuccess.length; i++) {
+                            for (var i in getUsersSuccess) {
                                 if (getUsersSuccess[i].name === vm.formInfo.userName) {
                                     console.info("Name already exist")
                                     vm.UserExist = true;
