@@ -284,7 +284,7 @@
 
         function initializeScope() {
             vmNewEntry.entryTitle = "";
-            vmNewEntry.entryUrl = "";
+            vmNewEntry.entryUrl = "http://";
         };
 
         initializeScope();
