@@ -124,7 +124,7 @@
                         <div ng-init="entry.replyTemplate='emptytemplate.html'">
                         </div>
 
-                        <a class="" data-ng-click="entry.replyTemplate='entrycommenteditortemplate.html'">
+                        <a class="" ng-show="redditApp.dataservice.currentUser.isAuthenticated" data-ng-click="entry.replyTemplate='entrycommenteditortemplate.html'">
                             <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
                                 <span> {{'REPLY' | translate}}</span>
                             </div>
@@ -223,7 +223,7 @@
                 </div>
             </a>
             <div ng-init="comment.replyTemplate='emptytemplate.html'" />
-            <a class="" data-ng-click="comment.replyTemplate='commenteditortemplate.html'">
+            <a class="" ng-show="redditApp.dataservice.currentUser.isAuthenticated" data-ng-click="comment.replyTemplate='commenteditortemplate.html'">
                 <div class="showhidecommentcommenteditor glyphicon glyphicon-bullhorn">
                     <span> {{'REPLY' | translate}}</span>
                 </div>
