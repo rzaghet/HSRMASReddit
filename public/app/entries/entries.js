@@ -68,9 +68,7 @@
         dataservice.onNewCommentComment.subscribe(function(newCommentComment) {
             
             window.$.each(vm.entries, function (index, entryItem) {
-            
                 var foundComment = findComment(newCommentComment.commentId, entryItem.comments);
-                console.log(foundComment);
                 if (foundComment) {
                     
                     foundComment.comments = foundComment.comments || [];
@@ -81,6 +79,28 @@
                 return true;
             });
         });
+
+        dataservice.onCommentRatingUpdate.subscribe(function(ratingUpdate) {
+                window.$.each(vm.entries, function(index, entryItem) {
+                    var foundComment = findComment(ratingUpdate.commentId, entryItem.comments);
+                    if (foundComment) {
+                        foundComment.rating.value = ratingUpdate.ratingValue;
+                        $scope.$digest();
+                        return false;
+                    }
+                    return true;
+                });
+            }
+        );
+
+        dataservice.onEntryRatingUpdate.subscribe(function (ratingUpdate) {
+            var foundEntry = findEntry(ratingUpdate.entryId);
+            if (foundEntry) {
+                foundEntry.rating.value = ratingUpdate.ratingValue;
+                $scope.$digest();
+            }
+        }
+        );
 
 
             //for (var entryItem in vm.entries) {
@@ -173,12 +193,12 @@
         function voteEntry(item, voteNumber) {
             if (voteNumber === 1) {
                 dataservice.likeEntry(item.id).then(function (voteCountResult) {
-                    item.rating.value = voteCountResult;
+                    //item.rating.value = voteCountResult;
                 });
             }
             if (voteNumber === -1) {
                 dataservice.dislikeEntry(item.id).then(function (voteCountResult) {
-                    item.rating.value = voteCountResult;
+                    //item.rating.value = voteCountResult;
                 });
             }
 
@@ -189,13 +209,13 @@
         function voteComment(item, voteNumber) {
             if (voteNumber === 1) {
                 dataservice.likeComment(item.id).then(function (voteCountResult) {
-                    item.rating.value = voteCountResult;
+                    //item.rating.value = voteCountResult;
                 });
             }
 
             if (voteNumber === -1) {
                 dataservice.dislikeComment(item.id).then(function (voteCountResult) {
-                    item.rating.value = voteCountResult;
+                    //item.rating.value = voteCountResult;
                 });
             }
             //item.rating.value += voteNumber;

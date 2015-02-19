@@ -48,6 +48,8 @@
         var onNewEntry = new IoObserver();
         var onNewEntryComment = new IoObserver();
         var onNewCommentComment = new IoObserver();
+        var onEntryRatingUpdate = new IoObserver();
+        var onCommentRatingUpdate = new IoObserver();
 
         var socket = window.io.connect('http://localhost:4730');
         socket.on('message', function (messageInfo) {
@@ -62,6 +64,15 @@
             if (messageInfo.action === 'AddCommentComment') {
                 onNewCommentComment.fire(messageInfo.data);
             }
+
+            if (messageInfo.action === 'CommentRated') {
+                onCommentRatingUpdate.fire(messageInfo.data);
+            }
+
+            if (messageInfo.action === 'EntryRated') {
+                onEntryRatingUpdate.fire(messageInfo.data);
+            }
+
         });
 
         var service = {
@@ -85,7 +96,9 @@
             logoutUser: logoutUser,
             onNewEntry: onNewEntry,
             onNewEntryComment: onNewEntryComment,
-            onNewCommentComment: onNewCommentComment
+            onNewCommentComment: onNewCommentComment,
+            onCommentRatingUpdate: onCommentRatingUpdate,
+            onEntryRatingUpdate: onEntryRatingUpdate
         };
 
         return service;
