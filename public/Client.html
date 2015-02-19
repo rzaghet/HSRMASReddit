@@ -298,12 +298,12 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success" ng-click="vmRegisterAccount.registerUser()"
+                        <button type="submit" class="btn btn-success" ng-click="vmRegisterAccount.registerUser().then(ok())"
                                 ng-disabled="vmRegisterAccount.formInfo.userName.length === 0
                                 || vmRegisterAccount.formInfo.password1.length === 0
                                 || vmRegisterAccount.formInfo.password2.length === 0
                                 || vmRegisterAccount.formInfo.password1 !== vmRegisterAccount.formInfo.password2">
-                                {{'REGISTER' | translate}}
+                            {{'REGISTER' | translate}}
                         </button>
                     </div>
                 </div>
