@@ -113,6 +113,7 @@
     <Content Include="Scripts\require.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Scripts\underscore-min.js" />
     <Content Include="ui.js" />
     <Content Include="web.config" />
   </ItemGroup>
