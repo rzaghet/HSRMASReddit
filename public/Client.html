@@ -124,7 +124,7 @@
                         <div ng-init="entry.replyTemplate='emptytemplate.html'">
                         </div>
 
-                        <a class="" ng-show="redditApp.dataservice.currentUser.isAuthenticated" data-ng-click="entry.replyTemplate='entrycommenteditortemplate.html'">
+                        <a class="" data-ng-click="entry.replyTemplate='entrycommenteditortemplate.html'">
                             <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
                                 <span> {{'REPLY' | translate}}</span>
                             </div>
@@ -223,7 +223,7 @@
                 </div>
             </a>
             <div ng-init="comment.replyTemplate='emptytemplate.html'" />
-            <a class="" ng-show="redditApp.dataservice.currentUser.isAuthenticated" data-ng-click="comment.replyTemplate='commenteditortemplate.html'">
+            <a class="" data-ng-click="comment.replyTemplate='commenteditortemplate.html'">
                 <div class="showhidecommentcommenteditor glyphicon glyphicon-bullhorn">
                     <span> {{'REPLY' | translate}}</span>
                 </div>
@@ -296,15 +296,15 @@
                             <div class="col-sm-offset-2 col-sm-10">
                             </div>
                         </div>
-                        <span>{{vmRegisterAccount.formInfo}}</span>
-                        <span ng-show="userNameRequired">{{vmRegisterAccount.userNameRequired}}</span>
-                        <span ng-show="password1Required">{{vmRegisterAccount.password1Required}}</span>
-                        <span ng-show="password2Required">{{vmRegisterAccount.password2Required}}</span>
-                        <span ng-show="passwordNotEqual">{{vmRegisterAccount.passwordNotEqual}}</span>
-
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success" ng-click="vmRegisterAccount.registerUser()">{{'REGISTER' | translate}}</button>
+                        <button type="submit" class="btn btn-success" ng-click="vmRegisterAccount.registerUser()"
+                                ng-disabled="vmRegisterAccount.formInfo.userName.length === 0
+                                || vmRegisterAccount.formInfo.password1.length === 0
+                                || vmRegisterAccount.formInfo.password2.length === 0
+                                || vmRegisterAccount.formInfo.password1 !== vmRegisterAccount.formInfo.password2">
+                                {{'REGISTER' | translate}}
+                        </button>
                     </div>
                 </div>
             </form>

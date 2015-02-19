@@ -14,6 +14,9 @@
         vm.showLoginDialog = openModalLoginController;
         vm.password = '';
         vm.userName = '';
+        vm.formInfo.userName = '';
+        vm.formInfo.password1 = '';
+        vm.formInfo.password2 = '';
         vm.login = login;
         vm.logoutUser = logoutUser;
 
@@ -48,30 +51,7 @@
 
         function registerUser() {
             console.log(vm.formInfo);
-            vm.userNameRequired = '';
-            vm.password1Required = '';
-            vm.password2Required = '';
-
-
-            if (!vm.formInfo.userName) {
-                vm.userNameRequired = 'Name Required';
-            }
-
-            if (!vm.formInfo.password1) {
-                vm.password1Required = 'Password Required';
-            }
-
-            if (!vm.formInfo.password2) {
-                vm.password2Required = 'Retype Password Required';
-            }
-
-            if (vm.formInfo.password1 !== vm.formInfo.password2) {
-                vm.passwordNotEqual = 'Passwords not equal';
-            }
-
-            // ToDo: muss später in den dataservice hinein
-            // ToDo: resultat abfangen. 
-
+          
             var responsePromise = $.post("http://localhost:4730/register",
             {
                 name: vm.formInfo.userName,
