@@ -19,9 +19,9 @@
             comment.comments = comment.comments || [];
 
             var updateComments = function(newCommentResult) {
-                console.log(newCommentResult);
+                //console.log(newCommentResult);
                 vm.newComment = '';
-                comment.comments.push(newCommentResult);
+                //comment.comments.push(newCommentResult);
             };
 
             if (typeString === 'entry') {

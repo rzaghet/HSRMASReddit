@@ -47,6 +47,7 @@
 
         var onNewEntry = new IoObserver();
         var onNewEntryComment = new IoObserver();
+        var onNewCommentComment = new IoObserver();
 
         var socket = window.io.connect('http://localhost:4730');
         socket.on('message', function (messageInfo) {
@@ -56,6 +57,10 @@
 
             if (messageInfo.action === 'AddEntryComment') {
                 onNewEntryComment.fire(messageInfo.data);
+            }
+
+            if (messageInfo.action === 'AddCommentComment') {
+                onNewCommentComment.fire(messageInfo.data);
             }
         });
 
@@ -79,7 +84,8 @@
             currentUser: emptyUser(),
             logoutUser: logoutUser,
             onNewEntry: onNewEntry,
-            onNewEntryComment: onNewEntryComment
+            onNewEntryComment: onNewEntryComment,
+            onNewCommentComment: onNewCommentComment
         };
 
         return service;
@@ -162,7 +168,7 @@
                 });
 
             function getUsersComplete(data, status, headers, config) {
-                console.log(data.data);
+                //console.log(data.data);
                 return data.data;
             }
         };
@@ -189,7 +195,7 @@
                 });
 
             function likeEntryComplete(data, status, headers, config) {
-                console.log(data.data);
+               // console.log(data.data);
                 return data.data;
             }
         };

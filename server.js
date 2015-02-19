@@ -152,7 +152,7 @@ app.post('/comment/:id/', checkAuth, function (req, res) {
     var comment = comments[req.params.id];
     comment.comments.push(newComment);
     res.json(newComment);
-    io.sockets.emit('message', { action: "AddComment" });
+    io.sockets.emit('message', { action: "AddCommentComment", data: { commentId: comment.id, newComment: newComment } });
 });
 
 app.post('/comment/:id/up', checkAuth, function (req, res) {

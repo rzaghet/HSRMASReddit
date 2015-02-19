@@ -17,10 +17,82 @@
             $scope.$digest();
         });
 
-        dataservice.onNewEntryComment.subscribe(function (newEntryComment) {
+        var findEntry = function(entryId) {
+            return window._.find(vm.entries, function(entryItem) {
+                return (entryId === entryItem.id);
+            });
+        };
+
+        var findComment = function(commentId, comments) {
+            if (!comments || comments.length === 0) {
+                return null;
+            }
+
+            var foundComment = null;
+            for (var commentIndexer = 0; commentIndexer < comments.length; commentIndexer++) {
+                var commentItem = comments[commentIndexer];
+                
+                if (commentItem.id === commentId) {
+                    foundComment = commentItem;
+                } else {
+                    foundComment = findComment(commentId, commentItem.comments);
+                }
+
+                if (foundComment) {
+                    break;
+                }
+
+            }
             
-            $scope.$digest();
+            return foundComment;
+        };
+
+        dataservice.onNewEntryComment.subscribe(function(newEntryComment) {
+            var foundEntry = findEntry(newEntryComment.entryId);
+            if (foundEntry) {
+                foundEntry.comments = foundEntry.comments || [];
+                foundEntry.comments.push(newEntryComment.newComment);
+                $scope.$digest();
+            }
+            
         });
+            //window.$.each(vm.entries, function(index, entryItem) {
+            //    if (newEntryComment.entryId === entryItem.id) {
+            //        entryItem.comments = entryItem.comments || [];
+            //        entryItem.comments.push(newEntryComment.newComment);
+            //        return false;
+            //    }
+            //    return true;
+            //});
+
+        dataservice.onNewCommentComment.subscribe(function(newCommentComment) {
+            
+            window.$.each(vm.entries, function (index, entryItem) {
+            
+                var foundComment = findComment(newCommentComment.commentId, entryItem.comments);
+                console.log(foundComment);
+                if (foundComment) {
+                    
+                    foundComment.comments = foundComment.comments || [];
+                    foundComment.comments.push(newCommentComment.newComment);
+                    $scope.$digest();
+                    return false;
+                }
+                return true;
+            });
+        });
+
+
+            //for (var entryItem in vm.entries) {
+            //    if (entryItem.id === newEntryComment.entryId) {
+            //        console.log('adding');
+            //        entryItem.comments = entryItem.comments || [];
+            //        entryItem.comments.push(newEntryComment.newComment);
+            //        break;
+            //    }
+            //}
+           
+        //});
 
         //vm.entries = [{
         //    "id": 0,
