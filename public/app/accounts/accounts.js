@@ -58,9 +58,15 @@
                 password: vm.formInfo.password1
             });
 
-            // funktioninert noch nicht
+            
             responsePromise.success(function (dataFromServer, status, headers, config) {
                 console.log(dataFromServer.data);
+
+                //login User
+                vm.userName = vm.formInfo.userName;
+                vm.password = vm.formInfo.password1;
+                login();
+
             });
             responsePromise.error(function (data, status, headers, config) {
                 alert("Submitting form failed!");
