@@ -84,7 +84,6 @@
                             vm.password = vm.formInfo.password1;
                             login();
                         }
-                        else alert("login already exist");
                         
                     })
         };
