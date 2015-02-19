@@ -283,7 +283,11 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input class="form-control" id="inputUserName" placeholder="{{'USER' |translate}}" ng-model="vmRegisterAccount.formInfo.userName">
+                            <input class="form-control" id="inputUserName" placeholder="{{'USER' |translate}}" ng-model="vmRegisterAccount.formInfo.userName" ng-keydown="vmRegisterAccount.findUser()">
+                            <div class="alert alert-warning" role="alert" ng-show="vmRegisterAccount.UserExist" ng-model="vmRegisterAccount.UserExist">
+                                <span class="sr-only">Error:</span>
+                               {{'USEREXIST' |translate}}
+                            </div>
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" id="inputPassword1" placeholder="{{'PW' |translate}}" ng-model="vmRegisterAccount.formInfo.password1">
@@ -291,6 +295,10 @@
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" id="inputPassword2" placeholder="{{'REPEATPW' |translate}}" ng-model="vmRegisterAccount.formInfo.password2">
+                            <div class="alert alert-warning" role="alert" ng-show=" vmRegisterAccount.formInfo.password1 !== vmRegisterAccount.formInfo.password2">
+                                <span class="sr-only">Error:</span>
+                                {{'PWDNOTEQUAL' |translate}}
+                            </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
@@ -302,7 +310,8 @@
                                 ng-disabled="vmRegisterAccount.formInfo.userName.length === 0
                                 || vmRegisterAccount.formInfo.password1.length === 0
                                 || vmRegisterAccount.formInfo.password2.length === 0
-                                || vmRegisterAccount.formInfo.password1 !== vmRegisterAccount.formInfo.password2">
+                                || vmRegisterAccount.formInfo.password1 !== vmRegisterAccount.formInfo.password2
+                                || vmRegisterAccount.UserExist">
                             {{'REGISTER' | translate}}
                         </button>
                     </div>

@@ -19,6 +19,8 @@
         vm.formInfo.password2 = '';
         vm.login = login;
         vm.logoutUser = logoutUser;
+        vm.findUser = findUser;
+        vm.UserExist = false;
 
         function logoutUser() {
             return dataservice.logout()
@@ -46,7 +48,24 @@
             });
         };
 
-        
+        function findUser() {
+            return dataservice.getUsers()
+                    .then(function (getUsersSuccess) {
+                        var promise = this;
+                        if (getUsersSuccess) {
+                            console.info(getUsersSuccess)
+                            for (var i = 0; i < getUsersSuccess.length; i++) {
+                                if (getUsersSuccess[i].name === vm.formInfo.userName) {
+                                    console.info("Name already exist")
+                                    vm.UserExist = true;
+                                    return
+                                }
+                                vm.UserExist = false;
+                            }
+                        }
+
+                    });
+            };
 
 
         function registerUser() {
@@ -65,6 +84,8 @@
                             vm.password = vm.formInfo.password1;
                             login();
                         }
+                        else alert("login already exist");
+                        
                     })
         };
 
