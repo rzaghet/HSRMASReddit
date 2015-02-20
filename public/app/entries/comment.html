@@ -1,0 +1,37 @@
+﻿<!--<script type="text/ng-template" id="commenttemplate.html">-->
+    <div class="commentvote">
+        <div class="upvote glyphicon glyphicon-thumbs-up"
+             data-ng-class="{votedisabled: !redditApp.dataservice.currentUser.isAuthenticated}"
+             data-ng-click="!redditApp.dataservice.currentUser.isAuthenticated || vm.voteComment(comment, 1)">
+        </div>
+        <div class="totalvote">{{comment.rating.value}}</div>
+        <div class="downvote glyphicon glyphicon-thumbs-down"
+             data-ng-class="{votedisabled: !redditApp.dataservice.currentUser.isAuthenticated}"
+             data-ng-click="!redditApp.dataservice.currentUser.isAuthenticated || vm.voteComment(comment, -1)">
+        </div>
+    </div>
+    <div class="commentdetails">
+        <div class="commenttext">{{comment.text}}</div>
+        <div class="commentsubmitdetails">{{'SUBMITTED' | translate}} {{comment.createTime | fromNow}} {{'BY' | translate}} {{comment.author}}</div>
+    </div>
+    <div class="commentallcomments">
+        <a class="" data-ng-click="comment.showComments = !comment.showComments">
+            <div class="showhidecommentcomments glyphicon glyphicon-comment">
+                <span>{{comment.comments.length}} {{'COMMENTS' | translate}}</span>
+            </div>
+        </a>
+        <div ng-init="comment.replyTemplate='app/entries/empty.html'" />
+        <a class="" ng-show="redditApp.dataservice.currentUser.isAuthenticated" data-ng-click="comment.replyTemplate='app/entries/commenteditor.html'">
+            <div class="showhidecommentcommenteditor glyphicon glyphicon-bullhorn">
+                <span> {{'REPLY' | translate}}</span>
+            </div>
+        </a>
+        <div data-ng-include="comment.replyTemplate">
+
+        </div>
+    </div>
+    <div class="comment" data-ng-repeat="comment in comment.comments"
+         data-ng-include="'app/entries/comment.html'"
+         data-ng-show="$parent.$parent.comment.showComments">
+    </div>
+<!--</script>-->

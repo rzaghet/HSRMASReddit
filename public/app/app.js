@@ -16,7 +16,7 @@
 
         function showAboutDialog(size) {
             var modalInstance = $modal.open({
-                templateUrl: 'about.html',
+                templateUrl: 'app/about.html',
                 controller: 'ModalAboutController',
                 size: size
             });

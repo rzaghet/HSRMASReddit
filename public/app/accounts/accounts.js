@@ -91,7 +91,7 @@
 
         function openModalAccountRegisterController(size) {
             var modalInstance = $modal.open({
-                templateUrl: 'accountregister.html',
+                templateUrl: 'app/accounts/accountregister.html',
                 controller: 'ModalAccountRegisterController',
                 size: size
                 //resolve: {
@@ -110,7 +110,7 @@
 
         function openModalLoginController(size) {
             var modalInstance = $modal.open({
-                templateUrl: 'login.html',
+                templateUrl: 'app/accounts/login.html',
                 controller: 'ModalLoginController',
                 size: size
                 //resolve: {

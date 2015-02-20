@@ -107,7 +107,7 @@
 
 
             <div class="entry" data-ng-repeat="entry in vm.entries">
-                <div class="entryvote" data-ng-include="'votetemplate.html'">
+                <div class="entryvote" data-ng-include="'vote.html'">
                 </div>
                 <div class="entrydetails">
                     <div class="entrytitle">
@@ -121,10 +121,10 @@
                             </div>
                         </a>
                         <div data-ng-controller="Comments as vmEntryComments">
-                            <div ng-init="entry.replyTemplate='emptytemplate.html'">
+                            <div ng-init="entry.replyTemplate='app/entries/empty.html'">
                             </div>
 
-                            <a class="" data-ng-click="entry.replyTemplate='entrycommenteditortemplate.html'">
+                            <a class="" data-ng-click="entry.replyTemplate='app/entries/entrycommenteditor.html'">
                                 <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
                                     <span> reply</span>
                                 </div>
@@ -137,7 +137,7 @@
                     <div class="comments">
                         <div class="comment" data-ng-repeat="comment in entry.comments"
                              data-ng-show="entry.showComments"
-                             data-ng-include="'commenttemplate.html'"
+                             data-ng-include="'app/entries/comment.html'"
                              data-ng-controller="Comments as vmComments">
                         </div>
                     </div>
@@ -175,7 +175,7 @@
                 </div>
             </a>
             <div ng-init="comment.replyTemplate='emptytemplate.html'" />
-            <a class="" data-ng-click="comment.replyTemplate='commenteditortemplate.html'">
+            <a class="" data-ng-click="comment.replyTemplate='app/entries/commenteditor.html'">
                 <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
                     <span> reply</span>
                 </div>

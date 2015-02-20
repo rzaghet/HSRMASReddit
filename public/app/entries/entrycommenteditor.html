@@ -1,0 +1,15 @@
+﻿<!--<script type="text/ng-template" id="entrycommenteditortemplate.html">-->
+    <div class="commentdialog">
+        <form class="form-horizontal" role="form">
+            <div class="form-group col-sm-4 commenttextarea">
+                <textarea class="form-control" maxlength="255" name="commentText" ng-model="vmEntryComments.newComment"></textarea>
+            </div>
+            <div class="form-group col-sm-4 clearfixed">
+                <div class="buttondisplay pull-right">
+                    <button class="btn" ng-disabled="vmEntryComments.newComment.length===0" ng-click="vmEntryComments.addNew(entry, entry.id, 'entry');entry.replyTemplate='app/entries/empty.html'">{{'REPLY' | translate}}</button>
+                    <button class="btn" ng-click="entry.replyTemplate='app/entries/empty.html'">{{'CANCEL' | translate}}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+<!--</script>-->

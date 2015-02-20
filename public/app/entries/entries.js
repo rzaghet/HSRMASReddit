@@ -1,4 +1,5 @@
-﻿(function () {
+﻿/// <reference path="newentry.html" />
+(function () {
     'use strict';
 
     angular
@@ -172,7 +173,7 @@
         
         function openModalEntryController (size) {
                 var modalInstance = $modal.open({
-                    templateUrl: 'newentry.html',
+                    templateUrl: 'app/entries/newentry.html',
                     controllerAs: '',
                     controller: 'ModalEntryController',
                     size: size,
