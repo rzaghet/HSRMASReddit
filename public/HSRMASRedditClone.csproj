@@ -24,8 +24,6 @@
     <Content Include="app\accounts\accounts.js" />
     <Content Include="app\accounts\accounts.module.js" />
     <Content Include="app\accounts\login.html" />
-    <Content Include="app\accounts\register.html" />
-    <Content Include="app\accounts\register2.html" />
     <Content Include="app\app.config.js" />
     <Content Include="app\app.js" />
     <Content Include="app\app.filters.js" />
@@ -45,7 +43,6 @@
     <Content Include="app\entries\comments.module.js" />
     <Content Include="app\entries\config.route.js" />
     <Content Include="app\entries\empty.html" />
-    <Content Include="app\entries\entries.html" />
     <Content Include="app\entries\entries.js" />
     <Content Include="app\entries\entries.module.js" />
     <Content Include="app\app.module.js" />
