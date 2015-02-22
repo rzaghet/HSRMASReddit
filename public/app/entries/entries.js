@@ -4,9 +4,11 @@
 
     angular
         .module('app.entries')
-        .controller('Entries',Entries);
+        .controller('Entries', Entries);
+
 
     Entries.$inject = ['$scope', '$modal', '$log', 'dataservice'];
+
 
     function Entries($scope, $modal, $log, dataservice) {
         /* jshint validthis:true */
@@ -57,14 +59,6 @@
             }
             
         });
-            //window.$.each(vm.entries, function(index, entryItem) {
-            //    if (newEntryComment.entryId === entryItem.id) {
-            //        entryItem.comments = entryItem.comments || [];
-            //        entryItem.comments.push(newEntryComment.newComment);
-            //        return false;
-            //    }
-            //    return true;
-            //});
 
         dataservice.onNewCommentComment.subscribe(function(newCommentComment) {
             
@@ -104,68 +98,8 @@
         );
 
 
-            //for (var entryItem in vm.entries) {
-            //    if (entryItem.id === newEntryComment.entryId) {
-            //        console.log('adding');
-            //        entryItem.comments = entryItem.comments || [];
-            //        entryItem.comments.push(newEntryComment.newComment);
-            //        break;
-            //    }
-            //}
-           
-        //});
-
-        //vm.entries = [{
-        //    "id": 0,
-        //    "title": "Title",
-        //    "author": "Author",
-        //    "url": "http://www.google.ch",
-        //    "createTime": "2015-01-31T17:32:48.132Z",
-        //    "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
-        //    "rating": {
-        //        "value": 0
-        //    },
-        //    "comments":
-        //    [
-        //            {
-        //                "id": 0,
-        //                "text": "TestComment",
-        //                "author": "Author",
-        //                "createTime": "2015-01-31T17:32:48.134Z",
-        //                "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
-        //                "rating": {
-        //                    "value": 0
-        //                },
-        //                "comments": [
-        //                    {
-        //                        "id": 1,
-        //                        "text": "TestComment1",
-        //                        "author": "xyz",
-        //                        "createTime": "2015-01-31T17:32:48.134Z",
-        //                        "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
-        //                        "rating": {
-        //                            "value": 0
-        //                        }
-        //                    }
-        //                ]
-        //            },
-        //            {
-        //                "id": 1,
-        //                "text": "TestComment1",
-        //                "author": "xyz",
-        //                "createTime": "2015-01-31T17:32:48.134Z",
-        //                "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
-        //                "rating": {
-        //                    "value": 0
-        //                }
-        //            }
-        //    ],
-        //"voters": []
-        //}];
-
         vm.open = openModalEntryController;
         vm.addEntry = addEntry;
-        //vm.votingEnabled = false;
         vm.title = "test";
         vm.voteEntry = voteEntry;
         vm.voteComment = voteComment;
@@ -194,32 +128,24 @@
         function voteEntry(item, voteNumber) {
             if (voteNumber === 1) {
                 dataservice.likeEntry(item.id).then(function (voteCountResult) {
-                    //item.rating.value = voteCountResult;
                 });
             }
             if (voteNumber === -1) {
                 dataservice.dislikeEntry(item.id).then(function (voteCountResult) {
-                    //item.rating.value = voteCountResult;
                 });
             }
-
-            //;
-            //item.rating.value += voteNumber;
         };
 
         function voteComment(item, voteNumber) {
             if (voteNumber === 1) {
                 dataservice.likeComment(item.id).then(function (voteCountResult) {
-                    //item.rating.value = voteCountResult;
                 });
             }
 
             if (voteNumber === -1) {
                 dataservice.dislikeComment(item.id).then(function (voteCountResult) {
-                    //item.rating.value = voteCountResult;
                 });
             }
-            //item.rating.value += voteNumber;
         };
 
         function addEntry(newEntry) {
@@ -230,51 +156,7 @@
                 //    vm.entries.push(newEntryResult);
                     return promise;
                 });
-        }
-
-        //function addEntry() {
-
-        //    vm.entries.push({
-        //        "id":
-        //        0,
-        //         "title":"Title",
-        //            "author":
-        //        "Author",
-        //            "url":
-        //        "http://www.google.ch",
-        //            "createTime":
-        //        "2015-01-31T17:32:48.132Z",
-        //            "createTimeDisplay":
-        //        "Saturday, January 31, 2015 : 18:32:48",
-        //            "rating":
-        //        {
-        //            "value":
-        //            0
-        //        },
-        //        "comments":
-        //        [
-        //                {
-        //                    "id": 0,
-        //                    "text": "TestComment",
-        //                    "author": "Author",
-        //                    "createTime": "2015-01-31T17:32:48.134Z",
-        //                    "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
-        //                    "rating": {
-        //                        "value": 0
-        //                    },
-        //                    "comments": []
-        //                }
-        //            ],
-        //       "voters":[]
-        //    });
-        //};
-
-//activate();
-
-        //function activate() {
-
-        //}
-
+        };
     };
 
     angular.module('app.entries').controller('ModalEntryController', ModalEntryController);
@@ -308,3 +190,52 @@
 
 
 })();
+
+
+//vm.entries = [{
+//    "id": 0,
+//    "title": "Title",
+//    "author": "Author",
+//    "url": "http://www.google.ch",
+//    "createTime": "2015-01-31T17:32:48.132Z",
+//    "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
+//    "rating": {
+//        "value": 0
+//    },
+//    "comments":
+//    [
+//            {
+//                "id": 0,
+//                "text": "TestComment",
+//                "author": "Author",
+//                "createTime": "2015-01-31T17:32:48.134Z",
+//                "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
+//                "rating": {
+//                    "value": 0
+//                },
+//                "comments": [
+//                    {
+//                        "id": 1,
+//                        "text": "TestComment1",
+//                        "author": "xyz",
+//                        "createTime": "2015-01-31T17:32:48.134Z",
+//                        "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
+//                        "rating": {
+//                            "value": 0
+//                        }
+//                    }
+//                ]
+//            },
+//            {
+//                "id": 1,
+//                "text": "TestComment1",
+//                "author": "xyz",
+//                "createTime": "2015-01-31T17:32:48.134Z",
+//                "createTimeDisplay": "Saturday, January 31, 2015 : 18:32:48",
+//                "rating": {
+//                    "value": 0
+//                }
+//            }
+//    ],
+//"voters": []
+//}];

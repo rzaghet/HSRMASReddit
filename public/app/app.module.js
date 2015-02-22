@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app', [
-        //'app.core',
+        'ngAnimate',
         'ui.bootstrap',
         'ui.bootstrap.modal',
         /*Custom Filters*/

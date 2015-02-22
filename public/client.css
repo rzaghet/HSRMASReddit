@@ -216,3 +216,29 @@
     height: 95%;
 
 }
+
+
+.entrymation-enter {
+    transition: all 1s;
+    opacity:0;
+    height:0;
+    padding:0;
+    position:relative;
+}
+.entrymation-enter-active {
+    opacity:1;
+    padding: 1em;
+    height: 1.5em;
+}
+.entrymation-leave {
+    transition: all 1s;
+    opacity:1;
+    position:relative;
+    left:0;
+    height: 1.5em;
+}
+.entrymation-leave-active {
+    opacity:0;
+    height:0;
+    padding:0;
+}

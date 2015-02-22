@@ -3,7 +3,7 @@
 
     angular.module('app.entries', [
         // Angular modules 
-        //'ngAnimate',
+        'ngAnimate',
         //'ngRoute'
         'customfilters',
         'pascalprecht.translate',

@@ -52,14 +52,6 @@
     <script src="app/accounts/accounts.js"></script>
 
     <script src="/socket.io/socket.io.js"></script>
-    <!--<script>
-        var socket = io.connect('http://localhost:4730');
-        socket.on('message', function (data) {
-            //console.log(data);
-            //socket.emit('my other event', { my: 'data' });
-        });
-    </script>-->
-
 </head>
 <body data-ng-app="app" data-ng-controller="App as redditApp">
 <div data-ng-controller="Entries as vm">
@@ -104,7 +96,7 @@
 
     <div class="container">
         <!-- core -->
-        <div class="entry" data-ng-repeat="entry in vm.entries">
+        <div class="entry" data-ng-repeat="entry in vm.entries | orderBy:['-rating.value']" data-ng-animate="'entrymation'">
             <div class="entryvote" data-ng-include="'app/entries/vote.html'" >
             </div>
             <div class="entrydetails">
