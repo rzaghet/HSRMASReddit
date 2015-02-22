@@ -4,9 +4,9 @@
     angular.module('app.accounts', [])
         .controller('Accounts', Accounts);
 
-    Accounts.$inject = ['$scope', '$modal', '$log', 'dataservice'];
+    Accounts.$inject = ['$scope', '$modal', '$log', 'dataservice', '$q'];
 
-    function Accounts($scope, $modal, $log, dataservice) {
+    function Accounts($scope, $modal, $log, dataservice, $q) {
         var vm = this;
         vm.formInfo = {};
         vm.showAccountRegisterDialog = openModalAccountRegisterController;
@@ -21,6 +21,7 @@
         vm.logoutUser = logoutUser;
         vm.findUser = findUser;
         vm.UserExist = false;
+        vm.loginFailed = false;
 
         function logoutUser() {
             return dataservice.logout()
@@ -33,19 +34,20 @@
                     });
         };
 
-        function login() {
+        function login(successFunction) {
             var user = {
                 name: vm.userName,
                 password: vm.password
             };
             return dataservice.authenticate(user)
                     .then(function (loginSuccess) {
-                        var promise = this;
+                        //var promise = this;
+                        vm.loginFailed = !loginSuccess;
                         if (loginSuccess) {
                             dataservice.authenticateUser(user.name);
+                            successFunction();
                         }
-                return promise;
-            });
+                    });
         };
 
         function findUser() {
@@ -53,39 +55,39 @@
                     .then(function (getUsersSuccess) {
                         var promise = this;
                         if (getUsersSuccess) {
-                            console.info(getUsersSuccess)
+                            console.info(getUsersSuccess);
                             for (var i in getUsersSuccess) {
                                 if (getUsersSuccess[i].name === vm.formInfo.userName) {
-                                    console.info("Name already exist")
+                                    console.info("Name already exist");
                                     vm.UserExist = true;
-                                    return
+                                    return;
                                 }
                                 vm.UserExist = false;
                             }
                         }
 
                     });
-            };
+        };
 
 
         function registerUser() {
             console.log(vm.formInfo);
-          
+
             var registerUser = {
                 name: vm.formInfo.userName,
                 password: vm.formInfo.password1
             };
 
             return dataservice.registerUser(registerUser)
-                    .then(function (registerSuccess) {
-                        var promise = this;
-                        if (registerSuccess) {
-                            vm.userName = vm.formInfo.userName;
-                            vm.password = vm.formInfo.password1;
-                            login();
-                        }
-                        
-                    })
+                .then(function (registerSuccess) {
+                    var promise = this;
+                    if (registerSuccess) {
+                        vm.userName = vm.formInfo.userName;
+                        vm.password = vm.formInfo.password1;
+                        login();
+                    }
+
+                });
         };
 
 

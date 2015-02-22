@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" ng-disabled="vmLoginAccount.userName.length === 0 || vmLoginAccount.password.length === 0" ng-click="vmLoginAccount.login().then(ok())">{{'LOGIN' | translate}}</button>
+                    <button type="submit" class="btn btn-success" ng-disabled="vmLoginAccount.userName.length === 0 || vmLoginAccount.password.length === 0" ng-click="vmLoginAccount.login(ok)">{{'LOGIN' | translate}}</button>
                 </div>
             </div>
         </form>
