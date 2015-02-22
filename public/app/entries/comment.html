@@ -20,8 +20,9 @@
             <div class="showhidecommentcomments glyphicon glyphicon-comment">
                 <span>{{comment.comments.length}} {{'COMMENTS' | translate}}</span>
             </div>
-        </div>
+
         </a>
+    </div>
         <div ng-init="comment.replyTemplate='app/entries/empty.html'" />
         <a class="" ng-show="redditApp.dataservice.currentUser.isAuthenticated && redditApp.noCommentDialogOpen" data-ng-click="comment.replyTemplate='app/entries/commenteditor.html'">
             <div class="showhidecommentcommenteditor glyphicon glyphicon-bullhorn">
