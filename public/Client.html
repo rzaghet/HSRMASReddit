@@ -79,7 +79,7 @@
                                 <ul class="dropdown-menu multi-level" role="menu">
                                     <li class="dropdown-submenu">
                                         <a href="#">{{'LANGUAGE' | translate}}</a>
-                                        <ul class="dropdown-menu" data-ng-controller="LangCtrl">
+                                        <ul class="dropdown-menu languageChoice" data-ng-controller="LangCtrl">
                                             <li><a ng-click="changeLang('de_DE')">{{'GERMAN' | translate}}</a></li>
                                             <li><a ng-click="changeLang('en_US')">{{'ENGLISH' | translate}}</a></li>
                                         </ul>
@@ -87,7 +87,7 @@
                                     <!--entry order by choice -->
                                     <li class="dropdown-submenu">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{'ENTRYORDERBY' | translate}}</a>
-                                        <ul class="dropdown-menu">
+                                        <ul class="dropdown-menu entrySettingsChoice">
                                             <li><a ng-click="redditApp.entrySettings.orderBy = '-rating.value'">{{'SORTBYRATINGVALUEDESC' | translate}}</a></li>
                                             <li><a ng-click="redditApp.entrySettings.orderBy = 'rating.value'">{{'SORTBYRATINGVALUEASC' | translate}}</a></li>
                                             <li><a ng-click="redditApp.entrySettings.orderBy = '-id'">{{'SORTBYIDDESC' | translate}}</a></li>
@@ -97,7 +97,7 @@
                                     <!--entry order by choice -->
                                     <li class="dropdown-submenu">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{'COMMENTORDERBY' | translate}}</a>
-                                        <ul class="dropdown-menu">
+                                        <ul class="dropdown-menu commentSettingsChoice">
                                             <li><a ng-click="redditApp.commentSettings.orderBy = '-rating.value'">{{'SORTBYRATINGVALUEDESC' | translate}}</a></li>
                                             <li><a ng-click="redditApp.commentSettings.orderBy = 'rating.value'">{{'SORTBYRATINGVALUEASC' | translate}}</a></li>
                                             <li><a ng-click="redditApp.commentSettings.orderBy = '-id'">{{'SORTBYIDDESC' | translate}}</a></li>
