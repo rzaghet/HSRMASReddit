@@ -46,7 +46,7 @@
 }
 
 .showhidecommentcommenteditor {
-    padding-left: 35px;
+    padding-left: 20px;
 }
 
 .comment {
@@ -62,6 +62,10 @@
     margin-left: 20px;
 }
 
+.commentsubmitdetails {
+    float: left;
+
+}
 .commentvote {
     float: left;
     padding-right: 10px;
