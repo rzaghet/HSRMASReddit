@@ -9,7 +9,7 @@
                 'SUBMITTED': 'Submitted',
                 'COMMENT': 'comment',
                 'COMMENTS': 'comments',
-                'DUMMYCOMMENT': 'Your comment.',
+                'DUMMYCOMMENT': 'Your comment in 140 characters.',
                 'POSTCOMMENT': 'Post comment',
                 'REPLY': 'Reply',
                 'USER': 'Username',
@@ -46,7 +46,7 @@
                 'SUBMITTED': 'Übertragen',
                 'COMMENT': 'kommentar',
                 'COMMENTS': 'kommentare',
-                'DUMMYCOMMENT': 'Dein Kommentar.',
+                'DUMMYCOMMENT': 'Dein Kommentar in 140 Zeichen.',
                 'POSTCOMMENT': 'Veröffentliche Kommentar',
                 'REPLY': 'Antworten',
                 'USER': 'Benutzername',
@@ -59,7 +59,7 @@
                 'NEWLINKSUBTITLE': 'Die Community wartet auf deinen Link!',
                 'DUMMYLINKTITLE': 'Titel...',
                 'DUMMYLINKURL': 'URL...',
-                'NEWUSERTITLE': 'Erzeuge einen neuen Benutzer-Konto',
+                'NEWUSERTITLE': 'Erzeuge ein neues Benutzer-Konto',
                 'NEWUSERSUBTITLE': 'Du brauchst nur einen Benutzernamen und ein Passwort',
                 'DUMMYREPEATPW': 'Passwort wiederholen',
                 'LANGUAGE': 'Sprache',
@@ -73,7 +73,7 @@
                 'REPEATPW': 'Passwort wiederholen',
                 'GREETING': 'Hallo',
                 'USEREXIST': 'Der Benutzername ist schon vergeben',
-                'PWDNOTEQUAL': 'Dei Passwörter sind nicht gleich',
+                'PWDNOTEQUAL': 'Deine Passwörter sind nicht gleich',
                 'LOGINFAIL': 'Benutzername oder Passwort ungültig'
             });
             $translateProvider.preferredLanguage('en_US');
