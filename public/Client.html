@@ -54,109 +54,115 @@
     <script src="/socket.io/socket.io.js"></script>
 </head>
 <body data-ng-app="app" data-ng-controller="App as redditApp">
-<div data-ng-controller="Entries as vm">
-    <!--menu-->
-    <div class="navbar navbar-default navbar-static-top navbar-custom" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="https://www.reddit.com/" target="_blank">{{ 'TITLE' | translate }}</a>
-            </div>
-
-            <div class="navbar-collapse collapse">
-                <div data-ng-controller="Accounts as vmAccounts">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#" data-ng-click="vm.open()" ng-show="redditApp.dataservice.currentUser.isAuthenticated">{{'NEWLINK' | translate}}</a></li>
-                        <!--language choice -->
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{'LANGUAGE' | translate}}<b class="caret"></b></a>
-                            <ul class="dropdown-menu" data-ng-controller="LangCtrl">
-                                <li><a ng-click="changeLang('de_DE')">{{'GERMAN' | translate}}</a></li>
-                                <li><a ng-click="changeLang('en_US')">{{'ENGLISH' | translate}}</a></li>
-                            </ul>
-                        </li>
-                        <!--entry order by choice -->
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{'ENTRYORDERBY' | translate}}<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a ng-click="redditApp.entrySettings.orderBy = '-rating.value'">{{'SORTBYRATINGVALUEDESC' | translate}}</a></li>
-                                <li><a ng-click="redditApp.entrySettings.orderBy = 'rating.value'">{{'SORTBYRATINGVALUEASC' | translate}}</a></li>
-                                <li><a ng-click="redditApp.entrySettings.orderBy = '-id'">{{'SORTBYIDDESC' | translate}}</a></li>
-                                <li><a ng-click="redditApp.entrySettings.orderBy = 'id'">{{'SORTBYIDASC' | translate}}</a></li>
-                            </ul>
-                        </li>
-                        <!--entry order by choice -->
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{'COMMENTORDERBY' | translate}}<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a ng-click="redditApp.commentSettings.orderBy = '-rating.value'">{{'SORTBYRATINGVALUEDESC' | translate}}</a></li>
-                                <li><a ng-click="redditApp.commentSettings.orderBy = 'rating.value'">{{'SORTBYRATINGVALUEASC' | translate}}</a></li>
-                                <li><a ng-click="redditApp.commentSettings.orderBy = '-id'">{{'SORTBYIDDESC' | translate}}</a></li>
-                                <li><a ng-click="redditApp.commentSettings.orderBy = 'id'">{{'SORTBYIDASC' | translate}}</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="#" data-ng-click="redditApp.showAboutDialog()">{{'ABOUT' | translate}}</a></li>
-                        <li><a href="#" data-ng-click="vmAccounts.showAccountRegisterDialog()" ng-hide="redditApp.dataservice.currentUser.isAuthenticated">{{'REGISTER' | translate}}</a></li>
-                        <li><a href="#" data-ng-click="vmAccounts.showLoginDialog()" ng-hide="redditApp.dataservice.currentUser.isAuthenticated">{{'LOGIN' | translate}}</a></li>
-                        <li><a href="#" data-ng-click="vmAccounts.logoutUser()" ng-show="redditApp.dataservice.currentUser.isAuthenticated">{{'LOGOUT' | translate}}</a></li>
-                        <li>
-                            <div>
-                                <p class="navbar-text navbar-right" ng-show="redditApp.dataservice.currentUser.isAuthenticated">{{'GREETING' | translate}} {{redditApp.dataservice.currentUser.name}}</p>
-                            </div>
-                        </li>
-                    </ul>
+    <div data-ng-controller="Entries as vm">
+        <!--menu-->
+        <div class="navbar navbar-default navbar-static-top navbar-custom" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://www.reddit.com/" target="_blank">{{ 'TITLE' | translate }}</a>
                 </div>
-            </div><!--/.nav-collapse -->
+
+                <div class="navbar-collapse collapse">
+                    <div data-ng-controller="Accounts as vmAccounts">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#" data-ng-click="vm.open()" ng-show="redditApp.dataservice.currentUser.isAuthenticated">{{'NEWLINK' | translate}}</a></li>
+
+                            <li class="dropdown">
+                                <a href="#" href="#" class="dropdown-toggle" data-toggle="dropdown">{{'SETTINGS' | translate}}</a>
+                                <!--language choice -->
+                                <ul class="dropdown-menu multi-level" role="menu">
+                                    <li class="dropdown-submenu">
+                                        <a href="#">{{'LANGUAGE' | translate}}</a>
+                                        <ul class="dropdown-menu" data-ng-controller="LangCtrl">
+                                            <li><a ng-click="changeLang('de_DE')">{{'GERMAN' | translate}}</a></li>
+                                            <li><a ng-click="changeLang('en_US')">{{'ENGLISH' | translate}}</a></li>
+                                        </ul>
+                                    </li>
+                                    <!--entry order by choice -->
+                                    <li class="dropdown-submenu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{'ENTRYORDERBY' | translate}}</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a ng-click="redditApp.entrySettings.orderBy = '-rating.value'">{{'SORTBYRATINGVALUEDESC' | translate}}</a></li>
+                                            <li><a ng-click="redditApp.entrySettings.orderBy = 'rating.value'">{{'SORTBYRATINGVALUEASC' | translate}}</a></li>
+                                            <li><a ng-click="redditApp.entrySettings.orderBy = '-id'">{{'SORTBYIDDESC' | translate}}</a></li>
+                                            <li><a ng-click="redditApp.entrySettings.orderBy = 'id'">{{'SORTBYIDASC' | translate}}</a></li>
+                                        </ul>
+                                    </li>
+                                    <!--entry order by choice -->
+                                    <li class="dropdown-submenu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{'COMMENTORDERBY' | translate}}</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a ng-click="redditApp.commentSettings.orderBy = '-rating.value'">{{'SORTBYRATINGVALUEDESC' | translate}}</a></li>
+                                            <li><a ng-click="redditApp.commentSettings.orderBy = 'rating.value'">{{'SORTBYRATINGVALUEASC' | translate}}</a></li>
+                                            <li><a ng-click="redditApp.commentSettings.orderBy = '-id'">{{'SORTBYIDDESC' | translate}}</a></li>
+                                            <li><a ng-click="redditApp.commentSettings.orderBy = 'id'">{{'SORTBYIDASC' | translate}}</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li><a href="#" data-ng-click="redditApp.showAboutDialog()">{{'ABOUT' | translate}}</a></li>
+                            <li><a href="#" data-ng-click="vmAccounts.showAccountRegisterDialog()" ng-hide="redditApp.dataservice.currentUser.isAuthenticated">{{'REGISTER' | translate}}</a></li>
+                            <li><a href="#" data-ng-click="vmAccounts.showLoginDialog()" ng-hide="redditApp.dataservice.currentUser.isAuthenticated">{{'LOGIN' | translate}}</a></li>
+                            <li><a href="#" data-ng-click="vmAccounts.logoutUser()" ng-show="redditApp.dataservice.currentUser.isAuthenticated">{{'LOGOUT' | translate}}</a></li>
+                            <li>
+                                <div>
+                                    <p class="navbar-text navbar-right" ng-show="redditApp.dataservice.currentUser.isAuthenticated">{{'GREETING' | translate}} {{redditApp.dataservice.currentUser.name}}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!--/.nav-collapse -->
+            </div>
         </div>
-    </div>
 
-    <div class="container">
-        <!-- core -->
-        <div class="entry" data-ng-repeat="entry in vm.entries | orderBy:[redditApp.entrySettings.orderBy]" data-ng-animate="'entrymation'">
-            <div class="entryvote" data-ng-include="'app/entries/vote.html'">
-            </div>
-            <div class="entrydetails">
-                <div class="entrytitle">
-                    <a href="{{entry.url}}" target="_blank">{{entry.title}}</a>
+        <div class="container">
+            <!-- core -->
+            <div class="entry" data-ng-repeat="entry in vm.entries | orderBy:[redditApp.entrySettings.orderBy]" data-ng-animate="'entrymation'">
+                <div class="entryvote" data-ng-include="'app/entries/vote.html'">
                 </div>
-                <div class="entrysubmitdetails">{{'SUBMITTED' | translate}} {{redditApp.fromNow(entry.createTime)}} {{'BY' | translate}} {{entry.author}}</div>
-                <div class="entryallcomments">
-                    <a class="" data-ng-click="entry.showComments = !entry.showComments">
-                        <div class="showhidecomments glyphicon glyphicon-comment">
-                            <span>{{entry.comments.length}} {{'COMMENTS' | translate}}</span>
-                        </div>
-                    </a>
-                    <div data-ng-controller="Comments as vmEntryComments">
-                        <div ng-init="entry.replyTemplate='app/entries/empty.html'">
-                        </div>
-
-                        <a class="" ng-show="redditApp.dataservice.currentUser.isAuthenticated && redditApp.noCommentDialogOpen" data-ng-click="entry.replyTemplate='app/entries/entrycommenteditor.html'">
-                            <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
-                                <span> {{'REPLY' | translate}}</span>
+                <div class="entrydetails">
+                    <div class="entrytitle">
+                        <a href="{{entry.url}}" target="_blank">{{entry.title}}</a>
+                    </div>
+                    <div class="entrysubmitdetails">{{'SUBMITTED' | translate}} {{redditApp.fromNow(entry.createTime)}} {{'BY' | translate}} {{entry.author}}</div>
+                    <div class="entryallcomments">
+                        <a class="" data-ng-click="entry.showComments = !entry.showComments">
+                            <div class="showhidecomments glyphicon glyphicon-comment">
+                                <span>{{entry.comments.length}} {{'COMMENTS' | translate}}</span>
                             </div>
                         </a>
-                        <div data-ng-include="entry.replyTemplate">
+                        <div data-ng-controller="Comments as vmEntryComments">
+                            <div ng-init="entry.replyTemplate='app/entries/empty.html'">
+                            </div>
+
+                            <a class="" ng-show="redditApp.dataservice.currentUser.isAuthenticated && redditApp.noCommentDialogOpen" data-ng-click="entry.replyTemplate='app/entries/entrycommenteditor.html'">
+                                <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
+                                    <span> {{'REPLY' | translate}}</span>
+                                </div>
+                            </a>
+                            <div data-ng-include="entry.replyTemplate">
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="comments">
-                    <div class="comment" data-ng-repeat="comment in entry.comments | orderBy:'-rating.value'"
-                         data-ng-show="entry.showComments"
-                         data-ng-include="'app/entries/comment.html'"
-                         data-ng-controller="Comments as vmComments">
+                    <div class="comments">
+                        <div class="comment" data-ng-repeat="comment in entry.comments | orderBy:'-rating.value'"
+                             data-ng-show="entry.showComments"
+                             data-ng-include="'app/entries/comment.html'"
+                             data-ng-controller="Comments as vmComments">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
