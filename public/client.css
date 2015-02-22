@@ -42,11 +42,18 @@
 }
 
 .showhidecommentcomments {
-    padding-left: 20px;
+    padding-left: 45px;
+    clear: both;
+    float: left;
 }
 
 .showhidecommentcommenteditor {
-    padding-left: 20px;
+    padding-left: 45px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    clear: both;
+    float: left;
+    
 }
 
 .comment {
@@ -74,6 +81,7 @@
 .commenttext {
     color: #084461;
     white-space: pre;
+    clear: both;
 }
 
 .commentsubmitdetails {
