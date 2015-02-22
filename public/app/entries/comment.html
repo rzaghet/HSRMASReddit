@@ -1,11 +1,11 @@
 ﻿<!--<script type="text/ng-template" id="commenttemplate.html">-->
     <div class="commentvote">
-        <div class="upvote glyphicon glyphicon-thumbs-up"
+        <div class="vote upvote glyphicon glyphicon-thumbs-up"
              data-ng-class="{votedisabled: !redditApp.dataservice.currentUser.isAuthenticated}"
              data-ng-click="!redditApp.dataservice.currentUser.isAuthenticated || vm.voteComment(comment, 1)">
         </div>
         <div class="totalvote">{{comment.rating.value}}</div>
-        <div class="downvote glyphicon glyphicon-thumbs-down"
+        <div class="vote downvote glyphicon glyphicon-thumbs-down"
              data-ng-class="{votedisabled: !redditApp.dataservice.currentUser.isAuthenticated}"
              data-ng-click="!redditApp.dataservice.currentUser.isAuthenticated || vm.voteComment(comment, -1)">
         </div>

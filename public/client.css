@@ -86,6 +86,10 @@
     color: grey;
 }
 
+.votedisabled:hover {
+   cursor: default;
+}
+
 
 .entrytitle {
     font-size: 20px;
