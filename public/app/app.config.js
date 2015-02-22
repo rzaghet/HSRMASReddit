@@ -86,7 +86,7 @@
                 'SORTBYRATINGVALUEASC': 'Wertung aufsteigend',
                 'SORTBYIDDESC': 'neustem absteigend',
                 'SORTBYIDASC': 'neustem aufsteigend',
-                'COMMENTORDERBY': 'Comments ordered by...'
+                'COMMENTORDERBY': 'Kommentare sortiert nach...'
             });
             $translateProvider.preferredLanguage('en_US');
         }
