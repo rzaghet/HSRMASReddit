@@ -4,9 +4,9 @@
     angular.module('app.accounts', [])
         .controller('Accounts', Accounts);
 
-    Accounts.$inject = ['$scope', '$modal', '$log', 'dataservice', '$q'];
+    Accounts.$inject = ['$scope', '$modal', '$log', 'dataservice'];
 
-    function Accounts($scope, $modal, $log, dataservice, $q) {
+    function Accounts($scope, $modal, $log, dataservice) {
         var vm = this;
         vm.formInfo = {};
         vm.showAccountRegisterDialog = openModalAccountRegisterController;
