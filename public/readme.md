@@ -7,68 +7,79 @@
 + Raffael Zaghet
 
 
-###Useful information for us for this project
-- Documents from HSR
-- [AngularJS Style Guide from John Papa](https://github.com/johnpapa/angularjs-styleguide)
-- [Pluralsight](http://www.pluralsight.com)
+###Folgende Informationen haben uns im Projekt unterstützt
+- HSR Unterlagen
+- [AngularJS Style Guide von John Papa](https://github.com/johnpapa/angularjs-styleguide)
+- [Pluralsight](http://www.pluralsight.com) -> AngularJS Clean Code von John Papa
 
 
-###Tools and Languages
+###Tools
 - VS 2013 for Development
 - newest version of Web Essentials
 - SideWaffle
-- Definitely Typed for d.ts files
 - Html
 - Javascript
     - JQuery
     - Angular JS
+    - Angular Translate JS 
+    - Blocks -> Clean Code von John Papa (Erweiterungen für: exception/logger/router)
     - Require JS
     - Bootstrap JS
     - Nodes JS
-- Typescript
-- TSLint for TypeScript validation
+    - Moment JS
+    
 - Source Code System -> github with git
 
+###Project-Setup
+- node server aufgesetzt gemäss Installations-Anleitung -> localhost:4730 ist hardcodiert
+- aufsetzen der Applikation nach Clean-Code-Angular-JS von John Papa (Verzeichnisse Feature-basiert)
+- trennen der Domainen durch templates/view-models/models (beliefert durch dataservice)
+    - app -> Hauptapplikation
+    - entries -> Funktionen/Templates für das Anzeigen/Bearbeiten von Entries
+    - core -> Core-Funktionen für die Applikation (dataservice, exception/log-handling (blocks))
+    - accounts -> login und account Registrierung
 
-###Tasks
+###Funktionen
 
-- Robin
-    ####Account
-    - Login / Logout
-    - Registrierung
-
-- Raffael
-    ####Entry
-    - Submit new Link
-    - Add Comment   
-    - Up and downvote
-    - Show All entries
-        - 
-
-App.CurrentUser.IsAuthenticated
-App.AuthenticateUser(username, password)
-App.Logout() --> CurrentUser => AnonymousUser (Authenticated = false)
-
+- Registrierung neuer Benutzer
+- Login eines Benutzers
+- Abmelden eines eingeloggten Benutzers
+- Aktivieren/Deaktivieren ob der Benutzer eingeloggt ist oder nicht
+- Anzeigen eines Über-Dialog
+- Ändern der Anzeige-Sprache (Deutsch/English)
+- Ändern der Sortierung für Entries (Links) und Comments (Kommentare)
+- Eingabe neuer Kommentare
+- Eingabe neuer Links
+- Up/Down-Votes von Links (nur einmal möglich pro Benutzer)
+- Up/Down-Votes von Kommentaren (nur einmal möglich pro Benutzer)
+- Anzeigen des Links in einem neuen Browser-Fenster
+- Asynchrone Kommunikation und Auto-Updates über mehrere Fenster (via dataservice.js / socket.io)
+- Hierarchische Darstellung von Kommentaren
+- Responsive Design mit Bootstrap
 
 
-###Time investments
+
+###Zeit-Aufwendungen
 
 ALLE (wir haben gemeinsam mit Tripple-Programming am Projekt gearbeitet)
+Besonders viel Aufwand hat bei uns allen das Erlernen und Anwenden der JavaScript-Frameworks verursacht.
 
 Zeiten pro Person:
 
 - Technologien erlernen
+    - Javascript        1 Stunden
     - AngularJs lernen: 5 Stunden
+    - AngularJS Clean Code: 1 Stunden
     - Bootstrap:        2 Stunden
     - MomentJS:         1 Stunden
     - Translation:      1 Stunden
     - Git:              1 Stunden
     - HTML/CSS          2 Stunden
     - Socket.IO         1 Stunden
-    - TypeScript        2 Stunden (aus Zeitgründen gestrichen)
+    - TypeScript        2 Stunden (aus Zeitgründen leider gestrichen)
     - Node.JS           1 Stunden
 
-- Aufwand nach Funktionalität
+- ca. Aufwand nach Funktionalität
     - Projekt aufsetzen 1 Stunden
     - Navigationsbar:   2 Stunden
     - About:            .5 Stunden
@@ -79,7 +90,7 @@ Zeiten pro Person:
         - Sortierung
         - Asynchrone Kommunikation mit dem Server (Auto-Update)
         - Unterscheidung Kommentare für Links/Kommentare
-    - Node Server.JS Korrekturen 1 Stunde (damit socket.io überhaupt möglich war)
+    - Node Server.JS Erweiterungen 1 Stunde (für Austausch der Informationen mit socket.io)
     - Registrierung und Login 4 Stunden
         - 2 Dialoge (Login/Registrierung) mit Validierung
         - Ein- und ausschalten von Funktionen (isAuthenticatedUser) 
@@ -89,39 +100,24 @@ Zeiten pro Person:
     - Dokumenation:     1 Stunden
     - Research:     1 Stunden
     - Adminstration: 1 Stunden
-  
-
-
-
 
 
 
 ###Learnings
+- HTML/CSS/Javascript/Angular/MomentJS/Angular-CleanCode/socket.io
 - always add VisualStudio.ignore to .gitignore before first commit! :D
-- Folder structure for angular.js is feature based:
+- Folder structure for angular.js is feature based (AngularJS clean code):
     app\core (reddit app engine)
-    app\authentication (user registration / user login, logout)
-    app\entry (query, create, upvote, downvote, create comments)
-- TypeScript 
+    app\accounts (user registration / user login, logout)
+    app\entires (query, create, upvote, downvote, create comments)
+- TypeScript (leider nicht mehr berücksichtigt im Project)
     -> .ts = TypeScript file
     -> .d.ts = Javascript to TypeScript Definition File
     -> .ts.map = Debugging information (Symbol file)
-    -> because of issues with Angular we didn't solve 
+    -> because of issues with Angular we didn't solve the application with typescript
 
 ###Browser compatibility
-We tested the application with the newest browsers for (15.02.2015):
+Die Applikation haben wir mit folgenden Internet-Browsern getestet (22.02.2015):
 
-- Chrome
-- Firefox
-
-
-####Readme.md information
-
-To learn more about the markdown syntax, refer to these links:
-
- - [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax)
- - [Markdown Basics](http://daringfireball.net/projects/markdown/basics)
- - [GitHub Flavored Markdown](http://github.github.com/github-flavored-markdown/) 
- - [markdown at wikipedia](https://secure.wikimedia.org/wikipedia/en/wiki/Markdown)
-
-
+- Chrome (neueste Version)
+- Firefox (neueste Version)
