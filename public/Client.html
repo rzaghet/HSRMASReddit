@@ -84,10 +84,20 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{'ENTRYORDERBY' | translate}}<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a ng-click="redditApp.entrySettings.orderBy = '-rating.value'">{{'SORTENTRYBYRATINGVALUEDESC' | translate}}</a></li>
-                                <li><a ng-click="redditApp.entrySettings.orderBy = 'rating.value'">{{'SORTENTRYBYRATINGVALUEASC' | translate}}</a></li>
-                                <li><a ng-click="redditApp.entrySettings.orderBy = '-id'">{{'SORTENTRYBYIDDESC' | translate}}</a></li>
-                                <li><a ng-click="redditApp.entrySettings.orderBy = 'id'">{{'SORTENTRYBYIDASC' | translate}}</a></li>
+                                <li><a ng-click="redditApp.entrySettings.orderBy = '-rating.value'">{{'SORTBYRATINGVALUEDESC' | translate}}</a></li>
+                                <li><a ng-click="redditApp.entrySettings.orderBy = 'rating.value'">{{'SORTBYRATINGVALUEASC' | translate}}</a></li>
+                                <li><a ng-click="redditApp.entrySettings.orderBy = '-id'">{{'SORTBYIDDESC' | translate}}</a></li>
+                                <li><a ng-click="redditApp.entrySettings.orderBy = 'id'">{{'SORTBYIDASC' | translate}}</a></li>
+                            </ul>
+                        </li>
+                        <!--entry order by choice -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{'COMMENTORDERBY' | translate}}<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a ng-click="redditApp.commentSettings.orderBy = '-rating.value'">{{'SORTBYRATINGVALUEDESC' | translate}}</a></li>
+                                <li><a ng-click="redditApp.commentSettings.orderBy = 'rating.value'">{{'SORTBYRATINGVALUEASC' | translate}}</a></li>
+                                <li><a ng-click="redditApp.commentSettings.orderBy = '-id'">{{'SORTBYIDDESC' | translate}}</a></li>
+                                <li><a ng-click="redditApp.commentSettings.orderBy = 'id'">{{'SORTBYIDASC' | translate}}</a></li>
                             </ul>
                         </li>
 
