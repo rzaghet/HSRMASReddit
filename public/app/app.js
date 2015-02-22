@@ -15,6 +15,7 @@
         vm.dataservice = dataservice;
         vm.fromNow = fromNow;
         vm.noCommentDialogOpen = true;
+        vm.entrySettings = {orderBy : '-rating.value'};
 
         function fromNow (date) {
             return moment(new Date(date)).fromNow();
