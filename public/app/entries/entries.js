@@ -175,9 +175,9 @@
         //$scope.items = items;
 
         $scope.ok = function () {
-            console.log($scope);
-            console.log($scope.entryTitle);
-            console.log($scope.entryUrl);
+            //console.log($scope);
+            //console.log($scope.entryTitle);
+            //console.log($scope.entryUrl);
             addEntry({ title: vmNewEntry.entryTitle, url: vmNewEntry.entryUrl, createTime: Date.now, rating: { value: 0 } });
             $modalInstance.close();
         };

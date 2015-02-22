@@ -45,9 +45,14 @@
                         vm.loginFailed = !loginSuccess;
                         if (loginSuccess) {
                             dataservice.authenticateUser(user.name);
-                            successFunction();
-                            if (window.$('.navbar-toggle').css('display') !== 'none') {
-                                window.$(".navbar-toggle").trigger("click");
+                            if (successFunction) {
+                                successFunction();
+                            }
+                            
+                            var navbar = window.$('.navbar-toggle');
+                            if ((navbar.length !== 0)
+                                    && navbar.css('display') !== 'none') {
+                                navbar.trigger("click");
                             }
                         }
                     });
@@ -74,7 +79,7 @@
 
 
         function registerUser() {
-            console.log(vm.formInfo);
+            //console.log(vm.formInfo);
 
             var registerUser = {
                 name: vm.formInfo.userName,
@@ -83,7 +88,7 @@
 
             return dataservice.registerUser(registerUser)
                 .then(function (registerSuccess) {
-                    var promise = this;
+                    //var promise = this;
                     if (registerSuccess) {
                         vm.userName = vm.formInfo.userName;
                         vm.password = vm.formInfo.password1;
