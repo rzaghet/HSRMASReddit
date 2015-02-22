@@ -42,7 +42,7 @@
                 'SORTENTRYBYRATINGVALUEDESC': 'rating descending',
                 'SORTENTRYBYRATINGVALUEASC': 'rating ascending',
                 'SORTENTRYBYIDDESC': 'newest descending',
-                'SORTENTRYBYIDDASC': 'newest ascending'
+                'SORTENTRYBYIDASC': 'newest ascending'
             });
             $translateProvider.translations('de_DE', {
                 'TITLE': 'Reddit Klon',
@@ -84,7 +84,7 @@
                 'SORTENTRYBYRATINGVALUEDESC': 'Wertung absteigend',
                 'SORTENTRYBYRATINGVALUEASC': 'Wertung aufsteigend',
                 'SORTENTRYBYIDDESC': 'neustem absteigend',
-                'SORTENTRYBYIDDASC': 'neustem aufsteigend'
+                'SORTENTRYBYIDASC': 'neustem aufsteigend'
             });
             $translateProvider.preferredLanguage('en_US');
         }
