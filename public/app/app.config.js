@@ -88,7 +88,7 @@
                 'SORTBYIDDESC': 'neustem absteigend',
                 'SORTBYIDASC': 'neustem aufsteigend',
                 'COMMENTORDERBY': 'Kommentare sortiert nach...',
-                'SETTINGS': 'Settings'
+                'SETTINGS': 'Einstellungen'
             });
             $translateProvider.preferredLanguage('en_US');
         }
