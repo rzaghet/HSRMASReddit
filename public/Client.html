@@ -72,6 +72,7 @@
                 <div data-ng-controller="Accounts as vmAccounts">
                     <ul class="nav navbar-nav">
                         <li><a href="#" data-ng-click="vm.open()" ng-show="redditApp.dataservice.currentUser.isAuthenticated">{{'NEWLINK' | translate}}</a></li>
+                        <!--language choice -->
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{'LANGUAGE' | translate}}<b class="caret"></b></a>
                             <ul class="dropdown-menu" data-ng-controller="LangCtrl">
@@ -79,6 +80,17 @@
                                 <li><a ng-click="changeLang('en_US')">{{'ENGLISH' | translate}}</a></li>
                             </ul>
                         </li>
+                        <!--entry order by choice -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{'ENTRYORDERBY' | translate}}<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a ng-click="redditApp.entrySettings.orderBy = '-rating.value'">{{'SORTENTRYBYRATINGVALUEDESC' | translate}}</a></li>
+                                <li><a ng-click="redditApp.entrySettings.orderBy = 'rating.value'">{{'SORTENTRYBYRATINGVALUEASC' | translate}}</a></li>
+                                <li><a ng-click="redditApp.entrySettings.orderBy = '-id'">{{'SORTENTRYBYIDDESC' | translate}}</a></li>
+                                <li><a ng-click="redditApp.entrySettings.orderBy = 'id'">{{'SORTENTRYBYIDASC' | translate}}</a></li>
+                            </ul>
+                        </li>
+
                         <li><a href="#" data-ng-click="redditApp.showAboutDialog()">{{'ABOUT' | translate}}</a></li>
                         <li><a href="#" data-ng-click="vmAccounts.showAccountRegisterDialog()" ng-hide="redditApp.dataservice.currentUser.isAuthenticated">{{'REGISTER' | translate}}</a></li>
                         <li><a href="#" data-ng-click="vmAccounts.showLoginDialog()" ng-hide="redditApp.dataservice.currentUser.isAuthenticated">{{'LOGIN' | translate}}</a></li>
@@ -88,7 +100,7 @@
                                 <p class="navbar-text navbar-right" ng-show="redditApp.dataservice.currentUser.isAuthenticated">{{'GREETING' | translate}} {{redditApp.dataservice.currentUser.name}}</p>
                             </div>
                         </li>
-</ul>
+                    </ul>
                 </div>
             </div><!--/.nav-collapse -->
         </div>
@@ -96,8 +108,8 @@
 
     <div class="container">
         <!-- core -->
-        <div class="entry" data-ng-repeat="entry in vm.entries | orderBy:['-rating.value']" data-ng-animate="'entrymation'">
-            <div class="entryvote" data-ng-include="'app/entries/vote.html'" >
+        <div class="entry" data-ng-repeat="entry in vm.entries | orderBy:[redditApp.entrySettings.orderBy]" data-ng-animate="'entrymation'">
+            <div class="entryvote" data-ng-include="'app/entries/vote.html'">
             </div>
             <div class="entrydetails">
                 <div class="entrytitle">
