@@ -125,7 +125,7 @@
                 </div>
 
                 <div class="comments">
-                    <div class="comment" data-ng-repeat="comment in entry.comments"
+                    <div class="comment" data-ng-repeat="comment in entry.comments | orderBy:'-rating.value'"
                          data-ng-show="entry.showComments"
                          data-ng-include="'app/entries/comment.html'"
                          data-ng-controller="Comments as vmComments">

@@ -14,10 +14,16 @@
         vm.showComments = false;
         vm.addNew = addNew;
         vm.newComment = '';
+        vm.cancel = cancel;
+
+        function cancel(comment) {
+            vm.newComment = '';
+            comment.replyTemplate = "'app/entries/empty.html'";
+        }
 
         function addNew(comment, parentId, typeString) {
             comment.comments = comment.comments || [];
-
+            comment.showComments = true;
             var updateComments = function(newCommentResult) {
                 //console.log(newCommentResult);
                 vm.newComment = '';

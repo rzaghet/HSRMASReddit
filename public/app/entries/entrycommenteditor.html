@@ -7,7 +7,7 @@
             <div class="form-group col-sm-4 clearfixed">
                 <div class="buttondisplay pull-right">
                     <button class="btn" ng-disabled="vmEntryComments.newComment.length===0" ng-click="vmEntryComments.addNew(entry, entry.id, 'entry');entry.replyTemplate='app/entries/empty.html'">{{'REPLY' | translate}}</button>
-                    <button class="btn" ng-click="entry.replyTemplate='app/entries/empty.html'">{{'CANCEL' | translate}}</button>
+                    <button class="btn" ng-click="vmEntryComments.cancel(entry);">{{'CANCEL' | translate}}</button>
                 </div>
             </div>
         </form>

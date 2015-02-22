@@ -30,7 +30,7 @@
 
         </div>
     </div>
-    <div class="comment" data-ng-repeat="comment in comment.comments"
+    <div class="comment" data-ng-repeat="comment in comment.comments | orderBy:'-rating.value'"
          data-ng-include="'app/entries/comment.html'"
          data-ng-show="$parent.$parent.comment.showComments">
     </div>
