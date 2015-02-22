@@ -39,10 +39,10 @@
                 'PWDNOTEQUAL': 'Passwords are not equal',
                 'LOGINFAIL': 'Username or password wrong',
                 'ENTRYORDERBY': 'Links orderd by...',
-                'SORTENTRYBYRATINGVALUEDESC': 'rating descending',
-                'SORTENTRYBYRATINGVALUEASC': 'rating ascending',
-                'SORTENTRYBYIDDESC': 'newest descending',
-                'SORTENTRYBYIDASC': 'newest ascending'
+                'SORTBYRATINGVALUEDESC': 'rating descending',
+                'SORTBYRATINGVALUEASC': 'rating ascending',
+                'SORTBYIDDESC': 'newest descending',
+                'SORTBYIDASC': 'newest ascending'
             });
             $translateProvider.translations('de_DE', {
                 'TITLE': 'Reddit Klon',
@@ -81,10 +81,10 @@
                 'PWDNOTEQUAL': 'Deine Passwörter sind nicht gleich',
                 'LOGINFAIL': 'Benutzername oder Passwort ungültig',
                 'ENTRYORDERBY': 'Links sortiert nach...',
-                'SORTENTRYBYRATINGVALUEDESC': 'Wertung absteigend',
-                'SORTENTRYBYRATINGVALUEASC': 'Wertung aufsteigend',
-                'SORTENTRYBYIDDESC': 'neustem absteigend',
-                'SORTENTRYBYIDASC': 'neustem aufsteigend'
+                'SORTBYRATINGVALUEDESC': 'Wertung absteigend',
+                'SORTBYRATINGVALUEASC': 'Wertung aufsteigend',
+                'SORTBYIDDESC': 'neustem absteigend',
+                'SORTBYIDASC': 'neustem aufsteigend'
             });
             $translateProvider.preferredLanguage('en_US');
         }
