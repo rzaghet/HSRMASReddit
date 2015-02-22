@@ -114,7 +114,7 @@
                         <div ng-init="entry.replyTemplate='app/entries/empty.html'">
                         </div>
 
-                        <a class="" ng-show="redditApp.dataservice.currentUser.isAuthenticated" data-ng-click="entry.replyTemplate='app/entries/entrycommenteditor.html'">
+                        <a class="" ng-show="redditApp.dataservice.currentUser.isAuthenticated && redditApp.noCommentDialogOpen" data-ng-click="entry.replyTemplate='app/entries/entrycommenteditor.html'">
                             <div class="showhidecommenteditor glyphicon glyphicon-bullhorn">
                                 <span> {{'REPLY' | translate}}</span>
                             </div>

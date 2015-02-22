@@ -14,6 +14,7 @@
         vm.showAboutDialog = showAboutDialog;
         vm.dataservice = dataservice;
         vm.fromNow = fromNow;
+        vm.noCommentDialogOpen = true;
 
         function fromNow (date) {
             return moment(new Date(date)).fromNow();
