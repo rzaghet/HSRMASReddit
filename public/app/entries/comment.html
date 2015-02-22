@@ -12,15 +12,17 @@
         </div>
     </div>
     <div class="commentdetails">
-    <div class="commentsubmitdetails">{{'SUBMITTED' | translate}} {{redditApp.fromNow(comment.createTime)}} {{'BY' | translate}} {{comment.author}}</div>
         <div class="commenttext">{{comment.text}}</div>
-</div>
-    <div class="commentallcomments">
-        <a class="" data-ng-click="comment.showComments = !comment.showComments">
-            <div class="showhidecommentcomments glyphicon glyphicon-comment">
-                <span>{{comment.comments.length}} {{'COMMENTS' | translate}}</span>
-            </div>
+        <div class="commentsubmitdetails">{{'SUBMITTED' | translate}} {{redditApp.fromNow(comment.createTime)}} {{'BY' | translate}} {{comment.author}}</div>
+
+
+        <div class="commentallcomments">
+            <a class="" data-ng-click="comment.showComments = !comment.showComments">
+                <div class="showhidecommentcomments glyphicon glyphicon-comment">
+                    <span>{{comment.comments.length}} {{'COMMENTS' | translate}}</span>
+                </div>
         </div>
+
         </a>
         <div ng-init="comment.replyTemplate='app/entries/empty.html'" />
         <a class="" ng-show="redditApp.dataservice.currentUser.isAuthenticated && redditApp.noCommentDialogOpen" data-ng-click="comment.replyTemplate='app/entries/commenteditor.html'">
@@ -28,13 +30,15 @@
                 <span> {{'REPLY' | translate}}</span>
             </div>
         </a>
-        <div data-ng-include="comment.replyTemplate">
+    </div>
+</div>
+    <div data-ng-include="comment.replyTemplate">
 
-        </div>
     </div>
-    <div class="comment" data-ng-repeat="comment in comment.comments | orderBy:'-rating.value'"
-         data-ng-include="'app/entries/comment.html'"
-         data-ng-show="$parent.$parent.comment.showComments">
-    </div>
+</div>
+<div class="comment" data-ng-repeat="comment in comment.comments | orderBy:'-rating.value'"
+     data-ng-include="'app/entries/comment.html'"
+     data-ng-show="$parent.$parent.comment.showComments">
+</div>
 </div>
 <!--</script>-->
