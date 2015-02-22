@@ -36,7 +36,8 @@
                 'REPEATPW': 'Repeat Password',
                 'GREETING': 'Hi',
                 'USEREXIST': 'User Name already taken',
-                'PWDNOTEQUAL': 'Passwords are not equal'
+                'PWDNOTEQUAL': 'Passwords are not equal',
+                'LOGINFAIL': 'Username or password wrong'
             });
             $translateProvider.translations('de_DE', {
                 'TITLE': 'Reddit Klon',
@@ -72,7 +73,8 @@
                 'REPEATPW': 'Passwort wiederholen',
                 'GREETING': 'Hallo',
                 'USEREXIST': 'Der Benutzername ist schon vergeben',
-                'PWDNOTEQUAL': 'Dei Passwörter sind nicht gleich'
+                'PWDNOTEQUAL': 'Dei Passwörter sind nicht gleich',
+                'LOGINFAIL': 'Benutzername oder Passwort ungültig'
             });
             $translateProvider.preferredLanguage('en_US');
         }
