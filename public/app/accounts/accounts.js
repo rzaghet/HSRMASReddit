@@ -46,6 +46,9 @@
                         if (loginSuccess) {
                             dataservice.authenticateUser(user.name);
                             successFunction();
+                            if (window.$('.navbar-toggle').css('display') !== 'none') {
+                                window.$(".navbar-toggle").trigger("click");
+                            }
                         }
                     });
         };
