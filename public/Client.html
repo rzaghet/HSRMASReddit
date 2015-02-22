@@ -103,7 +103,7 @@
                 <div class="entrytitle">
                     <a href="{{entry.url}}" target="_blank">{{entry.title}}</a>
                 </div>
-                <div class="entrysubmitdetails">{{'SUBMITTED' | translate}} {{entry.createTime | fromNow}} {{'BY' | translate}} {{entry.author}}</div>
+                <div class="entrysubmitdetails">{{'SUBMITTED' | translate}} {{redditApp.fromNow(entry.createTime)}} {{'BY' | translate}} {{entry.author}}</div>
                 <div class="entryallcomments">
                     <a class="" data-ng-click="entry.showComments = !entry.showComments">
                         <div class="showhidecomments glyphicon glyphicon-comment">

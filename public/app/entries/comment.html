@@ -12,7 +12,7 @@
     </div>
     <div class="commentdetails">
         <div class="commenttext">{{comment.text}}</div>
-        <div class="commentsubmitdetails">{{'SUBMITTED' | translate}} {{comment.createTime | fromNow}} {{'BY' | translate}} {{comment.author}}</div>
+        <div class="commentsubmitdetails">{{'SUBMITTED' | translate}} {{redditApp.fromNow(comment.createTime)}} {{'BY' | translate}} {{comment.author}}</div>
     </div>
     <div class="commentallcomments">
         <a class="" data-ng-click="comment.showComments = !comment.showComments">

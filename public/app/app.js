@@ -13,6 +13,12 @@
         var vm = this;
         vm.showAboutDialog = showAboutDialog;
         vm.dataservice = dataservice;
+        vm.fromNow = fromNow;
+
+        function fromNow (date) {
+            return moment(new Date(date)).fromNow();
+        };
+
 
         function showAboutDialog(size) {
             var modalInstance = $modal.open({
