@@ -33,7 +33,7 @@
 
         </div>
     </div>
-    <div class="comment" data-ng-repeat="comment in comment.comments | orderBy:redditApp.commentSettings.orderBy"
+    <div class="comment" data-ng-repeat="comment in comment.comments | orderBy:[redditApp.commentSettings.orderBy]"
          data-ng-include="'app/entries/comment.html'"
          data-ng-show="$parent.$parent.comment.showComments">
     </div>
