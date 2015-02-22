@@ -2,7 +2,8 @@
 <div class="commentdialog" data-ng-init="redditApp.noCommentDialogOpen=false">
     <form class="form-horizontal" role="form">
         <div class="form-group col-sm-4 commenttextarea">
-            <textarea class="form-control" maxlength="255" name="commentText" ng-model="vmComments.newComment"></textarea>
+            <textarea class="form-control" maxlength="140" name="commentText" ng-model="vmComments.newComment"></textarea>
+            <span class="maxLengthInformation">{{vmComments.newComment.length}} / 140</span>
         </div>
         <div class="form-group col-sm-4 col-sm-offset-2">
             <div class="buttondisplay pull-right">

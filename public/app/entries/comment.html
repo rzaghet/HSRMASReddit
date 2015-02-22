@@ -12,14 +12,14 @@
         </div>
     </div>
     <div class="commentdetails">
+    <div class="commentsubmitdetails">{{'SUBMITTED' | translate}} {{redditApp.fromNow(comment.createTime)}} {{'BY' | translate}} {{comment.author}}</div>
         <div class="commenttext">{{comment.text}}</div>
-        <div class="commentsubmitdetails">{{'SUBMITTED' | translate}} {{redditApp.fromNow(comment.createTime)}} {{'BY' | translate}} {{comment.author}}</div>
-
-        <div class="commentallcomments">
-            <a class="" data-ng-click="comment.showComments = !comment.showComments">
-                <div class="showhidecommentcomments glyphicon glyphicon-comment">
-                    <span>{{comment.comments.length}} {{'COMMENTS' | translate}}</span>
-                </div>
+</div>
+    <div class="commentallcomments">
+        <a class="" data-ng-click="comment.showComments = !comment.showComments">
+            <div class="showhidecommentcomments glyphicon glyphicon-comment">
+                <span>{{comment.comments.length}} {{'COMMENTS' | translate}}</span>
+            </div>
         </div>
         </a>
         <div ng-init="comment.replyTemplate='app/entries/empty.html'" />

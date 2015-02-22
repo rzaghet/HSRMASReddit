@@ -12,6 +12,12 @@
     margin-bottom: 20px;
 }
 
+.entrysubmitdetails {
+    font-size: smaller;
+    color: grey;
+}
+
+
 .vote {
 }
 
@@ -62,7 +68,13 @@
 }
 
 .commenttext {
-    color: #008800;
+    color: #084461;
+    white-space: pre;
+}
+
+.commentsubmitdetails {
+    font-size: smaller;
+    color: grey;
 }
 
 .commentdialog {
@@ -76,11 +88,11 @@
 }
 
 .upvote {
-    color: green;
+    color: darkgreen;
 }
 
 .downvote {
-    color: red;
+    color: #b51616;
 }
 
 .votedisabled {
@@ -93,7 +105,15 @@
 
 
 .entrytitle {
-    font-size: 20px;
+    font-size: 24px;
+}
+
+.entrytitle a {
+    color: #5E2870 ;
+}
+
+a {
+    color: skyblue;
 }
 
 .buttondisplay {
@@ -246,4 +266,8 @@
     opacity:0;
     height:0;
     padding:0;
+}
+
+textarea {
+    resize: none;
 }
